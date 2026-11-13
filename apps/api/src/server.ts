@@ -1,5 +1,6 @@
 import "dotenv/config";
 import express from "express";
+import { createInspectionRouter } from "./url-inspection.js";
 import { pool } from "./db.js";
 
 const app = express();
@@ -10,6 +11,7 @@ if (!Number.isInteger(port) || port < 1 || port > 65535) {
 }
 
 app.disable("x-powered-by");
+app.use("/api/v1/url", createInspectionRouter());
 
 // Kiểm tra tiến trình Backend đang hoạt động.
 app.get("/api/v1/health", (_req, res) => {

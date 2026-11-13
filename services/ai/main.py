@@ -6,6 +6,10 @@ from typing import Annotated
 from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi.responses import JSONResponse
+from fastapi.exceptions import RequestValidationError
+from pydantic import BaseModel, ConfigDict, Field
+
+from url_analysis import URLInputError, inspect_url
 
 load_dotenv(Path(__file__).with_name(".env"))
 
@@ -59,3 +63,25 @@ def ready():
             "reason": "MODEL_NOT_LOADED",
         },
     )
+
+class URLInspectionRequest(BaseModel):
+    model_config = ConfigDict(strict=True, extra="forbid")
+    url: str = Field(min_length=1, max_length=4096)
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_error_handler(_request, _exc):
+    # Never echo the rejected body: it can contain passwords or OTPs.
+    return JSONResponse(status_code=422, content={"error": {
+        "code": "INVALID_INPUT", "message": "Cần một trường url dạng chuỗi, tối đa 4.096 ký tự."
+    }})
+
+
+@app.post("/internal/v1/url/inspect")
+def url_inspection(body: URLInspectionRequest):
+    try:
+        return inspect_url(body.url)
+    except URLInputError as exc:
+        return JSONResponse(status_code=422, content={"error": {
+            "code": exc.code, "message": str(exc)
+        }})
