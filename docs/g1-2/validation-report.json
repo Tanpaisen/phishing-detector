@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-14",
+  "unit_tests_passed": 11,
+  "full_training": "passed",
+  "serialization_roundtrip_both_models": "passed",
+  "train_rows": 164210,
+  "validation_rows": 35188,
+  "final_test_opened_by_training": false,
+  "windows_cp314_amd64_binary_dependency_download": "passed",
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "not_run": [
+    "Execution on user Windows laptop",
+    "Final test prediction",
+    "Calibration and production threshold selection",
+    "FastAPI inference integration"
+  ]
+}

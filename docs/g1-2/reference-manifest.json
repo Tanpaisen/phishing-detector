@@ -1,0 +1,37 @@
+{
+  "code_sha256": {
+    "train_url_baselines.py": "6e72c65ff07992b86269d3d52efb5f2793b9f6a2c67adaecdc61e19dedbad26f",
+    "url_analysis.py": "ffa07561baa99f468ecf02815d87c0343b1c0b9b4b60b1c1f1f4b44a39c5ecb5",
+    "url_features.py": "a5ca3762efe3846f8c7d235f6e2eeda6062c10f8a327e891b79d18e3e999042f"
+  },
+  "dataset_manifest_sha256": "a5f2d1e4e9d028d7ea3f6724d59fac175337c4c3826df8996068b6a32c1f3400",
+  "files": {
+    "feature-schema.json": "0977f21e5e5a3e79a36c888063d595078d219d674b76912a658061fe352e5a77",
+    "logistic_regression.joblib": "fb33a3cc4ef62d8b66f5ae387a642ff6fe5a579d72c939b1b8fff3efb5ff48aa",
+    "random_forest.joblib": "edf0d1eaa3bfb66c6c14fc41609c9df64148f2f65c08a18adac0f61da0dbaceb",
+    "report.json": "2c3fb4d47278741ea7978bcef1ea385fd87deb379a30453ff3f2e4e434962dc8"
+  },
+  "preprocessing": {
+    "idna_version": "3.20",
+    "preprocessing_version": "url-inspection-v1",
+    "private_suffixes_included": true,
+    "psl_sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+    "python_version": "3.12.14",
+    "tldextract_version": "5.3.0",
+    "unicode_version": "15.0.0"
+  },
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "status": "CANDIDATE",
+  "version": "url-baselines-v1"
+}

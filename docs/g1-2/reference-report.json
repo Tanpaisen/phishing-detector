@@ -1,0 +1,136 @@
+{
+  "candidate_for_further_evaluation": "random_forest",
+  "dataset_manifest_sha256": "a5f2d1e4e9d028d7ea3f6724d59fac175337c4c3826df8996068b6a32c1f3400",
+  "dataset_split_hashes": {
+    "train.jsonl": "e57a52f0d8cc50aa4d14b57853a75a06ec6e116286a2d8bcaeb2a5b3cfd178ae",
+    "validation.jsonl": "bc5925d457022647c1ff318bbe40d0eb5293b225b55efb586bf0f715e77ae6c6"
+  },
+  "feature_schema": {
+    "dtype": "float64",
+    "feature_names": [
+      "url_length",
+      "hostname_length",
+      "subdomain_count",
+      "digit_count",
+      "is_ip",
+      "is_https",
+      "path_length",
+      "query_length",
+      "fragment_length",
+      "hyphen_count",
+      "dot_count",
+      "slash_count",
+      "equals_count",
+      "ampersand_count",
+      "percent_escape_count",
+      "has_query",
+      "has_fragment",
+      "has_explicit_port"
+    ],
+    "input": "Original input_url, not normalized_url; outer ASCII spaces removed by the inspector.",
+    "length_unit": "Python Unicode code points; encoded percent sequences are not decoded.",
+    "missing_policy": "Reject invalid URL; no imputation.",
+    "preprocessing_version": "url-inspection-v1",
+    "version": "url-lexical-v1"
+  },
+  "final_test_opened": false,
+  "limitations": [
+    "Validation metrics only; not an unbiased final test result.",
+    "Default threshold 0.5 is a baseline comparison, not a production alert threshold.",
+    "Scores are uncalibrated MODEL_SCORE, not calibrated confidence percentages.",
+    "Source/coverage bias persists; no claim of real-world phishing recall.",
+    "No model activation, API inference, calibration, SHAP or laptop latency SLA."
+  ],
+  "pipeline_version": "url-baselines-v1",
+  "results": {
+    "logistic_regression": {
+      "artifact_sha256": "fb33a3cc4ef62d8b66f5ae387a642ff6fe5a579d72c939b1b8fff3efb5ff48aa",
+      "fit_seconds": 0.22167625000020053,
+      "params": {
+        "C": 1.0,
+        "class_weight": "balanced",
+        "max_iter": 2000,
+        "random_state": 42,
+        "solver": "lbfgs"
+      },
+      "validation": {
+        "accuracy": 0.9941457314993748,
+        "average_precision": 0.9975315281357996,
+        "confusion_matrix": {
+          "fn": 199,
+          "fp": 7,
+          "tn": 20221,
+          "tp": 14761
+        },
+        "f1": 0.9930705059203444,
+        "fpr": 0.0003460549733043306,
+        "precision": 0.9995260021668473,
+        "recall": 0.9866978609625668,
+        "roc_auc": 0.9967331015989906,
+        "threshold": 0.5
+      },
+      "validation_batch_predict_seconds": 0.0026929230002679105
+    },
+    "random_forest": {
+      "artifact_sha256": "edf0d1eaa3bfb66c6c14fc41609c9df64148f2f65c08a18adac0f61da0dbaceb",
+      "fit_seconds": 3.3384652360000473,
+      "params": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced",
+        "criterion": "gini",
+        "max_depth": 16,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 2,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 100,
+        "n_jobs": 2,
+        "oob_score": false,
+        "random_state": 42,
+        "verbose": 0,
+        "warm_start": false
+      },
+      "validation": {
+        "accuracy": 0.9960497897010344,
+        "average_precision": 0.9981354027039621,
+        "confusion_matrix": {
+          "fn": 129,
+          "fp": 10,
+          "tn": 20218,
+          "tp": 14831
+        },
+        "f1": 0.9953357269890272,
+        "fpr": 0.0004943642475776152,
+        "precision": 0.9993261909574827,
+        "recall": 0.9913770053475935,
+        "roc_auc": 0.9977166914818131,
+        "threshold": 0.5
+      },
+      "validation_batch_predict_seconds": 0.07416781099982472
+    }
+  },
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "seed": 42,
+  "selection_rule": "Highest validation average_precision; ties: lower FPR at 0.5, then Logistic Regression.",
+  "stage": "G1.2",
+  "status": "CANDIDATE_ONLY",
+  "train_rows": 164210,
+  "validation_rows": 35188,
+  "workers": 2
+}

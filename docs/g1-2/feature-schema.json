@@ -1,0 +1,28 @@
+{
+  "dtype": "float64",
+  "feature_names": [
+    "url_length",
+    "hostname_length",
+    "subdomain_count",
+    "digit_count",
+    "is_ip",
+    "is_https",
+    "path_length",
+    "query_length",
+    "fragment_length",
+    "hyphen_count",
+    "dot_count",
+    "slash_count",
+    "equals_count",
+    "ampersand_count",
+    "percent_escape_count",
+    "has_query",
+    "has_fragment",
+    "has_explicit_port"
+  ],
+  "input": "Original input_url, not normalized_url; outer ASCII spaces removed by the inspector.",
+  "length_unit": "Python Unicode code points; encoded percent sequences are not decoded.",
+  "missing_policy": "Reject invalid URL; no imputation.",
+  "preprocessing_version": "url-inspection-v1",
+  "version": "url-lexical-v1"
+}
