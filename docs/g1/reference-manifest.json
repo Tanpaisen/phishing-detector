@@ -1,0 +1,59 @@
+{
+  "code_sha256": {
+    "prepare_urls.py": "0610cfa5b9a3ecf36759d17059e36b031d26e6f90c536131328ccd013b8de352",
+    "url_analysis.py": "ffa07561baa99f468ecf02815d87c0343b1c0b9b4b60b1c1f1f4b44a39c5ecb5"
+  },
+  "files": {
+    "duplicates.jsonl": "5998bad66d5795ce7cd20974419a77daef718287eadac076ea1ac548ea4b186e",
+    "quarantine.jsonl": "b224ecd4339b4c96585f3dabac5229d9f1fae718b4dd192c37a67d8468ab140c",
+    "report.json": "c732a61b4c8cf865c383860e7defacfeec72e41ae7dfe4e69e39f27c98c6104c",
+    "test.jsonl": "8c096d73c05a38d245dbe98d34d94eac9368eea7ba806debf4dbdb211dbdbd0b",
+    "train.jsonl": "e57a52f0d8cc50aa4d14b57853a75a06ec6e116286a2d8bcaeb2a5b3cfd178ae",
+    "validation.jsonl": "bc5925d457022647c1ff318bbe40d0eb5293b225b55efb586bf0f715e77ae6c6"
+  },
+  "label_mapping": {
+    "0": {
+      "name": "PHISHING",
+      "y": 1
+    },
+    "1": {
+      "name": "LEGITIMATE",
+      "y": 0
+    }
+  },
+  "pipeline_version": "url-dataset-v1",
+  "ratios": {
+    "test": 0.15,
+    "train": 0.7,
+    "validation": 0.15
+  },
+  "runtime": {
+    "idna_version": "3.20",
+    "preprocessing_version": "url-inspection-v1",
+    "private_suffixes_included": true,
+    "psl_sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+    "python_version": "3.12.14",
+    "tldextract_version": "5.3.0",
+    "unicode_version": "15.0.0"
+  },
+  "schema_version": "1.0",
+  "seed": 42,
+  "source": {
+    "archive_sha256": "0a639fd03aea6308c5b1c10c92aa23c2ce1505447a9137271865cd0badc9a59a",
+    "audit_date": "2026-11-14",
+    "citation_url": "https://archive.ics.uci.edu/dataset/967/phiusiil+phishing+url+website",
+    "csv_sha256": "a236549cd369cd80bd478ff8e1779cbf44c58d5c3f79f7a51a1adbed7d06d1c6",
+    "license": "CC-BY-4.0",
+    "preprocessing": {
+      "idna_version": "3.20",
+      "preprocessing_version": "url-inspection-v1",
+      "private_suffixes_included": true,
+      "psl_sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+      "tldextract_version": "5.3.0"
+    },
+    "source_id": "uci-phiusiil-967",
+    "source_url": "https://archive.ics.uci.edu/static/public/967/phiusiil%2Bphishing%2Burl%2Bdataset.zip"
+  },
+  "split_algorithm": "largest-group-first-class-target-squared-error-v1",
+  "status": "FROZEN"
+}

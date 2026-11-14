@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-14",
+  "unit_tests_passed": 11,
+  "full_source_prepare_and_verify": "passed",
+  "source_download_archive_and_csv_checksums": "passed",
+  "input_rows": 235795,
+  "clean_rows": 234585,
+  "quarantined_rows": 793,
+  "duplicate_rows_removed": 417,
+  "domain_group_overlap": 0,
+  "sample_overlap": 0,
+  "runtime": {
+    "idna_version": "3.20",
+    "preprocessing_version": "url-inspection-v1",
+    "private_suffixes_included": true,
+    "psl_sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+    "python_version": "3.12.14",
+    "tldextract_version": "5.3.0",
+    "unicode_version": "15.0.0"
+  },
+  "limitations": [
+    "Tested in this Linux environment, not yet on user Windows/Python3.14.",
+    "No model training, threshold selection, test-set prediction or API changes.",
+    "No campaign-disjointness or temporal validation guarantee."
+  ]
+}

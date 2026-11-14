@@ -1,0 +1,52 @@
+{
+  "clean_rows": 234585,
+  "conflicting_canonical_urls": 0,
+  "duplicate_rows_removed": 417,
+  "input_rows": 235795,
+  "quarantine_reasons_by_source_label": {
+    "INVALID_HOST:source_label=0": 5,
+    "INVALID_URL_LENGTH:source_label=0": 4,
+    "UNSUPPORTED_HOST:source_label=0": 774,
+    "USERINFO_NOT_ALLOWED:source_label=0": 10
+  },
+  "quarantined_rows": 793,
+  "source_label_counts": {
+    "0": 100945,
+    "1": 134850
+  },
+  "splits": {
+    "test": {
+      "fraction": 0.1499968028646333,
+      "groups": 29652,
+      "labels": {
+        "0": 20227,
+        "1": 14960
+      },
+      "rows": 35187
+    },
+    "train": {
+      "fraction": 0.7000021314235778,
+      "groups": 138380,
+      "labels": {
+        "0": 94395,
+        "1": 69815
+      },
+      "rows": 164210
+    },
+    "validation": {
+      "fraction": 0.1500010657117889,
+      "groups": 29652,
+      "labels": {
+        "0": 20228,
+        "1": 14960
+      },
+      "rows": 35188
+    }
+  },
+  "unique_groups": 197684,
+  "warnings": [
+    "Metrics apply only to retained, in-scope URLs. Rejected input is not a safe prediction.",
+    "Source labels are dataset annotations, not independently verified threat evidence.",
+    "Domain-disjoint split does not guarantee campaign-disjoint or temporal evaluation."
+  ]
+}
