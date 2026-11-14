@@ -1,0 +1,484 @@
+[
+  {
+    "name": "valid-inspection-request",
+    "schema": "InspectRequest",
+    "value": {
+      "url": "https://LOGIN.Example.co.uk/Login?A=1#Section"
+    },
+    "valid": true
+  },
+  {
+    "name": "empty-url",
+    "schema": "InspectRequest",
+    "value": {
+      "url": ""
+    },
+    "valid": false
+  },
+  {
+    "name": "unknown-input-field",
+    "schema": "InspectRequest",
+    "value": {
+      "url": "https://example.com",
+      "store_raw": true
+    },
+    "valid": false
+  },
+  {
+    "name": "oversized-url",
+    "schema": "InspectRequest",
+    "value": {
+      "url": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    },
+    "valid": false
+  },
+  {
+    "name": "valid-message",
+    "schema": "ScanMessageRequest",
+    "value": {
+      "text": "Nội dung tổng hợp dùng kiểm tra hợp đồng."
+    },
+    "valid": true
+  },
+  {
+    "name": "valid-calibrated-output",
+    "schema": "ModelOutput",
+    "value": {
+      "model_version_id": "00000000-0000-4000-8000-000000000001",
+      "model_version": "synthetic-v1",
+      "task_type": "PHISHING_DETECTION",
+      "predicted_label": "PHISHING",
+      "score": 0.8,
+      "score_type": "CALIBRATED_PROBABILITY",
+      "calibration_version": "synthetic-cal-v1"
+    },
+    "valid": true
+  },
+  {
+    "name": "probability-out-of-range",
+    "schema": "ModelOutput",
+    "value": {
+      "model_version_id": "00000000-0000-4000-8000-000000000001",
+      "model_version": "synthetic-v1",
+      "task_type": "PHISHING_DETECTION",
+      "predicted_label": "PHISHING",
+      "score": 1.1,
+      "score_type": "CALIBRATED_PROBABILITY",
+      "calibration_version": "synthetic-cal-v1"
+    },
+    "valid": false
+  },
+  {
+    "name": "missing-calibration",
+    "schema": "ModelOutput",
+    "value": {
+      "model_version_id": "00000000-0000-4000-8000-000000000001",
+      "model_version": "synthetic-v1",
+      "task_type": "PHISHING_DETECTION",
+      "predicted_label": "PHISHING",
+      "score": 0.8,
+      "score_type": "CALIBRATED_PROBABILITY",
+      "calibration_version": null
+    },
+    "valid": false
+  },
+  {
+    "name": "task-label-mismatch",
+    "schema": "ModelOutput",
+    "value": {
+      "model_version_id": "00000000-0000-4000-8000-000000000001",
+      "model_version": "synthetic-v1",
+      "task_type": "PHISHING_DETECTION",
+      "predicted_label": "HAM",
+      "score": 0.8,
+      "score_type": "CALIBRATED_PROBABILITY",
+      "calibration_version": "synthetic-cal-v1"
+    },
+    "valid": false
+  },
+  {
+    "name": "raw-margin-not-probability",
+    "schema": "ModelOutput",
+    "value": {
+      "model_version_id": "00000000-0000-4000-8000-000000000001",
+      "model_version": "synthetic-v1",
+      "task_type": "PHISHING_DETECTION",
+      "predicted_label": "PHISHING",
+      "score": -2.5,
+      "score_type": "RAW_MARGIN",
+      "calibration_version": null
+    },
+    "valid": true
+  },
+  {
+    "name": "completed-scan",
+    "schema": "ScanResult",
+    "value": {
+      "schema_version": "1.1",
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "scan_id": "00000000-0000-4000-8000-000000000001",
+      "input_type": "URL",
+      "processing_status": "COMPLETED",
+      "risk_level": "HIGH_RISK",
+      "release_version": "synthetic-release-v1",
+      "policy_version": "synthetic-policy-v1",
+      "components": [
+        {
+          "component_id": "00000000-0000-4000-8000-000000000001",
+          "component_type": "URL",
+          "ordinal": 0,
+          "status": "COMPLETED",
+          "model_output": {
+            "model_version_id": "00000000-0000-4000-8000-000000000001",
+            "model_version": "synthetic-v1",
+            "task_type": "PHISHING_DETECTION",
+            "predicted_label": "PHISHING",
+            "score": 0.8,
+            "score_type": "CALIBRATED_PROBABILITY",
+            "calibration_version": "synthetic-cal-v1"
+          },
+          "explanation_status": "UNAVAILABLE",
+          "model_explanation": null,
+          "rule_signals": [],
+          "verified_evidence": [],
+          "limitations": [
+            "Synthetic contract example; no actual inference."
+          ],
+          "error_code": null,
+          "processing_time_ms": 1
+        }
+      ],
+      "coverage": {
+        "urls_detected": 1,
+        "urls_analyzed": 1,
+        "urls_failed": 0,
+        "text_analyzed": false
+      },
+      "recommendation": "Ví dụ hợp đồng, không phải kết quả dự đoán.",
+      "created_at": "2026-11-14T00:00:00Z",
+      "expires_at": "2026-11-15T00:00:00Z"
+    },
+    "valid": true
+  },
+  {
+    "name": "partial-needs-review",
+    "schema": "ScanResult",
+    "value": {
+      "schema_version": "1.1",
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "scan_id": "00000000-0000-4000-8000-000000000001",
+      "input_type": "MESSAGE",
+      "processing_status": "PARTIAL",
+      "risk_level": "NEEDS_REVIEW",
+      "release_version": "synthetic-release-v1",
+      "policy_version": "synthetic-policy-v1",
+      "components": [
+        {
+          "component_id": "00000000-0000-4000-8000-000000000001",
+          "component_type": "URL",
+          "ordinal": 0,
+          "status": "FAILED",
+          "model_output": null,
+          "explanation_status": "UNAVAILABLE",
+          "model_explanation": null,
+          "rule_signals": [],
+          "verified_evidence": [],
+          "limitations": [
+            "Synthetic contract example; no actual inference."
+          ],
+          "error_code": "AI_TIMEOUT",
+          "processing_time_ms": 1
+        },
+        {
+          "component_id": "00000000-0000-4000-8000-000000000002",
+          "component_type": "TEXT",
+          "ordinal": 0,
+          "status": "COMPLETED",
+          "model_output": {
+            "model_version_id": "00000000-0000-4000-8000-000000000001",
+            "model_version": "synthetic-v1",
+            "task_type": "SPAM_DETECTION",
+            "predicted_label": "HAM",
+            "score": 0.1,
+            "score_type": "CALIBRATED_PROBABILITY",
+            "calibration_version": "synthetic-cal-v1"
+          },
+          "explanation_status": "UNAVAILABLE",
+          "model_explanation": null,
+          "rule_signals": [],
+          "verified_evidence": [],
+          "limitations": [
+            "Synthetic contract example; no actual inference."
+          ],
+          "error_code": null,
+          "processing_time_ms": 1
+        }
+      ],
+      "coverage": {
+        "urls_detected": 1,
+        "urls_analyzed": 0,
+        "urls_failed": 1,
+        "text_analyzed": true
+      },
+      "recommendation": "Ví dụ hợp đồng, không phải kết quả dự đoán.",
+      "created_at": "2026-11-14T00:00:00Z",
+      "expires_at": "2026-11-15T00:00:00Z"
+    },
+    "valid": true
+  },
+  {
+    "name": "partial-cannot-lowrisk",
+    "schema": "ScanResult",
+    "value": {
+      "schema_version": "1.1",
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "scan_id": "00000000-0000-4000-8000-000000000001",
+      "input_type": "MESSAGE",
+      "processing_status": "PARTIAL",
+      "risk_level": "NO_SIGNIFICANT_RISK_FOUND",
+      "release_version": "synthetic-release-v1",
+      "policy_version": "synthetic-policy-v1",
+      "components": [
+        {
+          "component_id": "00000000-0000-4000-8000-000000000001",
+          "component_type": "URL",
+          "ordinal": 0,
+          "status": "FAILED",
+          "model_output": null,
+          "explanation_status": "UNAVAILABLE",
+          "model_explanation": null,
+          "rule_signals": [],
+          "verified_evidence": [],
+          "limitations": [
+            "Synthetic contract example; no actual inference."
+          ],
+          "error_code": "AI_TIMEOUT",
+          "processing_time_ms": 1
+        },
+        {
+          "component_id": "00000000-0000-4000-8000-000000000002",
+          "component_type": "TEXT",
+          "ordinal": 0,
+          "status": "COMPLETED",
+          "model_output": {
+            "model_version_id": "00000000-0000-4000-8000-000000000001",
+            "model_version": "synthetic-v1",
+            "task_type": "SPAM_DETECTION",
+            "predicted_label": "HAM",
+            "score": 0.1,
+            "score_type": "CALIBRATED_PROBABILITY",
+            "calibration_version": "synthetic-cal-v1"
+          },
+          "explanation_status": "UNAVAILABLE",
+          "model_explanation": null,
+          "rule_signals": [],
+          "verified_evidence": [],
+          "limitations": [
+            "Synthetic contract example; no actual inference."
+          ],
+          "error_code": null,
+          "processing_time_ms": 1
+        }
+      ],
+      "coverage": {
+        "urls_detected": 1,
+        "urls_analyzed": 0,
+        "urls_failed": 1,
+        "text_analyzed": true
+      },
+      "recommendation": "Ví dụ hợp đồng, không phải kết quả dự đoán.",
+      "created_at": "2026-11-14T00:00:00Z",
+      "expires_at": "2026-11-15T00:00:00Z"
+    },
+    "valid": false
+  },
+  {
+    "name": "failed-cannot-have-model",
+    "schema": "Component",
+    "value": {
+      "component_id": "00000000-0000-4000-8000-000000000001",
+      "component_type": "URL",
+      "ordinal": 0,
+      "status": "FAILED",
+      "model_output": {
+        "model_version_id": "00000000-0000-4000-8000-000000000001",
+        "model_version": "synthetic-v1",
+        "task_type": "PHISHING_DETECTION",
+        "predicted_label": "PHISHING",
+        "score": 0.8,
+        "score_type": "CALIBRATED_PROBABILITY",
+        "calibration_version": "synthetic-cal-v1"
+      },
+      "explanation_status": "UNAVAILABLE",
+      "model_explanation": null,
+      "rule_signals": [],
+      "verified_evidence": [],
+      "limitations": [
+        "Synthetic contract example; no actual inference."
+      ],
+      "error_code": null,
+      "processing_time_ms": 1
+    },
+    "valid": false
+  },
+  {
+    "name": "text-cannot-use-url-model",
+    "schema": "Component",
+    "value": {
+      "component_id": "00000000-0000-4000-8000-000000000001",
+      "component_type": "TEXT",
+      "ordinal": 0,
+      "status": "COMPLETED",
+      "model_output": {
+        "model_version_id": "00000000-0000-4000-8000-000000000001",
+        "model_version": "synthetic-v1",
+        "task_type": "PHISHING_DETECTION",
+        "predicted_label": "PHISHING",
+        "score": 0.8,
+        "score_type": "CALIBRATED_PROBABILITY",
+        "calibration_version": "synthetic-cal-v1"
+      },
+      "explanation_status": "UNAVAILABLE",
+      "model_explanation": null,
+      "rule_signals": [],
+      "verified_evidence": [],
+      "limitations": [
+        "Synthetic contract example; no actual inference."
+      ],
+      "error_code": null,
+      "processing_time_ms": 1
+    },
+    "valid": false
+  },
+  {
+    "name": "explicit-research-consent",
+    "schema": "ResearchRequest",
+    "value": {
+      "scan_id": "00000000-0000-4000-8000-000000000001",
+      "input_type": "MESSAGE",
+      "sample_text": "Mẫu tổng hợp.",
+      "consent": {
+        "purpose": "MODEL_RESEARCH",
+        "accepted": true,
+        "policy_version": "v1"
+      }
+    },
+    "valid": true
+  },
+  {
+    "name": "consent-required",
+    "schema": "ResearchRequest",
+    "value": {
+      "scan_id": "00000000-0000-4000-8000-000000000001",
+      "input_type": "MESSAGE",
+      "sample_text": "Mẫu tổng hợp.",
+      "consent": {
+        "purpose": "MODEL_RESEARCH",
+        "accepted": false,
+        "policy_version": "v1"
+      }
+    },
+    "valid": false
+  },
+  {
+    "name": "result-forbids-raw-field",
+    "schema": "ScanResult",
+    "value": {
+      "schema_version": "1.1",
+      "request_id": "00000000-0000-4000-8000-000000000001",
+      "scan_id": "00000000-0000-4000-8000-000000000001",
+      "input_type": "URL",
+      "processing_status": "COMPLETED",
+      "risk_level": "HIGH_RISK",
+      "release_version": "synthetic-release-v1",
+      "policy_version": "synthetic-policy-v1",
+      "components": [
+        {
+          "component_id": "00000000-0000-4000-8000-000000000001",
+          "component_type": "URL",
+          "ordinal": 0,
+          "status": "COMPLETED",
+          "model_output": {
+            "model_version_id": "00000000-0000-4000-8000-000000000001",
+            "model_version": "synthetic-v1",
+            "task_type": "PHISHING_DETECTION",
+            "predicted_label": "PHISHING",
+            "score": 0.8,
+            "score_type": "CALIBRATED_PROBABILITY",
+            "calibration_version": "synthetic-cal-v1"
+          },
+          "explanation_status": "UNAVAILABLE",
+          "model_explanation": null,
+          "rule_signals": [],
+          "verified_evidence": [],
+          "limitations": [
+            "Synthetic contract example; no actual inference."
+          ],
+          "error_code": null,
+          "processing_time_ms": 1
+        }
+      ],
+      "coverage": {
+        "urls_detected": 1,
+        "urls_analyzed": 1,
+        "urls_failed": 0,
+        "text_analyzed": false
+      },
+      "recommendation": "Ví dụ hợp đồng, không phải kết quả dự đoán.",
+      "created_at": "2026-11-14T00:00:00Z",
+      "expires_at": "2026-11-15T00:00:00Z",
+      "raw_url": "https://example.com"
+    },
+    "valid": false
+  },
+  {
+    "name": "actual-current-inspection-output",
+    "schema": "InspectionResponse",
+    "value": {
+      "schema_version": "1.0",
+      "stage": "URL_INSPECTION",
+      "model_loaded": false,
+      "preprocessing_version": "url-inspection-v1",
+      "resources": {
+        "psl_sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+        "tldextract_version": "5.3.0",
+        "idna_version": "3.20",
+        "python_version": "3.12.14",
+        "unicode_version": "15.0.0",
+        "private_suffixes_included": true
+      },
+      "url": {
+        "normalized_url": "https://login.example.co.uk/Login?A=1#Section",
+        "scheme": "https",
+        "hostname_input": "LOGIN.Example.co.uk",
+        "hostname_ascii": "login.example.co.uk",
+        "hostname_unicode": "login.example.co.uk",
+        "registered_domain": "example.co.uk",
+        "public_suffix": "co.uk",
+        "subdomain": "login",
+        "port": null,
+        "is_ip": false,
+        "is_private_suffix": false
+      },
+      "features": {
+        "url_length": 45,
+        "hostname_length": 19,
+        "subdomain_count": 1,
+        "digit_count": 1,
+        "has_unicode_input": false,
+        "has_unicode_hostname": false,
+        "has_format_characters_in_hostname": false,
+        "has_punycode_hostname": false,
+        "has_query": true,
+        "has_fragment": true
+      },
+      "limitations": [
+        "Chỉ kiểm tra cấu trúc URL; chưa đánh giá nguy cơ phishing.",
+        "Không truy cập website, phân giải DNS hoặc theo dõi chuyển hướng.",
+        "IDNA không đồng nghĩa với phát hiện ký tự giả mạo thương hiệu."
+      ],
+      "request_id": "00000000-0000-4000-8000-000000000001"
+    },
+    "valid": true
+  }
+]

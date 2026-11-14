@@ -1,0 +1,136 @@
+{
+  "date": "2026-11-14",
+  "base_commit": "7f08bdb5b98f9d0575b0ce58ec0fba4177f9d60b",
+  "scope": "Design validation only; no deployment, no real PostgreSQL17 migration, no trained-model evaluation.",
+  "sql": {
+    "engine": "PostgreSQL 18.6 (PGlite 0.5.16) on wasm32-unknown-emscripten, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 6.0.13 (e13ee988ce3d87a738dd8f3661d02223308c412a), 32-bit",
+    "table_count": 24,
+    "checks_passed": 20,
+    "checks": [
+      "DDL creates 24 tables in an isolated database",
+      "email uniqueness is case-insensitive",
+      "sessions reject invalid secret hashes",
+      "model cannot use a dataset of another task",
+      "only one active release per environment",
+      "release snapshot kinds cannot be swapped",
+      "URL release cannot load a spam model",
+      "partial result cannot be low risk",
+      "failed result cannot be low risk",
+      "completed result cannot be unable to analyze",
+      "component ordinal is unique within scan and type",
+      "calibrated probability is bounded",
+      "calibrated output requires calibration version",
+      "nonfinite model score is rejected",
+      "evidence cannot reference another scan component",
+      "terminal feedback requires review evidence",
+      "user sample requires reviewer",
+      "job success requires result model",
+      "scan deletion cascades results but detaches feedback and research submissions",
+      "referenced models cannot be deleted"
+    ]
+  },
+  "contracts": {
+    "kind": "design-contract-validation",
+    "documents": {
+      "public": {
+        "operations": 36,
+        "implemented_markers": 4
+      },
+      "internal": {
+        "operations": 11,
+        "implemented_markers": 3
+      }
+    },
+    "cases": [
+      {
+        "name": "valid-inspection-request",
+        "passed": true
+      },
+      {
+        "name": "empty-url",
+        "passed": true
+      },
+      {
+        "name": "unknown-input-field",
+        "passed": true
+      },
+      {
+        "name": "oversized-url",
+        "passed": true
+      },
+      {
+        "name": "valid-message",
+        "passed": true
+      },
+      {
+        "name": "valid-calibrated-output",
+        "passed": true
+      },
+      {
+        "name": "probability-out-of-range",
+        "passed": true
+      },
+      {
+        "name": "missing-calibration",
+        "passed": true
+      },
+      {
+        "name": "task-label-mismatch",
+        "passed": true
+      },
+      {
+        "name": "raw-margin-not-probability",
+        "passed": true
+      },
+      {
+        "name": "completed-scan",
+        "passed": true
+      },
+      {
+        "name": "partial-needs-review",
+        "passed": true
+      },
+      {
+        "name": "partial-cannot-lowrisk",
+        "passed": true
+      },
+      {
+        "name": "failed-cannot-have-model",
+        "passed": true
+      },
+      {
+        "name": "text-cannot-use-url-model",
+        "passed": true
+      },
+      {
+        "name": "explicit-research-consent",
+        "passed": true
+      },
+      {
+        "name": "consent-required",
+        "passed": true
+      },
+      {
+        "name": "result-forbids-raw-field",
+        "passed": true
+      },
+      {
+        "name": "actual-current-inspection-output",
+        "passed": true
+      }
+    ],
+    "cases_passed": 19
+  },
+  "source_audit": "source-audit.json",
+  "prior_user_tests": {
+    "python": 11,
+    "node_gateway": 1,
+    "provenance": "Logs provided by user, not rerun as part of G0 design validation."
+  },
+  "not_run": [
+    "Windows Python3.14 validation",
+    "PostgreSQL17 migration and concurrency",
+    "Planned API integration and security tests",
+    "Training and benchmark on user laptop"
+  ]
+}

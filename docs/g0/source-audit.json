@@ -1,0 +1,176 @@
+{
+  "audit_date": "2026-11-14",
+  "sources": {
+    "README.md": {
+      "url": "https://raw.githubusercontent.com/trannguyenthaituan251209/vietnamese_sms_dataset/464a028878023598e16f2f344ee36f7d5d74257f/README.md",
+      "sha256": "bb8faa7a649d2c7a08da60c47bfdf416404836cd9194d06518c6f1b62ecb3ee7",
+      "bytes": 12190
+    },
+    "full_dataset.csv": {
+      "url": "https://raw.githubusercontent.com/trannguyenthaituan251209/vietnamese_sms_dataset/464a028878023598e16f2f344ee36f7d5d74257f/full_dataset.csv",
+      "sha256": "710cd7b56ef1b4aa82e72c1be0f46a5c89a5fdce8382b30874b3cea494d16e3e",
+      "bytes": 774590
+    },
+    "train.csv": {
+      "url": "https://raw.githubusercontent.com/trannguyenthaituan251209/vietnamese_sms_dataset/464a028878023598e16f2f344ee36f7d5d74257f/train.csv",
+      "sha256": "d2e2be037bd7f1f63979c1dd8ec2a2c44c4247bb7730467b37976c1a93936732",
+      "bytes": 600019
+    },
+    "test.csv": {
+      "url": "https://raw.githubusercontent.com/trannguyenthaituan251209/vietnamese_sms_dataset/464a028878023598e16f2f344ee36f7d5d74257f/test.csv",
+      "sha256": "1b71ae4f9af49e319612e608eb9154ff26eb23981294ab1a89887d078e97ec10",
+      "bytes": 118659
+    },
+    "phiusiil.csv": {
+      "url": "https://archive.ics.uci.edu/static/public/967/phiusiil%2Bphishing%2Burl%2Bdataset.zip",
+      "archive_sha256": "0a639fd03aea6308c5b1c10c92aa23c2ce1505447a9137271865cd0badc9a59a",
+      "sha256": "a236549cd369cd80bd478ff8e1779cbf44c58d5c3f79f7a51a1adbed7d06d1c6",
+      "bytes": 56854345
+    }
+  },
+  "sms": {
+    "full_dataset": {
+      "rows": 2991,
+      "columns": [
+        "message_id",
+        "date",
+        "message",
+        "label"
+      ],
+      "label_counts": {
+        "0": 2193,
+        "1": 798
+      },
+      "blank_text_rows": 0,
+      "exact_duplicate_rows": 361,
+      "normalized_duplicate_rows": 393,
+      "normalized_conflicting_label_groups": 1
+    },
+    "train": {
+      "rows": 2394,
+      "columns": [
+        "message",
+        "label"
+      ],
+      "label_counts": {
+        "0": 1754,
+        "1": 640
+      },
+      "blank_text_rows": 0,
+      "exact_duplicate_rows": 303,
+      "normalized_duplicate_rows": 333,
+      "normalized_conflicting_label_groups": 0
+    },
+    "test": {
+      "rows": 597,
+      "columns": [
+        "message",
+        "label"
+      ],
+      "label_counts": {
+        "0": 439,
+        "1": 158
+      },
+      "blank_text_rows": 0,
+      "exact_duplicate_rows": 31,
+      "normalized_duplicate_rows": 32,
+      "normalized_conflicting_label_groups": 1
+    },
+    "published_split_overlap": {
+      "exact_messages": 27,
+      "normalized_messages": 28,
+      "heuristic_templates": 34
+    },
+    "otp_like_unmasked_rows": {
+      "full_dataset": 181,
+      "train": 163,
+      "test": 18
+    },
+    "split_rows_not_in_full_normalized": {
+      "train": 0,
+      "test": 0
+    }
+  },
+  "url": {
+    "rows": 235795,
+    "columns": [
+      "FILENAME",
+      "URL",
+      "URLLength",
+      "Domain",
+      "DomainLength",
+      "IsDomainIP",
+      "TLD",
+      "URLSimilarityIndex",
+      "CharContinuationRate",
+      "TLDLegitimateProb",
+      "URLCharProb",
+      "TLDLength",
+      "NoOfSubDomain",
+      "HasObfuscation",
+      "NoOfObfuscatedChar",
+      "ObfuscationRatio",
+      "NoOfLettersInURL",
+      "LetterRatioInURL",
+      "NoOfDegitsInURL",
+      "DegitRatioInURL",
+      "NoOfEqualsInURL",
+      "NoOfQMarkInURL",
+      "NoOfAmpersandInURL",
+      "NoOfOtherSpecialCharsInURL",
+      "SpacialCharRatioInURL",
+      "IsHTTPS",
+      "LineOfCode",
+      "LargestLineLength",
+      "HasTitle",
+      "Title",
+      "DomainTitleMatchScore",
+      "URLTitleMatchScore",
+      "HasFavicon",
+      "Robots",
+      "IsResponsive",
+      "NoOfURLRedirect",
+      "NoOfSelfRedirect",
+      "HasDescription",
+      "NoOfPopup",
+      "NoOfiFrame",
+      "HasExternalFormSubmit",
+      "HasSocialNet",
+      "HasSubmitButton",
+      "HasHiddenFields",
+      "HasPasswordField",
+      "Bank",
+      "Pay",
+      "Crypto",
+      "HasCopyrightInfo",
+      "NoOfImage",
+      "NoOfCSS",
+      "NoOfJS",
+      "NoOfSelfRef",
+      "NoOfEmptyRef",
+      "NoOfExternalRef",
+      "label"
+    ],
+    "label_counts": {
+      "1": 134850,
+      "0": 100945
+    },
+    "blank_text_rows": 0,
+    "exact_duplicate_rows": 425,
+    "normalized_duplicate_rows": 425,
+    "normalized_conflicting_label_groups": 0,
+    "accepted_by_source_label": {
+      "1": 134850,
+      "0": 100152
+    },
+    "rejected_by_code_and_source_label": {
+      "INVALID_HOST:label=0": 5,
+      "INVALID_URL_LENGTH:label=0": 4,
+      "UNSUPPORTED_HOST:label=0": 774,
+      "USERINFO_NOT_ALLOWED:label=0": 10
+    },
+    "accepted_domain_groups": 197684,
+    "accepted_normalized_urls": 234585,
+    "accepted_conflicting_normalized_urls": 0
+  }
+}
