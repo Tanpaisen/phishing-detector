@@ -1,0 +1,66 @@
+{
+  "base_domain_overlap_after_filter": 0,
+  "base_groups_indexed": 197684,
+  "base_test_file_opened": false,
+  "base_url_overlap_after_filter": 0,
+  "development_holdout_group_overlap": 0,
+  "duplicate_rows_removed": 1,
+  "excluded_rows": 2144,
+  "exclusion_reasons": {
+    "BASE_DOMAIN_OVERLAP": 2089,
+    "BASE_URL_OVERLAP": 44,
+    "INVALID_HOST": 5,
+    "INVALID_URL": 6
+  },
+  "exclusion_reasons_by_label": {
+    "BASE_DOMAIN_OVERLAP:legitimate": 1190,
+    "BASE_DOMAIN_OVERLAP:phishing": 899,
+    "BASE_URL_OVERLAP:legitimate": 2,
+    "BASE_URL_OVERLAP:phishing": 42,
+    "INVALID_HOST:legitimate": 5,
+    "INVALID_URL:phishing": 6
+  },
+  "input_rows": 11430,
+  "model_scoring_performed": false,
+  "primary_provenance_verified": false,
+  "retained_rows": 9285,
+  "source_labels": {
+    "legitimate": 5715,
+    "phishing": 5715
+  },
+  "splits": {
+    "development": {
+      "coverage": {
+        "http_legitimate": 1278,
+        "https_phishing": 619,
+        "legitimate_length_ge_34": 1335
+      },
+      "groups": 3247,
+      "labels": {
+        "0": 2253,
+        "1": 2319
+      },
+      "rows": 4572
+    },
+    "holdout": {
+      "coverage": {
+        "http_legitimate": 1194,
+        "https_phishing": 758,
+        "legitimate_length_ge_34": 1335
+      },
+      "groups": 3196,
+      "labels": {
+        "0": 2265,
+        "1": 2448
+      },
+      "rows": 4713
+    }
+  },
+  "status": "PROVISIONAL_NOT_APPROVED_FOR_EVALUATION",
+  "warnings": [
+    "Mirror is not byte-verified against primary release.",
+    "Cross-source and domain separation do not prove campaign independence.",
+    "Old source labels do not describe current website state.",
+    "No model training, threshold tuning or automatic label verification."
+  ]
+}

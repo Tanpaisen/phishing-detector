@@ -1,0 +1,46 @@
+{
+  "base_dataset_manifest_sha256": "a5f2d1e4e9d028d7ea3f6724d59fac175337c4c3826df8996068b6a32c1f3400",
+  "base_source_sha256": "a236549cd369cd80bd478ff8e1779cbf44c58d5c3f79f7a51a1adbed7d06d1c6",
+  "code_sha256": "3c2c2207de858760e5b976b16e556998a7bdd145c01c123465ddeca38426ac4e",
+  "files": {
+    "development.jsonl": "c5ba469b9aa81bd5273431c7c4b42cc158ee33985bda4114316b889027e683f6",
+    "duplicates.jsonl": "c61d2a387e42bd3b71a60ec8aec7cd57eb30aa4b0158c3a94c5c0135e88d2768",
+    "exclusions.jsonl": "181ba85177525b41a515795fb4dc190b8b676ffc40c91a50b4dd774cac89a450",
+    "holdout.jsonl": "82e02dbed7d506bd0c2ecdc85dec1ba851a56dc9a5f3f85c07b3a5884c5bc48e",
+    "report.json": "479732ea34bd8be5fd88e6e7417aabeb5d66e2eba81421f11fd043752be13dfb"
+  },
+  "role_rule": "sha256(external-url-role-v1:+group_id) modulo100 <50 => development; else holdout",
+  "runtime": {
+    "idna_version": "3.20",
+    "preprocessing_version": "url-inspection-v1",
+    "private_suffixes_included": true,
+    "psl_sha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+    "python_version": "3.12.14",
+    "tldextract_version": "5.3.0",
+    "unicode_version": "15.0.0"
+  },
+  "source": {
+    "audit_date": "2026-11-15",
+    "authors": [
+      "Abdelhakim Hannousse",
+      "Salima Yahiouche"
+    ],
+    "bytes": 3661166,
+    "doi": "10.17632/c2gw7fy2j4.3",
+    "download_url": "https://raw.githubusercontent.com/mnnsolanki/webpage-phishing-detection/733fdee3acb2062f50b6703a2e9da5ea1912d535/dataset_B_05_2020.csv",
+    "expected_rows": 11430,
+    "label_map": {
+      "legitimate": 0,
+      "phishing": 1
+    },
+    "license_declared_by_original": "CC-BY-4.0",
+    "mirror_commit": "733fdee3acb2062f50b6703a2e9da5ea1912d535",
+    "primary_download_status": "HTTP403 in preparation environment; byte/content equality not verified",
+    "provenance_status": "MIRROR_PENDING_PRIMARY_COMPARISON",
+    "sha256": "21093e2902e5441c86a6daf95e86e7c332046e477fdf109a579d7bd81e586d6c",
+    "source_id": "hannousse-2020-mirror-v1",
+    "source_page": "https://data.mendeley.com/datasets/c2gw7fy2j4/3"
+  },
+  "status": "PROVISIONAL_NOT_APPROVED_FOR_EVALUATION",
+  "version": "external-url-intake-v1"
+}

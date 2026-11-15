@@ -1,0 +1,22 @@
+{
+  "source_id": "hannousse-2020-mirror-v1",
+  "authors": [
+    "Abdelhakim Hannousse",
+    "Salima Yahiouche"
+  ],
+  "source_page": "https://data.mendeley.com/datasets/c2gw7fy2j4/3",
+  "doi": "10.17632/c2gw7fy2j4.3",
+  "license_declared_by_original": "CC-BY-4.0",
+  "download_url": "https://raw.githubusercontent.com/mnnsolanki/webpage-phishing-detection/733fdee3acb2062f50b6703a2e9da5ea1912d535/dataset_B_05_2020.csv",
+  "mirror_commit": "733fdee3acb2062f50b6703a2e9da5ea1912d535",
+  "sha256": "21093e2902e5441c86a6daf95e86e7c332046e477fdf109a579d7bd81e586d6c",
+  "bytes": 3661166,
+  "label_map": {
+    "legitimate": 0,
+    "phishing": 1
+  },
+  "provenance_status": "MIRROR_PENDING_PRIMARY_COMPARISON",
+  "audit_date": "2026-11-15",
+  "primary_download_status": "HTTP403 in preparation environment; byte/content equality not verified",
+  "expected_rows": 11430
+}
