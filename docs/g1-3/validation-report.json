@@ -1,0 +1,32 @@
+{
+  "validation_date": "2026-11-15",
+  "tests_passed": 18,
+  "new_diagnostic_tests": 7,
+  "full_data_diagnostics": "passed; final outputs and code hashes rechecked",
+  "train_rows": 164210,
+  "validation_rows": 35188,
+  "refit_models": 8,
+  "permutation_repeats": 3,
+  "full_model_baseline_reproduction": true,
+  "final_test_opened": false,
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "not_done": [
+    "User Windows run",
+    "Manual review of error cases",
+    "Additional-source evaluation",
+    "Calibration or production thresholds",
+    "Final-test predictions",
+    "Model activation"
+  ]
+}

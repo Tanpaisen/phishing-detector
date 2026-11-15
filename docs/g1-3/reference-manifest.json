@@ -1,0 +1,24 @@
+{
+  "baseline_manifest_sha256": "0f9c2e5e46c94db094d324b068ca3ab3da027bacb99f5512e6f04c265197a83a",
+  "code_sha256": {
+    "diagnose_url_baselines.py": "35cd32d4700282b2c6e5eacfa09953388bc4ee840e60a090f4c74e439917345a"
+  },
+  "dataset_manifest_sha256": "a5f2d1e4e9d028d7ea3f6724d59fac175337c4c3826df8996068b6a32c1f3400",
+  "files": {
+    "error-review.jsonl": "ed1217c337317012023c534b23b50e0166ee4bc7911ebc95e532533344505ea4",
+    "report.json": "1c49eb17e30536c65a2bb9ae0915a331728489039fcadbd5afb50582c78a7715"
+  },
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "version": "url-diagnostics-v1"
+}

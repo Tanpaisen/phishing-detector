@@ -1,0 +1,963 @@
+{
+  "baseline_manifest_sha256": "0f9c2e5e46c94db094d324b068ca3ab3da027bacb99f5512e6f04c265197a83a",
+  "dataset_manifest_sha256": "a5f2d1e4e9d028d7ea3f6724d59fac175337c4c3826df8996068b6a32c1f3400",
+  "feature_schema": {
+    "dtype": "float64",
+    "feature_names": [
+      "url_length",
+      "hostname_length",
+      "subdomain_count",
+      "digit_count",
+      "is_ip",
+      "is_https",
+      "path_length",
+      "query_length",
+      "fragment_length",
+      "hyphen_count",
+      "dot_count",
+      "slash_count",
+      "equals_count",
+      "ampersand_count",
+      "percent_escape_count",
+      "has_query",
+      "has_fragment",
+      "has_explicit_port"
+    ],
+    "input": "Original input_url, not normalized_url; outer ASCII spaces removed by the inspector.",
+    "length_unit": "Python Unicode code points; encoded percent sequences are not decoded.",
+    "missing_policy": "Reject invalid URL; no imputation.",
+    "preprocessing_version": "url-inspection-v1",
+    "version": "url-lexical-v1"
+  },
+  "final_test_opened": false,
+  "length_bin_edges_from_train": [
+    24.0,
+    28.0,
+    34.0
+  ],
+  "limitations": [
+    "Validation reused for exploratory diagnosis; no final-test result.",
+    "Permutation AP drop is model reliance, not causality; shuffle std is not a confidence interval.",
+    "Correlated count features may preserve length information after length ablation.",
+    "Error labels are source annotations, not independent truth; no automatic relabeling.",
+    "No production threshold selection, model replacement, calibration, SHAP or activation."
+  ],
+  "permutation_repeats": 3,
+  "results": {
+    "full": {
+      "models": {
+        "logistic_regression": {
+          "error_slices": {
+            "is_https=0": {
+              "fn": 0,
+              "fp": 0,
+              "fpr": null,
+              "groups": 5680,
+              "negatives": 0,
+              "positives": 7352,
+              "recall": 1.0,
+              "rows": 7352
+            },
+            "is_https=1": {
+              "fn": 199,
+              "fp": 7,
+              "fpr": 0.0003460549733043306,
+              "groups": 24335,
+              "negatives": 20228,
+              "positives": 7608,
+              "recall": 0.9738433228180863,
+              "rows": 27836
+            },
+            "is_ip=0": {
+              "fn": 199,
+              "fp": 7,
+              "fpr": 0.0003460549733043306,
+              "groups": 29634,
+              "negatives": 20228,
+              "positives": 14926,
+              "recall": 0.9866675599624816,
+              "rows": 35154
+            },
+            "is_ip=1": {
+              "fn": 0,
+              "fp": 0,
+              "fpr": null,
+              "groups": 18,
+              "negatives": 0,
+              "positives": 34,
+              "recall": 1.0,
+              "rows": 34
+            },
+            "url_length_bin=0": {
+              "fn": 46,
+              "fp": 0,
+              "fpr": 0.0,
+              "groups": 6682,
+              "negatives": 4784,
+              "positives": 2138,
+              "recall": 0.9784845650140318,
+              "rows": 6922
+            },
+            "url_length_bin=1": {
+              "fn": 45,
+              "fp": 0,
+              "fpr": 0.0,
+              "groups": 8310,
+              "negatives": 6444,
+              "positives": 2332,
+              "recall": 0.9807032590051458,
+              "rows": 8776
+            },
+            "url_length_bin=2": {
+              "fn": 51,
+              "fp": 1,
+              "fpr": 0.00014442518775274407,
+              "groups": 8761,
+              "negatives": 6924,
+              "positives": 2435,
+              "recall": 0.9790554414784394,
+              "rows": 9359
+            },
+            "url_length_bin=3": {
+              "fn": 57,
+              "fp": 6,
+              "fpr": 0.002890173410404624,
+              "groups": 6397,
+              "negatives": 2076,
+              "positives": 8055,
+              "recall": 0.9929236499068901,
+              "rows": 10131
+            }
+          },
+          "permutation_importance": [
+            {
+              "ap_drop_mean": 0.2859023128745498,
+              "ap_drops": [
+                0.28106237702311365,
+                0.2863847987089432,
+                0.2902597628915926
+              ],
+              "features": [
+                "slash_count"
+              ],
+              "group": "slash_count",
+              "shuffle_std": 0.0037702847937272858
+            },
+            {
+              "ap_drop_mean": 0.23077608100877392,
+              "ap_drops": [
+                0.2296493808648281,
+                0.23163355876110925,
+                0.23104530340038443
+              ],
+              "features": [
+                "is_https",
+                "url_length",
+                "hostname_length",
+                "path_length",
+                "query_length",
+                "fragment_length"
+              ],
+              "group": "https_and_lengths",
+              "shuffle_std": 0.0008321061643528491
+            },
+            {
+              "ap_drop_mean": 0.2199923210375059,
+              "ap_drops": [
+                0.2186944787565842,
+                0.22075534574531774,
+                0.2205271386106158
+              ],
+              "features": [
+                "is_https"
+              ],
+              "group": "is_https",
+              "shuffle_std": 0.0009224299661557907
+            },
+            {
+              "ap_drop_mean": 0.016711788341443785,
+              "ap_drops": [
+                0.01548210102129366,
+                0.016596337929264182,
+                0.018056926073773516
+              ],
+              "features": [
+                "digit_count"
+              ],
+              "group": "digit_count",
+              "shuffle_std": 0.001054333157647937
+            },
+            {
+              "ap_drop_mean": 0.0021427177673641142,
+              "ap_drops": [
+                0.002184142346104201,
+                0.0023375510345838846,
+                0.0019064599214042577
+              ],
+              "features": [
+                "subdomain_count"
+              ],
+              "group": "subdomain_count",
+              "shuffle_std": 0.00017841316049824294
+            },
+            {
+              "ap_drop_mean": 0.001067770029094713,
+              "ap_drops": [
+                0.0010869725312420142,
+                0.0011558176310566548,
+                0.0009605199249854701
+              ],
+              "features": [
+                "url_length",
+                "hostname_length",
+                "path_length",
+                "query_length",
+                "fragment_length"
+              ],
+              "group": "length_family",
+              "shuffle_std": 8.087789383057458e-05
+            },
+            {
+              "ap_drop_mean": 0.0009304650497367432,
+              "ap_drops": [
+                0.0008457998674035183,
+                0.001129908522803147,
+                0.0008156867590035644
+              ],
+              "features": [
+                "hostname_length"
+              ],
+              "group": "hostname_length",
+              "shuffle_std": 0.00014156264581677568
+            },
+            {
+              "ap_drop_mean": 0.0004272139469607694,
+              "ap_drops": [
+                0.00041855940942359116,
+                0.00041151197892941305,
+                0.00045157045252930406
+              ],
+              "features": [
+                "hyphen_count"
+              ],
+              "group": "hyphen_count",
+              "shuffle_std": 1.746131136303174e-05
+            },
+            {
+              "ap_drop_mean": 0.00023017519950300583,
+              "ap_drops": [
+                0.0002084590058238911,
+                0.00028723250566331515,
+                0.00019483408702181126
+              ],
+              "features": [
+                "has_query"
+              ],
+              "group": "has_query",
+              "shuffle_std": 4.072723693708565e-05
+            },
+            {
+              "ap_drop_mean": 0.00013030959964984343,
+              "ap_drops": [
+                0.00013603727389355225,
+                0.00014895488195687534,
+                0.00010593664309910267
+              ],
+              "features": [
+                "path_length"
+              ],
+              "group": "path_length",
+              "shuffle_std": 1.8023076093120727e-05
+            },
+            {
+              "ap_drop_mean": 8.898289942342134e-05,
+              "ap_drops": [
+                0.00012548769128173376,
+                3.606699088543053e-05,
+                0.00010539401610309973
+              ],
+              "features": [
+                "query_length"
+              ],
+              "group": "query_length",
+              "shuffle_std": 3.830586532849219e-05
+            },
+            {
+              "ap_drop_mean": 4.1912113038685327e-05,
+              "ap_drops": [
+                1.8100062104453585e-05,
+                5.333617486336095e-05,
+                5.4300102148241436e-05
+              ],
+              "features": [
+                "has_fragment"
+              ],
+              "group": "has_fragment",
+              "shuffle_std": 1.6842260660284873e-05
+            },
+            {
+              "ap_drop_mean": 2.0575775033560006e-05,
+              "ap_drops": [
+                4.463093944595542e-05,
+                3.8490837317661786e-05,
+                -2.1394451662937186e-05
+              ],
+              "features": [
+                "dot_count"
+              ],
+              "group": "dot_count",
+              "shuffle_std": 2.9783106623867534e-05
+            },
+            {
+              "ap_drop_mean": 1.4073991861596191e-05,
+              "ap_drops": [
+                3.304927466474261e-06,
+                5.751690311806001e-07,
+                3.834187908713371e-05
+              ],
+              "features": [
+                "fragment_length"
+              ],
+              "group": "fragment_length",
+              "shuffle_std": 1.7196136350399947e-05
+            },
+            {
+              "ap_drop_mean": 4.69545969320843e-06,
+              "ap_drops": [
+                1.9924997943565614e-05,
+                -6.800092331227248e-06,
+                9.614734672869218e-07
+              ],
+              "features": [
+                "ampersand_count"
+              ],
+              "group": "ampersand_count",
+              "shuffle_std": 1.1225405780356321e-05
+            },
+            {
+              "ap_drop_mean": 0.0,
+              "ap_drops": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "features": [
+                "has_explicit_port"
+              ],
+              "group": "has_explicit_port",
+              "shuffle_std": 0.0
+            },
+            {
+              "ap_drop_mean": -3.5549305436403483e-07,
+              "ap_drops": [
+                -1.9996567249824793e-06,
+                3.0563085997581396e-06,
+                -2.123131037867765e-06
+              ],
+              "features": [
+                "percent_escape_count"
+              ],
+              "group": "percent_escape_count",
+              "shuffle_std": 2.4130346553373724e-06
+            },
+            {
+              "ap_drop_mean": -6.077184985612641e-07,
+              "ap_drops": [
+                2.8577932265072548e-06,
+                -5.966553344061154e-06,
+                1.2856046218701067e-06
+              ],
+              "features": [
+                "equals_count"
+              ],
+              "group": "equals_count",
+              "shuffle_std": 3.843243198840063e-06
+            },
+            {
+              "ap_drop_mean": -1.1979091379214306e-06,
+              "ap_drops": [
+                -1.1943460987984267e-06,
+                -1.0112401087614131e-06,
+                -1.3881412062044518e-06
+              ],
+              "features": [
+                "is_ip"
+              ],
+              "group": "is_ip",
+              "shuffle_std": 1.53889854006658e-07
+            },
+            {
+              "ap_drop_mean": -2.4016207656056093e-05,
+              "ap_drops": [
+                -2.2251291663333284e-05,
+                -4.03407741289552e-06,
+                -4.576325389193947e-05
+              ],
+              "features": [
+                "url_length"
+              ],
+              "group": "url_length",
+              "shuffle_std": 1.70815151309015e-05
+            }
+          ],
+          "reproduces_baseline": true,
+          "validation": {
+            "accuracy": 0.9941457314993748,
+            "average_precision": 0.9975315332858488,
+            "confusion_matrix": {
+              "fn": 199,
+              "fp": 7,
+              "tn": 20221,
+              "tp": 14761
+            },
+            "f1": 0.9930705059203444,
+            "fpr": 0.0003460549733043306,
+            "precision": 0.9995260021668473,
+            "recall": 0.9866978609625668,
+            "roc_auc": 0.9967331148172861,
+            "threshold": 0.5
+          }
+        },
+        "random_forest": {
+          "error_slices": {
+            "is_https=0": {
+              "fn": 0,
+              "fp": 0,
+              "fpr": null,
+              "groups": 5680,
+              "negatives": 0,
+              "positives": 7352,
+              "recall": 1.0,
+              "rows": 7352
+            },
+            "is_https=1": {
+              "fn": 129,
+              "fp": 10,
+              "fpr": 0.0004943642475776152,
+              "groups": 24335,
+              "negatives": 20228,
+              "positives": 7608,
+              "recall": 0.9830441640378549,
+              "rows": 27836
+            },
+            "is_ip=0": {
+              "fn": 129,
+              "fp": 10,
+              "fpr": 0.0004943642475776152,
+              "groups": 29634,
+              "negatives": 20228,
+              "positives": 14926,
+              "recall": 0.9913573629907544,
+              "rows": 35154
+            },
+            "is_ip=1": {
+              "fn": 0,
+              "fp": 0,
+              "fpr": null,
+              "groups": 18,
+              "negatives": 0,
+              "positives": 34,
+              "recall": 1.0,
+              "rows": 34
+            },
+            "url_length_bin=0": {
+              "fn": 21,
+              "fp": 0,
+              "fpr": 0.0,
+              "groups": 6682,
+              "negatives": 4784,
+              "positives": 2138,
+              "recall": 0.990177736202058,
+              "rows": 6922
+            },
+            "url_length_bin=1": {
+              "fn": 25,
+              "fp": 1,
+              "fpr": 0.00015518311607697082,
+              "groups": 8310,
+              "negatives": 6444,
+              "positives": 2332,
+              "recall": 0.9892795883361921,
+              "rows": 8776
+            },
+            "url_length_bin=2": {
+              "fn": 45,
+              "fp": 0,
+              "fpr": 0.0,
+              "groups": 8761,
+              "negatives": 6924,
+              "positives": 2435,
+              "recall": 0.9815195071868583,
+              "rows": 9359
+            },
+            "url_length_bin=3": {
+              "fn": 38,
+              "fp": 9,
+              "fpr": 0.004335260115606936,
+              "groups": 6397,
+              "negatives": 2076,
+              "positives": 8055,
+              "recall": 0.9952824332712601,
+              "rows": 10131
+            }
+          },
+          "permutation_importance": [
+            {
+              "ap_drop_mean": 0.2309790618769921,
+              "ap_drops": [
+                0.22907502416596615,
+                0.23383439028580422,
+                0.23002777117920592
+              ],
+              "features": [
+                "is_https",
+                "url_length",
+                "hostname_length",
+                "path_length",
+                "query_length",
+                "fragment_length"
+              ],
+              "group": "https_and_lengths",
+              "shuffle_std": 0.002056146388990256
+            },
+            {
+              "ap_drop_mean": 0.11201663649231368,
+              "ap_drops": [
+                0.11097541428231705,
+                0.11239727109104736,
+                0.11267722410357661
+              ],
+              "features": [
+                "is_https"
+              ],
+              "group": "is_https",
+              "shuffle_std": 0.0007450732358852325
+            },
+            {
+              "ap_drop_mean": 0.008956496529435753,
+              "ap_drops": [
+                0.009107981739343574,
+                0.009018826972051253,
+                0.008742680876912434
+              ],
+              "features": [
+                "url_length",
+                "hostname_length",
+                "path_length",
+                "query_length",
+                "fragment_length"
+              ],
+              "group": "length_family",
+              "shuffle_std": 0.00015550989910767003
+            },
+            {
+              "ap_drop_mean": 0.007417725680737286,
+              "ap_drops": [
+                0.007583487899233243,
+                0.007394913830847005,
+                0.0072747753121316094
+              ],
+              "features": [
+                "slash_count"
+              ],
+              "group": "slash_count",
+              "shuffle_std": 0.00012705943682730664
+            },
+            {
+              "ap_drop_mean": 0.0018646366938079122,
+              "ap_drops": [
+                0.0018222711637474465,
+                0.002075216301272498,
+                0.001696422616403792
+              ],
+              "features": [
+                "subdomain_count"
+              ],
+              "group": "subdomain_count",
+              "shuffle_std": 0.00015751675577978203
+            },
+            {
+              "ap_drop_mean": 0.0011828398150941128,
+              "ap_drops": [
+                0.001217792857441724,
+                0.0011238735986021098,
+                0.001206852989238505
+              ],
+              "features": [
+                "digit_count"
+              ],
+              "group": "digit_count",
+              "shuffle_std": 4.193392576114864e-05
+            },
+            {
+              "ap_drop_mean": 0.0007124841850786693,
+              "ap_drops": [
+                0.0006819065463298246,
+                0.0007749002258500282,
+                0.0006806457830561552
+              ],
+              "features": [
+                "hostname_length"
+              ],
+              "group": "hostname_length",
+              "shuffle_std": 4.4137806849208114e-05
+            },
+            {
+              "ap_drop_mean": 0.0006967670484102259,
+              "ap_drops": [
+                0.0007653388242487846,
+                0.000717106859793204,
+                0.0006078554611886888
+              ],
+              "features": [
+                "path_length"
+              ],
+              "group": "path_length",
+              "shuffle_std": 6.588137498818532e-05
+            },
+            {
+              "ap_drop_mean": 0.0006675073949879243,
+              "ap_drops": [
+                0.0008299327597049988,
+                0.0006382411329528548,
+                0.0005343482923059195
+              ],
+              "features": [
+                "url_length"
+              ],
+              "group": "url_length",
+              "shuffle_std": 0.00012243346468464238
+            },
+            {
+              "ap_drop_mean": 0.00032439427198764176,
+              "ap_drops": [
+                0.00032666000054804023,
+                0.00041327936900936724,
+                0.00023324344640551775
+              ],
+              "features": [
+                "dot_count"
+              ],
+              "group": "dot_count",
+              "shuffle_std": 7.35168166765803e-05
+            },
+            {
+              "ap_drop_mean": 0.00021374989545748976,
+              "ap_drops": [
+                0.00020534547120343305,
+                0.0002205177636527278,
+                0.00021538645151630842
+              ],
+              "features": [
+                "hyphen_count"
+              ],
+              "group": "hyphen_count",
+              "shuffle_std": 6.3012353996113936e-06
+            },
+            {
+              "ap_drop_mean": 5.616668611215422e-05,
+              "ap_drops": [
+                7.908789513211278e-05,
+                7.393198329863626e-05,
+                1.5480179905713598e-05
+              ],
+              "features": [
+                "query_length"
+              ],
+              "group": "query_length",
+              "shuffle_std": 2.8846602309153546e-05
+            },
+            {
+              "ap_drop_mean": 3.889667518989596e-05,
+              "ap_drops": [
+                4.249835344771746e-05,
+                6.843347049878545e-05,
+                5.758201623184966e-06
+              ],
+              "features": [
+                "has_query"
+              ],
+              "group": "has_query",
+              "shuffle_std": 2.5713503545308016e-05
+            },
+            {
+              "ap_drop_mean": 3.2393917989185596e-05,
+              "ap_drops": [
+                5.55782743034694e-05,
+                3.0819475366206106e-05,
+                1.0784004297881289e-05
+              ],
+              "features": [
+                "equals_count"
+              ],
+              "group": "equals_count",
+              "shuffle_std": 1.832104088224199e-05
+            },
+            {
+              "ap_drop_mean": 2.5055468476642417e-06,
+              "ap_drops": [
+                2.540636876102731e-06,
+                2.534225808092927e-06,
+                2.4417778587970673e-06
+              ],
+              "features": [
+                "is_ip"
+              ],
+              "group": "is_ip",
+              "shuffle_std": 4.516738059051719e-08
+            },
+            {
+              "ap_drop_mean": 2.8407996621737652e-08,
+              "ap_drops": [
+                4.705177181207887e-08,
+                1.7233960925011615e-08,
+                2.0938257128122473e-08
+              ],
+              "features": [
+                "ampersand_count"
+              ],
+              "group": "ampersand_count",
+              "shuffle_std": 1.3269594758973925e-08
+            },
+            {
+              "ap_drop_mean": 0.0,
+              "ap_drops": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "features": [
+                "has_explicit_port"
+              ],
+              "group": "has_explicit_port",
+              "shuffle_std": 0.0
+            },
+            {
+              "ap_drop_mean": 0.0,
+              "ap_drops": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "features": [
+                "percent_escape_count"
+              ],
+              "group": "percent_escape_count",
+              "shuffle_std": 0.0
+            },
+            {
+              "ap_drop_mean": -1.8193753648680182e-05,
+              "ap_drops": [
+                3.7948325296577323e-06,
+                -1.7312957354187475e-05,
+                -4.10631361215108e-05
+              ],
+              "features": [
+                "fragment_length"
+              ],
+              "group": "fragment_length",
+              "shuffle_std": 1.8323776711540642e-05
+            },
+            {
+              "ap_drop_mean": -2.0183998201176816e-05,
+              "ap_drops": [
+                6.595627195404852e-06,
+                -2.1389847575825627e-05,
+                -4.575777422310967e-05
+              ],
+              "features": [
+                "has_fragment"
+              ],
+              "group": "has_fragment",
+              "shuffle_std": 2.1390188008489396e-05
+            }
+          ],
+          "reproduces_baseline": true,
+          "validation": {
+            "accuracy": 0.9960497897010344,
+            "average_precision": 0.9981354027039621,
+            "confusion_matrix": {
+              "fn": 129,
+              "fp": 10,
+              "tn": 20218,
+              "tp": 14831
+            },
+            "f1": 0.9953357269890272,
+            "fpr": 0.0004943642475776152,
+            "precision": 0.9993261909574827,
+            "recall": 0.9913770053475935,
+            "roc_auc": 0.9977166914818131,
+            "threshold": 0.5
+          }
+        }
+      },
+      "removed_features": []
+    },
+    "without_https": {
+      "models": {
+        "logistic_regression": {
+          "ap_change_vs_full": -0.0016383964032667953,
+          "validation": {
+            "accuracy": 0.9921279981811981,
+            "average_precision": 0.995893136882582,
+            "confusion_matrix": {
+              "fn": 224,
+              "fp": 53,
+              "tn": 20175,
+              "tp": 14736
+            },
+            "f1": 0.990688762647484,
+            "fpr": 0.0026201305121613607,
+            "precision": 0.9964162553249036,
+            "recall": 0.9850267379679144,
+            "roc_auc": 0.9943248273161891,
+            "threshold": 0.5
+          }
+        },
+        "random_forest": {
+          "ap_change_vs_full": -0.0017604018376912167,
+          "validation": {
+            "accuracy": 0.9668637035352962,
+            "average_precision": 0.9963750008662708,
+            "confusion_matrix": {
+              "fn": 1117,
+              "fp": 49,
+              "tn": 20179,
+              "tp": 13843
+            },
+            "f1": 0.9595868570636351,
+            "fpr": 0.0024223848131303145,
+            "precision": 0.9964727900950188,
+            "recall": 0.9253342245989304,
+            "roc_auc": 0.9962474151623366,
+            "threshold": 0.5
+          }
+        }
+      },
+      "removed_features": [
+        "is_https"
+      ]
+    },
+    "without_https_and_lengths": {
+      "models": {
+        "logistic_regression": {
+          "ap_change_vs_full": -0.13991173505536303,
+          "validation": {
+            "accuracy": 0.8493804706149823,
+            "average_precision": 0.8576197982304857,
+            "confusion_matrix": {
+              "fn": 4873,
+              "fp": 427,
+              "tn": 19801,
+              "tp": 10087
+            },
+            "f1": 0.7919447279579179,
+            "fpr": 0.02110935337156417,
+            "precision": 0.9593874833555259,
+            "recall": 0.674264705882353,
+            "roc_auc": 0.8605525881951105,
+            "threshold": 0.5
+          }
+        },
+        "random_forest": {
+          "ap_change_vs_full": -0.1275019089456716,
+          "validation": {
+            "accuracy": 0.8662043878594976,
+            "average_precision": 0.8706334937582905,
+            "confusion_matrix": {
+              "fn": 3970,
+              "fp": 738,
+              "tn": 19490,
+              "tp": 10990
+            },
+            "f1": 0.8235911270983214,
+            "fpr": 0.036484081471228,
+            "precision": 0.9370736698499318,
+            "recall": 0.7346256684491979,
+            "roc_auc": 0.8797661571190039,
+            "threshold": 0.5
+          }
+        }
+      },
+      "removed_features": [
+        "is_https",
+        "url_length",
+        "hostname_length",
+        "path_length",
+        "query_length",
+        "fragment_length"
+      ]
+    },
+    "without_lengths": {
+      "models": {
+        "logistic_regression": {
+          "ap_change_vs_full": -0.0010846625952765088,
+          "validation": {
+            "accuracy": 0.9937762873706946,
+            "average_precision": 0.9964468706905723,
+            "confusion_matrix": {
+              "fn": 216,
+              "fp": 3,
+              "tn": 20225,
+              "tp": 14744
+            },
+            "f1": 0.9926280001346484,
+            "fpr": 0.00014830927427328456,
+            "precision": 0.999796568793653,
+            "recall": 0.9855614973262032,
+            "roc_auc": 0.9960625407784413,
+            "threshold": 0.5
+          }
+        },
+        "random_forest": {
+          "ap_change_vs_full": -0.0010974192260343463,
+          "validation": {
+            "accuracy": 0.995765601909742,
+            "average_precision": 0.9970379834779277,
+            "confusion_matrix": {
+              "fn": 145,
+              "fp": 4,
+              "tn": 20224,
+              "tp": 14815
+            },
+            "f1": 0.9949964740253199,
+            "fpr": 0.00019774569903104609,
+            "precision": 0.9997300762534584,
+            "recall": 0.9903074866310161,
+            "roc_auc": 0.9970732281668127,
+            "threshold": 0.5
+          }
+        }
+      },
+      "removed_features": [
+        "url_length",
+        "hostname_length",
+        "path_length",
+        "query_length",
+        "fragment_length"
+      ]
+    }
+  },
+  "review_cap_per_model_error_type": 100,
+  "review_rows_exported": 217,
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "seed": 42,
+  "stage": "G1.3",
+  "status": "DIAGNOSTICS_ONLY",
+  "threshold": 0.5,
+  "train_rows": 164210,
+  "validation_rows": 35188,
+  "version": "url-diagnostics-v1",
+  "workers": 2
+}
