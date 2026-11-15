@@ -1,0 +1,27 @@
+{
+  "baseline_manifest_sha256": "0f9c2e5e46c94db094d324b068ca3ab3da027bacb99f5512e6f04c265197a83a",
+  "code_sha256": {
+    "evaluate_external_development.py": "f9593364215a4ef3d433914d64b2e1f1cd049daadca5aa8897b65761659f5d19",
+    "external_urls.py": "3c2c2207de858760e5b976b16e556998a7bdd145c01c123465ddeca38426ac4e",
+    "train_url_baselines.py": "6e72c65ff07992b86269d3d52efb5f2793b9f6a2c67adaecdc61e19dedbad26f"
+  },
+  "external_manifest_sha256": "cd5b120bddf103a9c2e620fafa74f88b7dda8271ba7721d60558ee45ed7f9e88",
+  "files": {
+    "provenance-record.json": "fd41a1d74ad29d474f9b81a4eb2021f4720d364b71f71459c5907ce5e96343b5",
+    "report.json": "e4a20558c6b4607131360fe7ea3c877123828e9e8697aa5f11eb5c399167c59d"
+  },
+  "primary_sha256": "21093e2902e5441c86a6daf95e86e7c332046e477fdf109a579d7bd81e586d6c",
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "version": "external-development-evaluation-v1"
+}

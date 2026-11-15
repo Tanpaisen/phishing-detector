@@ -1,0 +1,250 @@
+{
+  "baseline_manifest_sha256": "0f9c2e5e46c94db094d324b068ca3ab3da027bacb99f5512e6f04c265197a83a",
+  "evaluation_role": "development",
+  "external_holdout_file_opened": false,
+  "external_manifest_sha256": "cd5b120bddf103a9c2e620fafa74f88b7dda8271ba7721d60558ee45ed7f9e88",
+  "groups": 3247,
+  "labels": {
+    "0": 2253,
+    "1": 2319
+  },
+  "limitations": [
+    "This external development set is now observed; do not report it as an untouched final test.",
+    "Source labels are historical annotations; source-file equality does not verify every label.",
+    "AP/precision depend on class balance; cross-source metrics are descriptive, not a causal comparison.",
+    "No calibration, confidence intervals or production acceptance claim."
+  ],
+  "model_activation_performed": false,
+  "model_fit_performed": false,
+  "phiusiil_test_file_opened": false,
+  "provenance": {
+    "doi": "10.17632/c2gw7fy2j4.3",
+    "origin_authenticated_by_software": false,
+    "origin_basis": "USER_ATTESTED_DIRECT_MENDELEY_V3_DOWNLOAD",
+    "primary_byte_match": true,
+    "primary_sha256": "21093e2902e5441c86a6daf95e86e7c332046e477fdf109a579d7bd81e586d6c",
+    "recorded_at": "2026-11-15T15:12:52.797193+00:00",
+    "scope": "EXTERNAL_DEVELOPMENT_DIAGNOSTIC_EVALUATION_ONLY",
+    "source_id": "hannousse-2020-mirror-v1",
+    "source_labels_independently_verified": false,
+    "source_page": "https://data.mendeley.com/datasets/c2gw7fy2j4/3"
+  },
+  "results": {
+    "logistic_regression": {
+      "external_development": {
+        "accuracy": 0.5074365704286964,
+        "average_precision": 0.619518253851615,
+        "confusion_matrix": {
+          "fn": 13,
+          "fp": 2239,
+          "tn": 14,
+          "tp": 2306
+        },
+        "f1": 0.671911421911422,
+        "fpr": 0.9937860630270751,
+        "precision": 0.5073707370737074,
+        "recall": 0.994394135403191,
+        "roc_auc": 0.6623405867544343,
+        "threshold": 0.5
+      },
+      "fpr_change_vs_original_validation": 0.9934400080537708,
+      "model_sha256": "fb33a3cc4ef62d8b66f5ae387a642ff6fe5a579d72c939b1b8fff3efb5ff48aa",
+      "phiusiil_validation_reference": {
+        "accuracy": 0.9941457314993748,
+        "average_precision": 0.9975315281357996,
+        "confusion_matrix": {
+          "fn": 199,
+          "fp": 7,
+          "tn": 20221,
+          "tp": 14761
+        },
+        "f1": 0.9930705059203444,
+        "fpr": 0.0003460549733043306,
+        "precision": 0.9995260021668473,
+        "recall": 0.9866978609625668,
+        "roc_auc": 0.9967331015989906,
+        "threshold": 0.5
+      },
+      "recall_change_vs_original_validation": 0.007696274440624151,
+      "slices": {
+        "http": {
+          "fn": 0,
+          "fp": 1278,
+          "fpr": 1.0,
+          "negatives": 1278,
+          "positives": 1700,
+          "precision": 0.5708529214237743,
+          "recall": 1.0,
+          "rows": 2978,
+          "tn": 0,
+          "tp": 1700
+        },
+        "https": {
+          "fn": 13,
+          "fp": 961,
+          "fpr": 0.9856410256410256,
+          "negatives": 975,
+          "positives": 619,
+          "precision": 0.38672622846202936,
+          "recall": 0.9789983844911146,
+          "rows": 1594,
+          "tn": 14,
+          "tp": 606
+        },
+        "ip_host": {
+          "fn": 0,
+          "fp": 0,
+          "fpr": null,
+          "negatives": 0,
+          "positives": 38,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 38,
+          "tn": 0,
+          "tp": 38
+        },
+        "length_ge_34": {
+          "fn": 3,
+          "fp": 1335,
+          "fpr": 1.0,
+          "negatives": 1335,
+          "positives": 1920,
+          "precision": 0.5894833948339483,
+          "recall": 0.9984375,
+          "rows": 3255,
+          "tn": 0,
+          "tp": 1917
+        },
+        "length_lt_34": {
+          "fn": 10,
+          "fp": 904,
+          "fpr": 0.9847494553376906,
+          "negatives": 918,
+          "positives": 399,
+          "precision": 0.3008507347254447,
+          "recall": 0.974937343358396,
+          "rows": 1317,
+          "tn": 14,
+          "tp": 389
+        }
+      }
+    },
+    "random_forest": {
+      "external_development": {
+        "accuracy": 0.5083114610673666,
+        "average_precision": 0.5129408547454724,
+        "confusion_matrix": {
+          "fn": 7,
+          "fp": 2241,
+          "tn": 12,
+          "tp": 2312
+        },
+        "f1": 0.6728754365541327,
+        "fpr": 0.9946737683089214,
+        "precision": 0.50779705688557,
+        "recall": 0.9969814575247952,
+        "roc_auc": 0.5108679778598111,
+        "threshold": 0.5
+      },
+      "fpr_change_vs_original_validation": 0.9941794040613438,
+      "model_sha256": "edf0d1eaa3bfb66c6c14fc41609c9df64148f2f65c08a18adac0f61da0dbaceb",
+      "phiusiil_validation_reference": {
+        "accuracy": 0.9960497897010344,
+        "average_precision": 0.9981354027039621,
+        "confusion_matrix": {
+          "fn": 129,
+          "fp": 10,
+          "tn": 20218,
+          "tp": 14831
+        },
+        "f1": 0.9953357269890272,
+        "fpr": 0.0004943642475776152,
+        "precision": 0.9993261909574827,
+        "recall": 0.9913770053475935,
+        "roc_auc": 0.9977166914818131,
+        "threshold": 0.5
+      },
+      "recall_change_vs_original_validation": 0.005604452177201624,
+      "slices": {
+        "http": {
+          "fn": 0,
+          "fp": 1278,
+          "fpr": 1.0,
+          "negatives": 1278,
+          "positives": 1700,
+          "precision": 0.5708529214237743,
+          "recall": 1.0,
+          "rows": 2978,
+          "tn": 0,
+          "tp": 1700
+        },
+        "https": {
+          "fn": 7,
+          "fp": 963,
+          "fpr": 0.9876923076923076,
+          "negatives": 975,
+          "positives": 619,
+          "precision": 0.38857142857142857,
+          "recall": 0.9886914378029079,
+          "rows": 1594,
+          "tn": 12,
+          "tp": 612
+        },
+        "ip_host": {
+          "fn": 0,
+          "fp": 0,
+          "fpr": null,
+          "negatives": 0,
+          "positives": 38,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 38,
+          "tn": 0,
+          "tp": 38
+        },
+        "length_ge_34": {
+          "fn": 2,
+          "fp": 1335,
+          "fpr": 1.0,
+          "negatives": 1335,
+          "positives": 1920,
+          "precision": 0.5896095911466339,
+          "recall": 0.9989583333333333,
+          "rows": 3255,
+          "tn": 0,
+          "tp": 1918
+        },
+        "length_lt_34": {
+          "fn": 5,
+          "fp": 906,
+          "fpr": 0.9869281045751634,
+          "negatives": 918,
+          "positives": 399,
+          "precision": 0.3030769230769231,
+          "recall": 0.9874686716791979,
+          "rows": 1317,
+          "tn": 12,
+          "tp": 394
+        }
+      }
+    }
+  },
+  "rows": 4572,
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "stage": "G1.5",
+  "status": "EXTERNAL_DEVELOPMENT_DIAGNOSTICS_ONLY",
+  "threshold": 0.5,
+  "threshold_tuning_performed": false,
+  "version": "external-development-evaluation-v1"
+}

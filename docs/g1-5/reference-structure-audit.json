@@ -1,0 +1,46 @@
+{
+  "counts": {
+    "external_development": {
+      "0": {
+        "empty_path": 148,
+        "exactly_two_slashes": 148,
+        "http": 1278,
+        "https": 975,
+        "non_root_path": 1287,
+        "other_slash_count": 2105,
+        "rows": 2253,
+        "slash_only_path": 818
+      },
+      "1": {
+        "empty_path": 136,
+        "exactly_two_slashes": 136,
+        "http": 1700,
+        "https": 619,
+        "non_root_path": 1836,
+        "other_slash_count": 2183,
+        "rows": 2319,
+        "slash_only_path": 347
+      }
+    },
+    "phiusiil_train": {
+      "0": {
+        "empty_path": 94395,
+        "exactly_two_slashes": 94395,
+        "https": 94395,
+        "rows": 94395
+      },
+      "1": {
+        "empty_path": 27528,
+        "exactly_two_slashes": 27527,
+        "http": 35662,
+        "https": 34153,
+        "non_root_path": 17825,
+        "other_slash_count": 42288,
+        "rows": 69815,
+        "slash_only_path": 24462
+      }
+    }
+  },
+  "external_development_original_rows_verified": 4572,
+  "final_test_read": false
+}
