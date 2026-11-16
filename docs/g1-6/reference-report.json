@@ -1,0 +1,664 @@
+{
+  "external_holdout_file_opened": false,
+  "feature_schema": {
+    "dtype": "float64",
+    "feature_names": [
+      "url_length",
+      "hostname_length",
+      "subdomain_count",
+      "digit_count",
+      "is_ip",
+      "is_https",
+      "path_length",
+      "query_length",
+      "fragment_length",
+      "hyphen_count",
+      "dot_count",
+      "slash_count",
+      "equals_count",
+      "ampersand_count",
+      "percent_escape_count",
+      "has_query",
+      "has_fragment",
+      "has_explicit_port"
+    ],
+    "input": "Original input_url, not normalized_url; outer ASCII spaces removed by the inspector.",
+    "length_unit": "Python Unicode code points; encoded percent sequences are not decoded.",
+    "missing_policy": "Reject invalid URL; no imputation.",
+    "preprocessing_version": "url-inspection-v1",
+    "version": "url-lexical-v1"
+  },
+  "limitations": [
+    "External development was observed in G1.5; its reused validation is exploratory, not an unbiased test.",
+    "Historical source labels are used for research, not independently verified ground truth.",
+    "No threshold tuning, calibration, production acceptance or automatic winner selection.",
+    "Source balancing changes effective prevalence; scores are MODEL_SCORE, not calibrated probabilities."
+  ],
+  "model_activated": false,
+  "model_exported": false,
+  "params": {
+    "logistic_regression": {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "max_iter": 2000,
+      "random_state": 42,
+      "solver": "lbfgs"
+    },
+    "random_forest": {
+      "class_weight": "balanced",
+      "max_depth": 16,
+      "max_features": "sqrt",
+      "min_samples_leaf": 2,
+      "n_estimators": 100,
+      "random_state": 42
+    }
+  },
+  "primary_sha256": "21093e2902e5441c86a6daf95e86e7c332046e477fdf109a579d7bd81e586d6c",
+  "results": {
+    "mixed_pooled": {
+      "logistic_regression": {
+        "external_reused_validation": {
+          "metrics": {
+            "accuracy": 0.48354143019296253,
+            "average_precision": 0.701611160955462,
+            "confusion_matrix": {
+              "fn": 5,
+              "fp": 450,
+              "tn": 22,
+              "tp": 404
+            },
+            "f1": 0.6397466349960411,
+            "fpr": 0.9533898305084746,
+            "precision": 0.47306791569086654,
+            "recall": 0.9877750611246944,
+            "roc_auc": 0.7239935145663254,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 1,
+              "fp": 310,
+              "fpr": 0.9967845659163987,
+              "negatives": 311,
+              "positives": 301,
+              "precision": 0.4918032786885246,
+              "recall": 0.9966777408637874,
+              "rows": 612,
+              "tn": 1,
+              "tp": 300
+            },
+            "https": {
+              "fn": 4,
+              "fp": 140,
+              "fpr": 0.8695652173913043,
+              "negatives": 161,
+              "positives": 108,
+              "precision": 0.4262295081967213,
+              "recall": 0.9629629629629629,
+              "rows": 269,
+              "tn": 21,
+              "tp": 104
+            }
+          }
+        },
+        "phiusiil_validation": {
+          "metrics": {
+            "accuracy": 0.9904512902125725,
+            "average_precision": 0.9969171592456787,
+            "confusion_matrix": {
+              "fn": 331,
+              "fp": 5,
+              "tn": 20223,
+              "tp": 14629
+            },
+            "f1": 0.9886463472325472,
+            "fpr": 0.0002471821237888076,
+            "precision": 0.9996583299166325,
+            "recall": 0.9778743315508022,
+            "roc_auc": 0.9961055167613273,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 0,
+              "fp": 0,
+              "fpr": null,
+              "negatives": 0,
+              "positives": 7352,
+              "precision": 1.0,
+              "recall": 1.0,
+              "rows": 7352,
+              "tn": 0,
+              "tp": 7352
+            },
+            "https": {
+              "fn": 331,
+              "fp": 5,
+              "fpr": 0.0002471821237888076,
+              "negatives": 20228,
+              "positives": 7608,
+              "precision": 0.9993133754463059,
+              "recall": 0.9564931650893796,
+              "rows": 27836,
+              "tn": 20223,
+              "tp": 7277
+            }
+          }
+        }
+      },
+      "random_forest": {
+        "external_reused_validation": {
+          "metrics": {
+            "accuracy": 0.5357548240635641,
+            "average_precision": 0.8250781133599694,
+            "confusion_matrix": {
+              "fn": 3,
+              "fp": 406,
+              "tn": 66,
+              "tp": 406
+            },
+            "f1": 0.665028665028665,
+            "fpr": 0.8601694915254238,
+            "precision": 0.5,
+            "recall": 0.9926650366748166,
+            "roc_auc": 0.850822075338776,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 2,
+              "fp": 260,
+              "fpr": 0.8360128617363344,
+              "negatives": 311,
+              "positives": 301,
+              "precision": 0.5348837209302325,
+              "recall": 0.9933554817275747,
+              "rows": 612,
+              "tn": 51,
+              "tp": 299
+            },
+            "https": {
+              "fn": 1,
+              "fp": 146,
+              "fpr": 0.906832298136646,
+              "negatives": 161,
+              "positives": 108,
+              "precision": 0.42292490118577075,
+              "recall": 0.9907407407407407,
+              "rows": 269,
+              "tn": 15,
+              "tp": 107
+            }
+          }
+        },
+        "phiusiil_validation": {
+          "metrics": {
+            "accuracy": 0.995765601909742,
+            "average_precision": 0.9981759703606408,
+            "confusion_matrix": {
+              "fn": 137,
+              "fp": 12,
+              "tn": 20216,
+              "tp": 14823
+            },
+            "f1": 0.9949991609330424,
+            "fpr": 0.0005932370970931383,
+            "precision": 0.9991911021233569,
+            "recall": 0.9908422459893048,
+            "roc_auc": 0.9977605200447519,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 6,
+              "fp": 0,
+              "fpr": null,
+              "negatives": 0,
+              "positives": 7352,
+              "precision": 1.0,
+              "recall": 0.999183895538629,
+              "rows": 7352,
+              "tn": 0,
+              "tp": 7346
+            },
+            "https": {
+              "fn": 131,
+              "fp": 12,
+              "fpr": 0.0005932370970931383,
+              "negatives": 20228,
+              "positives": 7608,
+              "precision": 0.9983976498865001,
+              "recall": 0.9827812828601472,
+              "rows": 27836,
+              "tn": 20216,
+              "tp": 7477
+            }
+          }
+        }
+      }
+    },
+    "mixed_source_class_balanced": {
+      "logistic_regression": {
+        "external_reused_validation": {
+          "metrics": {
+            "accuracy": 0.6492622020431328,
+            "average_precision": 0.7675164289584522,
+            "confusion_matrix": {
+              "fn": 54,
+              "fp": 255,
+              "tn": 217,
+              "tp": 355
+            },
+            "f1": 0.6967615309126595,
+            "fpr": 0.5402542372881356,
+            "precision": 0.5819672131147541,
+            "recall": 0.8679706601466992,
+            "roc_auc": 0.7833000082880941,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 10,
+              "fp": 245,
+              "fpr": 0.7877813504823151,
+              "negatives": 311,
+              "positives": 301,
+              "precision": 0.542910447761194,
+              "recall": 0.9667774086378738,
+              "rows": 612,
+              "tn": 66,
+              "tp": 291
+            },
+            "https": {
+              "fn": 44,
+              "fp": 10,
+              "fpr": 0.062111801242236024,
+              "negatives": 161,
+              "positives": 108,
+              "precision": 0.8648648648648649,
+              "recall": 0.5925925925925926,
+              "rows": 269,
+              "tn": 151,
+              "tp": 64
+            }
+          }
+        },
+        "phiusiil_validation": {
+          "metrics": {
+            "accuracy": 0.8166136182789587,
+            "average_precision": 0.9550805877117057,
+            "confusion_matrix": {
+              "fn": 6359,
+              "fp": 94,
+              "tn": 20134,
+              "tp": 8601
+            },
+            "f1": 0.7272035510462904,
+            "fpr": 0.004647023927229583,
+            "precision": 0.9891891891891892,
+            "recall": 0.5749331550802139,
+            "roc_auc": 0.953982963203438,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 3148,
+              "fp": 0,
+              "fpr": null,
+              "negatives": 0,
+              "positives": 7352,
+              "precision": 1.0,
+              "recall": 0.5718171926006529,
+              "rows": 7352,
+              "tn": 0,
+              "tp": 4204
+            },
+            "https": {
+              "fn": 3211,
+              "fp": 94,
+              "fpr": 0.004647023927229583,
+              "negatives": 20228,
+              "positives": 7608,
+              "precision": 0.9790692496103318,
+              "recall": 0.5779442691903259,
+              "rows": 27836,
+              "tn": 20134,
+              "tp": 4397
+            }
+          }
+        }
+      },
+      "random_forest": {
+        "external_reused_validation": {
+          "metrics": {
+            "accuracy": 0.7866061293984109,
+            "average_precision": 0.896492962148144,
+            "confusion_matrix": {
+              "fn": 26,
+              "fp": 162,
+              "tn": 310,
+              "tp": 383
+            },
+            "f1": 0.8029350104821803,
+            "fpr": 0.3432203389830508,
+            "precision": 0.7027522935779816,
+            "recall": 0.9364303178484108,
+            "roc_auc": 0.9108460072106419,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 21,
+              "fp": 118,
+              "fpr": 0.37942122186495175,
+              "negatives": 311,
+              "positives": 301,
+              "precision": 0.7035175879396985,
+              "recall": 0.9302325581395349,
+              "rows": 612,
+              "tn": 193,
+              "tp": 280
+            },
+            "https": {
+              "fn": 5,
+              "fp": 44,
+              "fpr": 0.2732919254658385,
+              "negatives": 161,
+              "positives": 108,
+              "precision": 0.7006802721088435,
+              "recall": 0.9537037037037037,
+              "rows": 269,
+              "tn": 117,
+              "tp": 103
+            }
+          }
+        },
+        "phiusiil_validation": {
+          "metrics": {
+            "accuracy": 0.9813288621120837,
+            "average_precision": 0.997925733063894,
+            "confusion_matrix": {
+              "fn": 648,
+              "fp": 9,
+              "tn": 20219,
+              "tp": 14312
+            },
+            "f1": 0.977562241726717,
+            "fpr": 0.00044492782281985367,
+            "precision": 0.9993715522659032,
+            "recall": 0.9566844919786096,
+            "roc_auc": 0.9975462184307453,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 195,
+              "fp": 0,
+              "fpr": null,
+              "negatives": 0,
+              "positives": 7352,
+              "precision": 1.0,
+              "recall": 0.9734766050054406,
+              "rows": 7352,
+              "tn": 0,
+              "tp": 7157
+            },
+            "https": {
+              "fn": 453,
+              "fp": 9,
+              "fpr": 0.00044492782281985367,
+              "negatives": 20228,
+              "positives": 7608,
+              "precision": 0.9987437185929648,
+              "recall": 0.9404574132492114,
+              "rows": 27836,
+              "tn": 20219,
+              "tp": 7155
+            }
+          }
+        }
+      }
+    },
+    "phiusiil_only": {
+      "logistic_regression": {
+        "external_reused_validation": {
+          "metrics": {
+            "accuracy": 0.46878547105561863,
+            "average_precision": 0.5465585616678004,
+            "confusion_matrix": {
+              "fn": 1,
+              "fp": 467,
+              "tn": 5,
+              "tp": 408
+            },
+            "f1": 0.6355140186915887,
+            "fpr": 0.989406779661017,
+            "precision": 0.4662857142857143,
+            "recall": 0.9975550122249389,
+            "roc_auc": 0.6255957067672289,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 0,
+              "fp": 311,
+              "fpr": 1.0,
+              "negatives": 311,
+              "positives": 301,
+              "precision": 0.4918300653594771,
+              "recall": 1.0,
+              "rows": 612,
+              "tn": 0,
+              "tp": 301
+            },
+            "https": {
+              "fn": 1,
+              "fp": 156,
+              "fpr": 0.968944099378882,
+              "negatives": 161,
+              "positives": 108,
+              "precision": 0.4068441064638783,
+              "recall": 0.9907407407407407,
+              "rows": 269,
+              "tn": 5,
+              "tp": 107
+            }
+          }
+        },
+        "phiusiil_validation": {
+          "metrics": {
+            "accuracy": 0.9941457314993748,
+            "average_precision": 0.9975315281357996,
+            "confusion_matrix": {
+              "fn": 199,
+              "fp": 7,
+              "tn": 20221,
+              "tp": 14761
+            },
+            "f1": 0.9930705059203444,
+            "fpr": 0.0003460549733043306,
+            "precision": 0.9995260021668473,
+            "recall": 0.9866978609625668,
+            "roc_auc": 0.9967331015989906,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 0,
+              "fp": 0,
+              "fpr": null,
+              "negatives": 0,
+              "positives": 7352,
+              "precision": 1.0,
+              "recall": 1.0,
+              "rows": 7352,
+              "tn": 0,
+              "tp": 7352
+            },
+            "https": {
+              "fn": 199,
+              "fp": 7,
+              "fpr": 0.0003460549733043306,
+              "negatives": 20228,
+              "positives": 7608,
+              "precision": 0.9990560949298813,
+              "recall": 0.9738433228180863,
+              "rows": 27836,
+              "tn": 20221,
+              "tp": 7409
+            }
+          }
+        }
+      },
+      "random_forest": {
+        "external_reused_validation": {
+          "metrics": {
+            "accuracy": 0.4676503972758229,
+            "average_precision": 0.4659699816140768,
+            "confusion_matrix": {
+              "fn": 1,
+              "fp": 468,
+              "tn": 4,
+              "tp": 408
+            },
+            "f1": 0.6350194552529183,
+            "fpr": 0.9915254237288136,
+            "precision": 0.4657534246575342,
+            "recall": 0.9975550122249389,
+            "roc_auc": 0.5034784095147321,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 0,
+              "fp": 311,
+              "fpr": 1.0,
+              "negatives": 311,
+              "positives": 301,
+              "precision": 0.4918300653594771,
+              "recall": 1.0,
+              "rows": 612,
+              "tn": 0,
+              "tp": 301
+            },
+            "https": {
+              "fn": 1,
+              "fp": 157,
+              "fpr": 0.9751552795031055,
+              "negatives": 161,
+              "positives": 108,
+              "precision": 0.4053030303030303,
+              "recall": 0.9907407407407407,
+              "rows": 269,
+              "tn": 4,
+              "tp": 107
+            }
+          }
+        },
+        "phiusiil_validation": {
+          "metrics": {
+            "accuracy": 0.9960497897010344,
+            "average_precision": 0.9981354027039621,
+            "confusion_matrix": {
+              "fn": 129,
+              "fp": 10,
+              "tn": 20218,
+              "tp": 14831
+            },
+            "f1": 0.9953357269890272,
+            "fpr": 0.0004943642475776152,
+            "precision": 0.9993261909574827,
+            "recall": 0.9913770053475935,
+            "roc_auc": 0.9977166914818131,
+            "threshold": 0.5
+          },
+          "slices": {
+            "http": {
+              "fn": 0,
+              "fp": 0,
+              "fpr": null,
+              "negatives": 0,
+              "positives": 7352,
+              "precision": 1.0,
+              "recall": 1.0,
+              "rows": 7352,
+              "tn": 0,
+              "tp": 7352
+            },
+            "https": {
+              "fn": 129,
+              "fp": 10,
+              "fpr": 0.0004943642475776152,
+              "negatives": 20228,
+              "positives": 7608,
+              "precision": 0.9986647082387502,
+              "recall": 0.9830441640378549,
+              "rows": 27836,
+              "tn": 20218,
+              "tp": 7479
+            }
+          }
+        }
+      }
+    }
+  },
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "seed": 42,
+  "source_labels_independently_verified": false,
+  "source_origin": "USER_ATTESTED_DIRECT_MENDELEY_V3_DOWNLOAD",
+  "split_rule": "sha256(g16-external-v1:group_id) modulo 100 < 80 -> train; otherwise validation",
+  "splits": {
+    "external_reused_validation": {
+      "groups": 627,
+      "labels": {
+        "0": 472,
+        "1": 409
+      },
+      "rows": 881
+    },
+    "external_train": {
+      "groups": 2620,
+      "labels": {
+        "0": 1781,
+        "1": 1910
+      },
+      "rows": 3691
+    },
+    "phiusiil_train": {
+      "fraction": 0.7000021314235778,
+      "groups": 138380,
+      "labels": {
+        "0": 94395,
+        "1": 69815
+      },
+      "rows": 164210
+    },
+    "phiusiil_validation": {
+      "fraction": 0.1500010657117889,
+      "groups": 29652,
+      "labels": {
+        "0": 20228,
+        "1": 14960
+      },
+      "rows": 35188
+    }
+  },
+  "stage": "G1.6",
+  "status": "RESEARCH_EXPERIMENT_ONLY",
+  "test_file_opened": false,
+  "threshold": 0.5,
+  "version": "url-multisource-experiment-v1",
+  "weighted_scenario": "class_weight=None; each source-label cell has total weight N/4; scaler uses same train weights",
+  "workers": 2
+}

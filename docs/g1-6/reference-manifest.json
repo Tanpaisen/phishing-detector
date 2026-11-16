@@ -1,0 +1,18 @@
+{
+  "code_sha256": {
+    "audit_url_structure.py": "8e304235424c24cd58d5a41c5b952657f513d22bbded1399a2c43b83ed2256b2",
+    "evaluate_external_development.py": "f9593364215a4ef3d433914d64b2e1f1cd049daadca5aa8897b65761659f5d19",
+    "train_multisource_experiment.py": "1526f651eaced147b981bd7ae5dab970df5fed7478399fe66959c37092bc355e",
+    "train_url_baselines.py": "6e72c65ff07992b86269d3d52efb5f2793b9f6a2c67adaecdc61e19dedbad26f"
+  },
+  "files": {
+    "external-assignments.jsonl": "c872526bce5371a094f1c573f154c10e3cc50a1915c424bbd2165e3b707b6a71",
+    "report.json": "b5e81407aa316211af58430e0213d9b73c1a8b35399522442c2637ac4f46cb50"
+  },
+  "inputs": {
+    "baseline": "0f9c2e5e46c94db094d324b068ca3ab3da027bacb99f5512e6f04c265197a83a",
+    "dataset": "a5f2d1e4e9d028d7ea3f6724d59fac175337c4c3826df8996068b6a32c1f3400",
+    "external": "cd5b120bddf103a9c2e620fafa74f88b7dda8271ba7721d60558ee45ed7f9e88"
+  },
+  "version": "url-multisource-experiment-v1"
+}

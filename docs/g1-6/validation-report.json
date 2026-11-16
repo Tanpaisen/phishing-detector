@@ -1,0 +1,21 @@
+{
+  "stage": "G1.6",
+  "date": "2026-11-16",
+  "python": "3.12.14",
+  "training_suite_tests_passed": 37,
+  "windows_execution": "Pending user execution",
+  "checks": [
+    "offline integration forbids final test and external holdout file reads",
+    "no pickle model loading",
+    "group split invariant to row order and labels",
+    "equal total weight per source-label cell",
+    "weighted scaler and classifier receive training rows only",
+    "checksum failures stop before fitting",
+    "failed fitting publishes no output",
+    "existing output is not overwritten",
+    "domain leakage and missing classes rejected"
+  ],
+  "real_experiment_completed": true,
+  "external_train_rows": 3691,
+  "external_reused_validation_rows": 881
+}
