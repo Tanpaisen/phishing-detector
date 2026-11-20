@@ -1,0 +1,389 @@
+{
+  "external_holdout_file_opened": false,
+  "frozen_labels_changed": false,
+  "limitations": [
+    "Slice groups overlap; do not sum counts across groups.",
+    "Source labels are historical and not independently verified.",
+    "Reused validation is exploratory, not a final test. No automatic corrections or threshold tuning."
+  ],
+  "model": "random_forest",
+  "model_activated": false,
+  "new_features_added": false,
+  "reproduced_g16": true,
+  "review_cases": 845,
+  "reviewed_cases": 0,
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "scenario": "mixed_source_class_balanced",
+  "sources": {
+    "external_reused_validation": {
+      "metrics": {
+        "accuracy": 0.7866061293984109,
+        "average_precision": 0.896492962148144,
+        "confusion_matrix": {
+          "fn": 26,
+          "fp": 162,
+          "tn": 310,
+          "tp": 383
+        },
+        "f1": 0.8029350104821803,
+        "fpr": 0.3432203389830508,
+        "precision": 0.7027522935779816,
+        "recall": 0.9364303178484108,
+        "roc_auc": 0.9108460072106419,
+        "threshold": 0.5
+      },
+      "review_cases": 188,
+      "slices": {
+        "all": {
+          "fn": 26,
+          "fp": 162,
+          "fpr": 0.3432203389830508,
+          "negatives": 472,
+          "positives": 409,
+          "precision": 0.7027522935779816,
+          "recall": 0.9364303178484108,
+          "rows": 881,
+          "tn": 310,
+          "tp": 383
+        },
+        "empty_path": {
+          "fn": 1,
+          "fp": 10,
+          "fpr": 0.43478260869565216,
+          "negatives": 23,
+          "positives": 18,
+          "precision": 0.6296296296296297,
+          "recall": 0.9444444444444444,
+          "rows": 41,
+          "tn": 13,
+          "tp": 17
+        },
+        "has_query": {
+          "fn": 1,
+          "fp": 18,
+          "fpr": 0.9,
+          "negatives": 20,
+          "positives": 63,
+          "precision": 0.775,
+          "recall": 0.9841269841269841,
+          "rows": 83,
+          "tn": 2,
+          "tp": 62
+        },
+        "has_subdomain": {
+          "fn": 24,
+          "fp": 114,
+          "fpr": 0.2878787878787879,
+          "negatives": 396,
+          "positives": 176,
+          "precision": 0.5714285714285714,
+          "recall": 0.8636363636363636,
+          "rows": 572,
+          "tn": 282,
+          "tp": 152
+        },
+        "hostname_host": {
+          "fn": 26,
+          "fp": 162,
+          "fpr": 0.3432203389830508,
+          "negatives": 472,
+          "positives": 403,
+          "precision": 0.699443413729128,
+          "recall": 0.9354838709677419,
+          "rows": 875,
+          "tn": 310,
+          "tp": 377
+        },
+        "http": {
+          "fn": 21,
+          "fp": 118,
+          "fpr": 0.37942122186495175,
+          "negatives": 311,
+          "positives": 301,
+          "precision": 0.7035175879396985,
+          "recall": 0.9302325581395349,
+          "rows": 612,
+          "tn": 193,
+          "tp": 280
+        },
+        "https": {
+          "fn": 5,
+          "fp": 44,
+          "fpr": 0.2732919254658385,
+          "negatives": 161,
+          "positives": 108,
+          "precision": 0.7006802721088435,
+          "recall": 0.9537037037037037,
+          "rows": 269,
+          "tn": 117,
+          "tp": 103
+        },
+        "ip_host": {
+          "fn": 0,
+          "fp": 0,
+          "fpr": null,
+          "negatives": 0,
+          "positives": 6,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 6,
+          "tn": 0,
+          "tp": 6
+        },
+        "length_ge_34": {
+          "fn": 18,
+          "fp": 129,
+          "fpr": 0.4271523178807947,
+          "negatives": 302,
+          "positives": 339,
+          "precision": 0.7133333333333334,
+          "recall": 0.9469026548672567,
+          "rows": 641,
+          "tn": 173,
+          "tp": 321
+        },
+        "length_lt_34": {
+          "fn": 8,
+          "fp": 33,
+          "fpr": 0.19411764705882353,
+          "negatives": 170,
+          "positives": 70,
+          "precision": 0.6526315789473685,
+          "recall": 0.8857142857142857,
+          "rows": 240,
+          "tn": 137,
+          "tp": 62
+        },
+        "no_query": {
+          "fn": 25,
+          "fp": 144,
+          "fpr": 0.3185840707964602,
+          "negatives": 452,
+          "positives": 346,
+          "precision": 0.6903225806451613,
+          "recall": 0.9277456647398844,
+          "rows": 798,
+          "tn": 308,
+          "tp": 321
+        },
+        "no_subdomain": {
+          "fn": 2,
+          "fp": 48,
+          "fpr": 0.631578947368421,
+          "negatives": 76,
+          "positives": 233,
+          "precision": 0.8279569892473119,
+          "recall": 0.9914163090128756,
+          "rows": 309,
+          "tn": 28,
+          "tp": 231
+        },
+        "nonempty_path": {
+          "fn": 25,
+          "fp": 152,
+          "fpr": 0.33853006681514475,
+          "negatives": 449,
+          "positives": 391,
+          "precision": 0.7065637065637066,
+          "recall": 0.9360613810741688,
+          "rows": 840,
+          "tn": 297,
+          "tp": 366
+        }
+      }
+    },
+    "phiusiil_validation": {
+      "metrics": {
+        "accuracy": 0.9813288621120837,
+        "average_precision": 0.9979257330646047,
+        "confusion_matrix": {
+          "fn": 648,
+          "fp": 9,
+          "tn": 20219,
+          "tp": 14312
+        },
+        "f1": 0.977562241726717,
+        "fpr": 0.00044492782281985367,
+        "precision": 0.9993715522659032,
+        "recall": 0.9566844919786096,
+        "roc_auc": 0.9975462184307453,
+        "threshold": 0.5
+      },
+      "review_cases": 657,
+      "slices": {
+        "all": {
+          "fn": 648,
+          "fp": 9,
+          "fpr": 0.00044492782281985367,
+          "negatives": 20228,
+          "positives": 14960,
+          "precision": 0.9993715522659032,
+          "recall": 0.9566844919786096,
+          "rows": 35188,
+          "tn": 20219,
+          "tp": 14312
+        },
+        "empty_path": {
+          "fn": 225,
+          "fp": 9,
+          "fpr": 0.00044492782281985367,
+          "negatives": 20228,
+          "positives": 6126,
+          "precision": 0.9984771573604061,
+          "recall": 0.9632713026444663,
+          "rows": 26354,
+          "tn": 20219,
+          "tp": 5901
+        },
+        "has_query": {
+          "fn": 1,
+          "fp": 0,
+          "fpr": null,
+          "negatives": 0,
+          "positives": 975,
+          "precision": 1.0,
+          "recall": 0.9989743589743589,
+          "rows": 975,
+          "tn": 0,
+          "tp": 974
+        },
+        "has_subdomain": {
+          "fn": 508,
+          "fp": 8,
+          "fpr": 0.00039556962025316455,
+          "negatives": 20224,
+          "positives": 8891,
+          "precision": 0.9990465975449887,
+          "recall": 0.9428635699021483,
+          "rows": 29115,
+          "tn": 20216,
+          "tp": 8383
+        },
+        "hostname_host": {
+          "fn": 648,
+          "fp": 9,
+          "fpr": 0.00044492782281985367,
+          "negatives": 20228,
+          "positives": 14926,
+          "precision": 0.9993700566948974,
+          "recall": 0.9565858233954174,
+          "rows": 35154,
+          "tn": 20219,
+          "tp": 14278
+        },
+        "http": {
+          "fn": 195,
+          "fp": 0,
+          "fpr": null,
+          "negatives": 0,
+          "positives": 7352,
+          "precision": 1.0,
+          "recall": 0.9734766050054406,
+          "rows": 7352,
+          "tn": 0,
+          "tp": 7157
+        },
+        "https": {
+          "fn": 453,
+          "fp": 9,
+          "fpr": 0.00044492782281985367,
+          "negatives": 20228,
+          "positives": 7608,
+          "precision": 0.9987437185929648,
+          "recall": 0.9404574132492114,
+          "rows": 27836,
+          "tn": 20219,
+          "tp": 7155
+        },
+        "ip_host": {
+          "fn": 0,
+          "fp": 0,
+          "fpr": null,
+          "negatives": 0,
+          "positives": 34,
+          "precision": 1.0,
+          "recall": 1.0,
+          "rows": 34,
+          "tn": 0,
+          "tp": 34
+        },
+        "length_ge_34": {
+          "fn": 268,
+          "fp": 8,
+          "fpr": 0.0038535645472061657,
+          "negatives": 2076,
+          "positives": 8055,
+          "precision": 0.9989737010904426,
+          "recall": 0.9667287399130975,
+          "rows": 10131,
+          "tn": 2068,
+          "tp": 7787
+        },
+        "length_lt_34": {
+          "fn": 380,
+          "fp": 1,
+          "fpr": 5.509034817100044e-05,
+          "negatives": 18152,
+          "positives": 6905,
+          "precision": 0.9998467667790377,
+          "recall": 0.944967414916727,
+          "rows": 25057,
+          "tn": 18151,
+          "tp": 6525
+        },
+        "no_query": {
+          "fn": 647,
+          "fp": 9,
+          "fpr": 0.00044492782281985367,
+          "negatives": 20228,
+          "positives": 13985,
+          "precision": 0.9993256911665542,
+          "recall": 0.9537361458705756,
+          "rows": 34213,
+          "tn": 20219,
+          "tp": 13338
+        },
+        "no_subdomain": {
+          "fn": 140,
+          "fp": 1,
+          "fpr": 0.25,
+          "negatives": 4,
+          "positives": 6069,
+          "precision": 0.999831365935919,
+          "recall": 0.9769319492502884,
+          "rows": 6073,
+          "tn": 3,
+          "tp": 5929
+        },
+        "nonempty_path": {
+          "fn": 423,
+          "fp": 0,
+          "fpr": null,
+          "negatives": 0,
+          "positives": 8834,
+          "precision": 1.0,
+          "recall": 0.952116821371972,
+          "rows": 8834,
+          "tn": 0,
+          "tp": 8411
+        }
+      }
+    }
+  },
+  "stage": "G1.7",
+  "status": "DIAGNOSTICS_AND_UNREVIEWED_PACKET_ONLY",
+  "test_file_opened": false,
+  "threshold": 0.5,
+  "version": "url-multisource-diagnostics-v1"
+}

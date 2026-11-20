@@ -1,0 +1,9 @@
+{
+  "code_sha256": "7b573b2d973fe999b0880f9b1e74910044ad723af79aef3a2d844d8de731a1d7",
+  "files": {
+    "report.json": "1ba8d1cad1f5dd3e856db4e4bc4c33d48a5c3aef120d9784185c1952ea15996d",
+    "review-packet/manifest.json": "5d9b8cc422699001a8a42180f845dd4f0cc8678a9ee94bb3996b0f95ad6246c7"
+  },
+  "g16_manifest_sha256": "af1c53ac0733a1e8d6daeeb79da969096ed2e5572f9f42f72e4e4e855fed4bb8",
+  "version": "url-multisource-diagnostics-v1"
+}

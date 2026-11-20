@@ -1,0 +1,21 @@
+{
+  "stage": "G1.7",
+  "date": "2026-11-19",
+  "reference_python": "3.12.14",
+  "training_tests_passed": 46,
+  "g14_tests_passed": 11,
+  "windows_execution": "Pending user execution",
+  "checks": [
+    "offline integration forbids test.jsonl and holdout.jsonl",
+    "no pickle loading",
+    "mismatched snapshots stop before fitting",
+    "rehashed assignments still checked against reconstructed split",
+    "reproduction failure publishes no packet",
+    "existing output refused",
+    "FP/FN export preserves source labels",
+    "review template compatible with G1.4 validator"
+  ],
+  "real_run_reproduced_g16": true,
+  "review_cases": 845,
+  "reviewed_cases": 0
+}

@@ -1,0 +1,13 @@
+{
+  "eligible_for_training": false,
+  "evidence_contents_verified": false,
+  "frozen_labels_changed": false,
+  "note": "Checks completeness and consistency, not truth of evidence or reviewer authorization.",
+  "proposed_corrections": 0,
+  "reviewer_identity_authenticated": false,
+  "status": "DECISION_STRUCTURE_VALID",
+  "status_counts": {
+    "UNREVIEWED": 845
+  },
+  "unique_cases": 845
+}
