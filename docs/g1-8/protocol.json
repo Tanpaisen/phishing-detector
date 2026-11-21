@@ -1,0 +1,17 @@
+{
+  "version": "url-feature-ablation-protocol-v1",
+  "stage": "G1.8",
+  "fixed_before_results": true,
+  "scenarios": ["baseline", "baseline_plus_hostname", "baseline_plus_path_query"],
+  "model": "RandomForestClassifier",
+  "base_scenario": "mixed_source_class_balanced",
+  "seed": 42,
+  "threshold": 0.5,
+  "class_weight": null,
+  "weight_rule": "Each source-label cell has total weight N/4, computed on training rows only.",
+  "split": "Reuse G1.6 assignments exactly, never reroll seed.",
+  "comparison": "Report FPR, recall, precision, AP, ROC AUC, confusion matrix and paired error changes separately for each validation source.",
+  "selection": "No automatic winner, no production acceptance claim, no threshold search.",
+  "excluded": ["A+B combination", "new hyperparameters", "test.jsonl", "holdout.jsonl", "reviewed or predicted label substitutions", "model activation"],
+  "limitations": "Hypotheses were informed by already-observed validation errors. This is exploratory validation, not a final test. Historical labels remain unchanged."
+}

@@ -1,0 +1,28 @@
+{
+  "base_scenario": "mixed_source_class_balanced",
+  "class_weight": null,
+  "comparison": "Report FPR, recall, precision, AP, ROC AUC, confusion matrix and paired error changes separately for each validation source.",
+  "excluded": [
+    "A+B combination",
+    "new hyperparameters",
+    "test.jsonl",
+    "holdout.jsonl",
+    "reviewed or predicted label substitutions",
+    "model activation"
+  ],
+  "fixed_before_results": true,
+  "limitations": "Hypotheses were informed by already-observed validation errors. This is exploratory validation, not a final test. Historical labels remain unchanged.",
+  "model": "RandomForestClassifier",
+  "scenarios": [
+    "baseline",
+    "baseline_plus_hostname",
+    "baseline_plus_path_query"
+  ],
+  "seed": 42,
+  "selection": "No automatic winner, no production acceptance claim, no threshold search.",
+  "split": "Reuse G1.6 assignments exactly, never reroll seed.",
+  "stage": "G1.8",
+  "threshold": 0.5,
+  "version": "url-feature-ablation-protocol-v1",
+  "weight_rule": "Each source-label cell has total weight N/4, computed on training rows only."
+}

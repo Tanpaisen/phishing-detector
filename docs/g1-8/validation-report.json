@@ -1,0 +1,28 @@
+{
+  "stage": "G1.8",
+  "date": "2026-11-21",
+  "reference_python": "3.12.14",
+  "training_tests_passed": 58,
+  "real_run_completed": true,
+  "baseline_reproduced_g16": true,
+  "scenarios": [
+    "baseline",
+    "baseline_plus_hostname",
+    "baseline_plus_path_query"
+  ],
+  "feature_counts": [
+    18,
+    23,
+    23
+  ],
+  "max_features_per_split": [
+    4,
+    4,
+    4
+  ],
+  "test_file_opened": false,
+  "external_holdout_file_opened": false,
+  "frozen_labels_changed": false,
+  "model_activated": false,
+  "windows_execution": "Pending user execution."
+}
