@@ -1,0 +1,1646 @@
+{
+  "deployment_threshold": null,
+  "external_holdout_file_opened": false,
+  "limitations": [
+    "Empirical caps are not population guarantees. Thresholds were selected on the same observed validation.",
+    "Only 472 external negative rows in the reference run; group dependence and prior adaptation remain.",
+    "Historical labels are not independent verification. MODEL_SCORE is not calibrated probability.",
+    "No minimum-recall acceptance target, unbiased confidence interval or production claim."
+  ],
+  "model_activated": false,
+  "model_selected": null,
+  "protocol": {
+    "empirical_fpr_caps": [
+      "0.001",
+      "0.005",
+      "0.01",
+      "0.02",
+      "0.05"
+    ],
+    "fixed_thresholds": [
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      0.95,
+      0.99
+    ],
+    "forbidden": [
+      "pooled FPR constraints",
+      "test or holdout access",
+      "model/feature changes",
+      "label correction",
+      "calibration claims",
+      "automatic model activation"
+    ],
+    "no_alert_rule": "Explicitly mark zero predicted positives across observed validation; never present this as a successful detector.",
+    "prediction_rule": "score >= threshold",
+    "purpose": "Exploratory operating-point study, not deployment approval or an unbiased performance estimate.",
+    "scenarios": [
+      "baseline",
+      "baseline_plus_hostname",
+      "baseline_plus_path_query"
+    ],
+    "selection_rule": "For each scenario and cap, choose the lowest candidate threshold satisfying floor(cap * negatives) false positives in EACH source separately. Candidates are 0, all distinct observed scores, and nextafter(max score, +infinity). Equal scores cannot be split.",
+    "source_names": [
+      "phiusiil_validation",
+      "external_reused_validation"
+    ],
+    "stage": "G1.9",
+    "uncertainty": "Caps constrain observed counts only. No population FPR guarantee, independent confidence interval or minimum-recall acceptance target is asserted.",
+    "version": "url-threshold-study-protocol-v1"
+  },
+  "protocol_sha256": "050a943404d74e08e3308d749951944881bf9ca905eb569e55ff996e446f3f9f",
+  "resolution": {
+    "external_reused_validation": {
+      "allowed_false_positives_by_cap": {
+        "0.001": 0,
+        "0.005": 2,
+        "0.01": 4,
+        "0.02": 9,
+        "0.05": 23
+      },
+      "negative_rows": 472,
+      "one_false_positive_fpr_step": 0.00211864406779661,
+      "positive_rows": 409
+    },
+    "phiusiil_validation": {
+      "allowed_false_positives_by_cap": {
+        "0.001": 20,
+        "0.005": 101,
+        "0.01": 202,
+        "0.02": 404,
+        "0.05": 1011
+      },
+      "negative_rows": 20228,
+      "one_false_positive_fpr_step": 4.943642475776152e-05,
+      "positive_rows": 14960
+    }
+  },
+  "results": {
+    "baseline": {
+      "candidate_count": 5102,
+      "fixed_threshold_points": [
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7866061293984109,
+              "confusion_matrix": {
+                "fn": 26,
+                "fp": 162,
+                "tn": 310,
+                "tp": 383
+              },
+              "f1": 0.8029350104821803,
+              "fpr": 0.3432203389830508,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.7027522935779816,
+              "predicted_positives": 545,
+              "recall": 0.9364303178484108,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9813288621120837,
+              "confusion_matrix": {
+                "fn": 648,
+                "fp": 9,
+                "tn": 20219,
+                "tp": 14312
+              },
+              "f1": 0.977562241726717,
+              "fpr": 0.00044492782281985367,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 0.9993715522659032,
+              "predicted_positives": 14321,
+              "recall": 0.9566844919786096,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.5
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8365493757094211,
+              "confusion_matrix": {
+                "fn": 42,
+                "fp": 102,
+                "tn": 370,
+                "tp": 367
+              },
+              "f1": 0.835990888382688,
+              "fpr": 0.21610169491525424,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.7825159914712153,
+              "predicted_positives": 469,
+              "recall": 0.8973105134474327,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9730305786063431,
+              "confusion_matrix": {
+                "fn": 944,
+                "fp": 5,
+                "tn": 20223,
+                "tp": 14016
+              },
+              "f1": 0.9672544080604534,
+              "fpr": 0.0002471821237888076,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 0.9996433920547749,
+              "predicted_positives": 14021,
+              "recall": 0.9368983957219251,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.6
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8433598183881952,
+              "confusion_matrix": {
+                "fn": 67,
+                "fp": 71,
+                "tn": 401,
+                "tp": 342
+              },
+              "f1": 0.8321167883211679,
+              "fpr": 0.1504237288135593,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.8280871670702179,
+              "predicted_positives": 413,
+              "recall": 0.8361858190709046,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9660963964988064,
+              "confusion_matrix": {
+                "fn": 1192,
+                "fp": 1,
+                "tn": 20227,
+                "tp": 13768
+              },
+              "f1": 0.9584740158028473,
+              "fpr": 4.943642475776152e-05,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 0.9999273730844651,
+              "predicted_positives": 13769,
+              "recall": 0.9203208556149732,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.7
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8149829738933031,
+              "confusion_matrix": {
+                "fn": 108,
+                "fp": 55,
+                "tn": 417,
+                "tp": 301
+              },
+              "f1": 0.7869281045751634,
+              "fpr": 0.11652542372881355,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.8455056179775281,
+              "predicted_positives": 356,
+              "recall": 0.7359413202933985,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9484199158804137,
+              "confusion_matrix": {
+                "fn": 1815,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 13145
+              },
+              "f1": 0.9354207436399217,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 13145,
+              "recall": 0.8786764705882353,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.8
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7729852440408627,
+              "confusion_matrix": {
+                "fn": 176,
+                "fp": 24,
+                "tn": 448,
+                "tp": 233
+              },
+              "f1": 0.6996996996996997,
+              "fpr": 0.05084745762711865,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9066147859922179,
+              "predicted_positives": 257,
+              "recall": 0.5696821515892421,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.8859270205751961,
+              "confusion_matrix": {
+                "fn": 4014,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 10946
+              },
+              "f1": 0.8450551995676677,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 10946,
+              "recall": 0.7316844919786096,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.9
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7105561861520999,
+              "confusion_matrix": {
+                "fn": 246,
+                "fp": 9,
+                "tn": 463,
+                "tp": 163
+              },
+              "f1": 0.5611015490533563,
+              "fpr": 0.019067796610169493,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9476744186046512,
+              "predicted_positives": 172,
+              "recall": 0.39853300733496333,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.820990110264863,
+              "confusion_matrix": {
+                "fn": 6299,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 8661
+              },
+              "f1": 0.733330510985987,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 8661,
+              "recall": 0.5789438502673797,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.95
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.6220204313280363,
+              "confusion_matrix": {
+                "fn": 332,
+                "fp": 1,
+                "tn": 471,
+                "tp": 77
+              },
+              "f1": 0.3162217659137577,
+              "fpr": 0.00211864406779661,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9871794871794872,
+              "predicted_positives": 78,
+              "recall": 0.1882640586797066,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.6718483573945663,
+              "confusion_matrix": {
+                "fn": 11547,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 3413
+              },
+              "f1": 0.37152343112175473,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 3413,
+              "recall": 0.22814171122994653,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.99
+        }
+      ],
+      "joint_cap_points": [
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 0,
+            "phiusiil_validation": 20
+          },
+          "candidate_index": 5101,
+          "empirical_fpr_cap": "0.001",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.5357548240635641,
+              "confusion_matrix": {
+                "fn": 409,
+                "fp": 0,
+                "tn": 472,
+                "tp": 0
+              },
+              "f1": 0.0,
+              "fpr": 0.0,
+              "negatives": 472,
+              "positives": 409,
+              "precision": null,
+              "predicted_positives": 0,
+              "recall": 0.0,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.5748550642264408,
+              "confusion_matrix": {
+                "fn": 14960,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 0
+              },
+              "f1": 0.0,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": null,
+              "predicted_positives": 0,
+              "recall": 0.0,
+              "rows": 35188
+            }
+          },
+          "status": "NO_POSITIVE_PREDICTIONS_ON_OBSERVED_VALIDATION",
+          "threshold": 1.0000000000000002,
+          "threshold_above_score_range": true
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 2,
+            "phiusiil_validation": 101
+          },
+          "candidate_index": 4175,
+          "empirical_fpr_cap": "0.005",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.6367763904653803,
+              "confusion_matrix": {
+                "fn": 318,
+                "fp": 2,
+                "tn": 470,
+                "tp": 91
+              },
+              "f1": 0.36254980079681276,
+              "fpr": 0.00423728813559322,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.978494623655914,
+              "predicted_positives": 93,
+              "recall": 0.22249388753056235,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.6975957712856655,
+              "confusion_matrix": {
+                "fn": 10641,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 4319
+              },
+              "f1": 0.4480522848695472,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 4319,
+              "recall": 0.2887032085561497,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9805697554878827,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 4,
+            "phiusiil_validation": 202
+          },
+          "candidate_index": 3485,
+          "empirical_fpr_cap": "0.01",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.6878547105561862,
+              "confusion_matrix": {
+                "fn": 271,
+                "fp": 4,
+                "tn": 468,
+                "tp": 138
+              },
+              "f1": 0.5009074410163339,
+              "fpr": 0.00847457627118644,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.971830985915493,
+              "predicted_positives": 142,
+              "recall": 0.3374083129584352,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.7737012617937934,
+              "confusion_matrix": {
+                "fn": 7963,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 6997
+              },
+              "f1": 0.6373366124698274,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 6997,
+              "recall": 0.4677139037433155,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9641037221813895,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 9,
+            "phiusiil_validation": 404
+          },
+          "candidate_index": 2991,
+          "empirical_fpr_cap": "0.02",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7162315550510783,
+              "confusion_matrix": {
+                "fn": 241,
+                "fp": 9,
+                "tn": 463,
+                "tp": 168
+              },
+              "f1": 0.5733788395904437,
+              "fpr": 0.019067796610169493,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9491525423728814,
+              "predicted_positives": 177,
+              "recall": 0.41075794621026895,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.8335796294191201,
+              "confusion_matrix": {
+                "fn": 5856,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 9104
+              },
+              "f1": 0.7566489361702128,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 9104,
+              "recall": 0.6085561497326203,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.945673817194017,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 23,
+            "phiusiil_validation": 1011
+          },
+          "candidate_index": 2369,
+          "empirical_fpr_cap": "0.05",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7707150964812712,
+              "confusion_matrix": {
+                "fn": 179,
+                "fp": 23,
+                "tn": 449,
+                "tp": 230
+              },
+              "f1": 0.6948640483383686,
+              "fpr": 0.048728813559322036,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9090909090909091,
+              "predicted_positives": 253,
+              "recall": 0.5623471882640587,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.8842787313856997,
+              "confusion_matrix": {
+                "fn": 4072,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 10888
+              },
+              "f1": 0.8424636335499845,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 10888,
+              "recall": 0.727807486631016,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9043913137220612,
+          "threshold_above_score_range": false
+        }
+      ]
+    },
+    "baseline_plus_hostname": {
+      "candidate_count": 5741,
+      "fixed_threshold_points": [
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7877412031782066,
+              "confusion_matrix": {
+                "fn": 20,
+                "fp": 167,
+                "tn": 305,
+                "tp": 389
+              },
+              "f1": 0.8062176165803109,
+              "fpr": 0.3538135593220339,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.6996402877697842,
+              "predicted_positives": 556,
+              "recall": 0.9511002444987775,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9912470160281914,
+              "confusion_matrix": {
+                "fn": 306,
+                "fp": 2,
+                "tn": 20226,
+                "tp": 14654
+              },
+              "f1": 0.9896002160994057,
+              "fpr": 9.887284951552304e-05,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 0.9998635371179039,
+              "predicted_positives": 14656,
+              "recall": 0.9795454545454545,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.5
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8399545970488081,
+              "confusion_matrix": {
+                "fn": 31,
+                "fp": 110,
+                "tn": 362,
+                "tp": 378
+              },
+              "f1": 0.842809364548495,
+              "fpr": 0.2330508474576271,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.7745901639344263,
+              "predicted_positives": 488,
+              "recall": 0.9242053789731052,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9850801409571445,
+              "confusion_matrix": {
+                "fn": 524,
+                "fp": 1,
+                "tn": 20227,
+                "tp": 14436
+              },
+              "f1": 0.9821410347994693,
+              "fpr": 4.943642475776152e-05,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 0.9999307335318972,
+              "predicted_positives": 14437,
+              "recall": 0.9649732620320856,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.6
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8490351872871736,
+              "confusion_matrix": {
+                "fn": 62,
+                "fp": 71,
+                "tn": 401,
+                "tp": 347
+              },
+              "f1": 0.8391777509068924,
+              "fpr": 0.1504237288135593,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.8301435406698564,
+              "predicted_positives": 418,
+              "recall": 0.8484107579462102,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9775207457087643,
+              "confusion_matrix": {
+                "fn": 790,
+                "fp": 1,
+                "tn": 20227,
+                "tp": 14170
+              },
+              "f1": 0.9728467955099379,
+              "fpr": 4.943642475776152e-05,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 0.9999294333497989,
+              "predicted_positives": 14171,
+              "recall": 0.9471925133689839,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.7
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8331441543700341,
+              "confusion_matrix": {
+                "fn": 93,
+                "fp": 54,
+                "tn": 418,
+                "tp": 316
+              },
+              "f1": 0.8112965340179717,
+              "fpr": 0.11440677966101695,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.8540540540540541,
+              "predicted_positives": 370,
+              "recall": 0.7726161369193154,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9629419120154599,
+              "confusion_matrix": {
+                "fn": 1303,
+                "fp": 1,
+                "tn": 20227,
+                "tp": 13657
+              },
+              "f1": 0.9544342721364176,
+              "fpr": 4.943642475776152e-05,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 0.9999267828378972,
+              "predicted_positives": 13658,
+              "recall": 0.9129010695187165,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.8
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7661748013620885,
+              "confusion_matrix": {
+                "fn": 178,
+                "fp": 28,
+                "tn": 444,
+                "tp": 231
+              },
+              "f1": 0.6916167664670658,
+              "fpr": 0.059322033898305086,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.8918918918918919,
+              "predicted_positives": 259,
+              "recall": 0.5647921760391198,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.8950494486756849,
+              "confusion_matrix": {
+                "fn": 3693,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 11267
+              },
+              "f1": 0.8591909101307813,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 11267,
+              "recall": 0.7531417112299466,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.9
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7128263337116912,
+              "confusion_matrix": {
+                "fn": 239,
+                "fp": 14,
+                "tn": 458,
+                "tp": 170
+              },
+              "f1": 0.5733558178752108,
+              "fpr": 0.029661016949152543,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9239130434782609,
+              "predicted_positives": 184,
+              "recall": 0.4156479217603912,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.8077469591906332,
+              "confusion_matrix": {
+                "fn": 6765,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 8195
+              },
+              "f1": 0.7078384798099763,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 8195,
+              "recall": 0.5477941176470589,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.95
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.6276958002270148,
+              "confusion_matrix": {
+                "fn": 327,
+                "fp": 1,
+                "tn": 471,
+                "tp": 82
+              },
+              "f1": 0.3333333333333333,
+              "fpr": 0.00211864406779661,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9879518072289156,
+              "predicted_positives": 83,
+              "recall": 0.20048899755501223,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.6953791065135841,
+              "confusion_matrix": {
+                "fn": 10719,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 4241
+              },
+              "f1": 0.44174782563408155,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 4241,
+              "recall": 0.28348930481283424,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.99
+        }
+      ],
+      "joint_cap_points": [
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 0,
+            "phiusiil_validation": 20
+          },
+          "candidate_index": 5167,
+          "empirical_fpr_cap": "0.001",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.6208853575482406,
+              "confusion_matrix": {
+                "fn": 334,
+                "fp": 0,
+                "tn": 472,
+                "tp": 75
+              },
+              "f1": 0.30991735537190085,
+              "fpr": 0.0,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 1.0,
+              "predicted_positives": 75,
+              "recall": 0.18337408312958436,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.6904058201659656,
+              "confusion_matrix": {
+                "fn": 10894,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 4066
+              },
+              "f1": 0.427415116156838,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 4066,
+              "recall": 0.2717914438502674,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9904854382163348,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 2,
+            "phiusiil_validation": 101
+          },
+          "candidate_index": 4920,
+          "empirical_fpr_cap": "0.005",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.637911464245176,
+              "confusion_matrix": {
+                "fn": 317,
+                "fp": 2,
+                "tn": 470,
+                "tp": 92
+              },
+              "f1": 0.3658051689860835,
+              "fpr": 0.00423728813559322,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9787234042553191,
+              "predicted_positives": 94,
+              "recall": 0.22493887530562348,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.7063487552574741,
+              "confusion_matrix": {
+                "fn": 10333,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 4627
+              },
+              "f1": 0.47245622096288353,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 4627,
+              "recall": 0.30929144385026736,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9863860511388962,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 4,
+            "phiusiil_validation": 202
+          },
+          "candidate_index": 4176,
+          "empirical_fpr_cap": "0.01",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.6901248581157775,
+              "confusion_matrix": {
+                "fn": 269,
+                "fp": 4,
+                "tn": 468,
+                "tp": 140
+              },
+              "f1": 0.5063291139240507,
+              "fpr": 0.00847457627118644,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9722222222222222,
+              "predicted_positives": 144,
+              "recall": 0.3422982885085575,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.759719222462203,
+              "confusion_matrix": {
+                "fn": 8455,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 6505
+              },
+              "f1": 0.6061029583042161,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 6505,
+              "recall": 0.43482620320855614,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9702327484349247,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 9,
+            "phiusiil_validation": 404
+          },
+          "candidate_index": 3668,
+          "empirical_fpr_cap": "0.02",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7128263337116912,
+              "confusion_matrix": {
+                "fn": 244,
+                "fp": 9,
+                "tn": 463,
+                "tp": 165
+              },
+              "f1": 0.5660377358490566,
+              "fpr": 0.019067796610169493,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9482758620689655,
+              "predicted_positives": 174,
+              "recall": 0.4034229828850856,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.7972888484710697,
+              "confusion_matrix": {
+                "fn": 7133,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 7827
+              },
+              "f1": 0.6869706411550446,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 7827,
+              "recall": 0.5231951871657754,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9536304530653454,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 23,
+            "phiusiil_validation": 1011
+          },
+          "candidate_index": 2849,
+          "empirical_fpr_cap": "0.05",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.753688989784336,
+              "confusion_matrix": {
+                "fn": 194,
+                "fp": 23,
+                "tn": 449,
+                "tp": 215
+              },
+              "f1": 0.6646058732612056,
+              "fpr": 0.048728813559322036,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9033613445378151,
+              "predicted_positives": 238,
+              "recall": 0.5256723716381418,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.8805842900988974,
+              "confusion_matrix": {
+                "fn": 4202,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 10758
+              },
+              "f1": 0.8366124893071001,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 10758,
+              "recall": 0.7191176470588235,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9152719154435672,
+          "threshold_above_score_range": false
+        }
+      ]
+    },
+    "baseline_plus_path_query": {
+      "candidate_count": 5230,
+      "fixed_threshold_points": [
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7775255391600454,
+              "confusion_matrix": {
+                "fn": 22,
+                "fp": 174,
+                "tn": 298,
+                "tp": 387
+              },
+              "f1": 0.797938144329897,
+              "fpr": 0.3686440677966102,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.6898395721925134,
+              "predicted_positives": 561,
+              "recall": 0.9462102689486552,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9816414686825053,
+              "confusion_matrix": {
+                "fn": 636,
+                "fp": 10,
+                "tn": 20218,
+                "tp": 14324
+              },
+              "f1": 0.9779477026012152,
+              "fpr": 0.0004943642475776152,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 0.9993023580298591,
+              "predicted_positives": 14334,
+              "recall": 0.9574866310160428,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.5
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8217934165720772,
+              "confusion_matrix": {
+                "fn": 32,
+                "fp": 125,
+                "tn": 347,
+                "tp": 377
+              },
+              "f1": 0.827661909989023,
+              "fpr": 0.2648305084745763,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.750996015936255,
+              "predicted_positives": 502,
+              "recall": 0.921760391198044,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.975531431169717,
+              "confusion_matrix": {
+                "fn": 858,
+                "fp": 3,
+                "tn": 20225,
+                "tp": 14102
+              },
+              "f1": 0.9703767417856528,
+              "fpr": 0.00014830927427328456,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 0.9997873094647288,
+              "predicted_positives": 14105,
+              "recall": 0.9426470588235294,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.6
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8524404086265607,
+              "confusion_matrix": {
+                "fn": 61,
+                "fp": 69,
+                "tn": 403,
+                "tp": 348
+              },
+              "f1": 0.8426150121065376,
+              "fpr": 0.1461864406779661,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.8345323741007195,
+              "predicted_positives": 417,
+              "recall": 0.8508557457212714,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9658406274866431,
+              "confusion_matrix": {
+                "fn": 1202,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 13758
+              },
+              "f1": 0.9581447175987186,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 13758,
+              "recall": 0.9196524064171123,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.7
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8342792281498297,
+              "confusion_matrix": {
+                "fn": 99,
+                "fp": 47,
+                "tn": 425,
+                "tp": 310
+              },
+              "f1": 0.8093994778067886,
+              "fpr": 0.09957627118644068,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.8683473389355743,
+              "predicted_positives": 357,
+              "recall": 0.7579462102689487,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.9519154257133113,
+              "confusion_matrix": {
+                "fn": 1692,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 13268
+              },
+              "f1": 0.9400595153748051,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 13268,
+              "recall": 0.8868983957219251,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.8
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8002270147559591,
+              "confusion_matrix": {
+                "fn": 157,
+                "fp": 19,
+                "tn": 453,
+                "tp": 252
+              },
+              "f1": 0.7411764705882353,
+              "fpr": 0.04025423728813559,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9298892988929889,
+              "predicted_positives": 271,
+              "recall": 0.6161369193154034,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.8905308627941344,
+              "confusion_matrix": {
+                "fn": 3852,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 11108
+              },
+              "f1": 0.8522326223722572,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 11108,
+              "recall": 0.7425133689839573,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.9
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7116912599318955,
+              "confusion_matrix": {
+                "fn": 250,
+                "fp": 4,
+                "tn": 468,
+                "tp": 159
+              },
+              "f1": 0.5559440559440559,
+              "fpr": 0.00847457627118644,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9754601226993865,
+              "predicted_positives": 163,
+              "recall": 0.38875305623471884,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.7587814027509379,
+              "confusion_matrix": {
+                "fn": 8488,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 6472
+              },
+              "f1": 0.6039567002612916,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 6472,
+              "recall": 0.43262032085561497,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.95
+        },
+        {
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.6106696935300795,
+              "confusion_matrix": {
+                "fn": 342,
+                "fp": 1,
+                "tn": 471,
+                "tp": 67
+              },
+              "f1": 0.2809224318658281,
+              "fpr": 0.00211864406779661,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9852941176470589,
+              "predicted_positives": 68,
+              "recall": 0.16381418092909536,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.6444242355348414,
+              "confusion_matrix": {
+                "fn": 12512,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 2448
+              },
+              "f1": 0.28125,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 2448,
+              "recall": 0.16363636363636364,
+              "rows": 35188
+            }
+          },
+          "threshold": 0.99
+        }
+      ],
+      "joint_cap_points": [
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 0,
+            "phiusiil_validation": 20
+          },
+          "candidate_index": 5229,
+          "empirical_fpr_cap": "0.001",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.5357548240635641,
+              "confusion_matrix": {
+                "fn": 409,
+                "fp": 0,
+                "tn": 472,
+                "tp": 0
+              },
+              "f1": 0.0,
+              "fpr": 0.0,
+              "negatives": 472,
+              "positives": 409,
+              "precision": null,
+              "predicted_positives": 0,
+              "recall": 0.0,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.5748550642264408,
+              "confusion_matrix": {
+                "fn": 14960,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 0
+              },
+              "f1": 0.0,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": null,
+              "predicted_positives": 0,
+              "recall": 0.0,
+              "rows": 35188
+            }
+          },
+          "status": "NO_POSITIVE_PREDICTIONS_ON_OBSERVED_VALIDATION",
+          "threshold": 1.0000000000000002,
+          "threshold_above_score_range": true
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 2,
+            "phiusiil_validation": 101
+          },
+          "candidate_index": 3927,
+          "empirical_fpr_cap": "0.005",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.6708286038592508,
+              "confusion_matrix": {
+                "fn": 288,
+                "fp": 2,
+                "tn": 470,
+                "tp": 121
+              },
+              "f1": 0.4548872180451128,
+              "fpr": 0.00423728813559322,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.983739837398374,
+              "predicted_positives": 123,
+              "recall": 0.29584352078239606,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.7249630555871319,
+              "confusion_matrix": {
+                "fn": 9678,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 5282
+              },
+              "f1": 0.5218851892105523,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 5282,
+              "recall": 0.35307486631016044,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9688674596710619,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 4,
+            "phiusiil_validation": 202
+          },
+          "candidate_index": 3284,
+          "empirical_fpr_cap": "0.01",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7230419977298524,
+              "confusion_matrix": {
+                "fn": 240,
+                "fp": 4,
+                "tn": 468,
+                "tp": 169
+              },
+              "f1": 0.5807560137457045,
+              "fpr": 0.00847457627118644,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.976878612716763,
+              "predicted_positives": 173,
+              "recall": 0.4132029339853301,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.7698363078322156,
+              "confusion_matrix": {
+                "fn": 8099,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 6861
+              },
+              "f1": 0.6288437743458136,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 6861,
+              "recall": 0.4586229946524064,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9482071726830025,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 9,
+            "phiusiil_validation": 404
+          },
+          "candidate_index": 2648,
+          "empirical_fpr_cap": "0.02",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.7763904653802497,
+              "confusion_matrix": {
+                "fn": 188,
+                "fp": 9,
+                "tn": 463,
+                "tp": 221
+              },
+              "f1": 0.6917057902973396,
+              "fpr": 0.019067796610169493,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9608695652173913,
+              "predicted_positives": 230,
+              "recall": 0.5403422982885085,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.8567977719677162,
+              "confusion_matrix": {
+                "fn": 5039,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 9921
+              },
+              "f1": 0.7974759856918934,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 9921,
+              "recall": 0.663168449197861,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.9216937061955651,
+          "threshold_above_score_range": false
+        },
+        {
+          "allowed_false_positives": {
+            "external_reused_validation": 23,
+            "phiusiil_validation": 1011
+          },
+          "candidate_index": 2135,
+          "empirical_fpr_cap": "0.05",
+          "sources": {
+            "external_reused_validation": {
+              "accuracy": 0.8036322360953462,
+              "confusion_matrix": {
+                "fn": 150,
+                "fp": 23,
+                "tn": 449,
+                "tp": 259
+              },
+              "f1": 0.7496382054992764,
+              "fpr": 0.048728813559322036,
+              "negatives": 472,
+              "positives": 409,
+              "precision": 0.9184397163120568,
+              "predicted_positives": 282,
+              "recall": 0.6332518337408313,
+              "rows": 881
+            },
+            "phiusiil_validation": {
+              "accuracy": 0.903404569739684,
+              "confusion_matrix": {
+                "fn": 3399,
+                "fp": 0,
+                "tn": 20228,
+                "tp": 11561
+              },
+              "f1": 0.8718374118622978,
+              "fpr": 0.0,
+              "negatives": 20228,
+              "positives": 14960,
+              "precision": 1.0,
+              "predicted_positives": 11561,
+              "recall": 0.7727941176470589,
+              "rows": 35188
+            }
+          },
+          "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+          "threshold": 0.8871798704338011,
+          "threshold_above_score_range": false
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "score_manifest_sha256": "13dd91467dbc48576abb70dcad82fd29700f62a5103a471bb85fe00805945977",
+  "selection_and_measurement_use_same_validation": true,
+  "stage": "G1.9",
+  "status": "EXPLORATORY_THRESHOLDS_NOT_FOR_DEPLOYMENT",
+  "test_file_opened": false,
+  "version": "url-threshold-study-v1"
+}

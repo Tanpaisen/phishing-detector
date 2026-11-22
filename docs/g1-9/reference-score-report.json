@@ -1,0 +1,149 @@
+{
+  "calibration_version": null,
+  "contains_raw_urls": false,
+  "external_holdout_file_opened": false,
+  "reproduced_g18": true,
+  "reproduction_at_0_5": {
+    "baseline": {
+      "external_reused_validation": {
+        "accuracy": 0.7866061293984109,
+        "average_precision": 0.896492962148144,
+        "confusion_matrix": {
+          "fn": 26,
+          "fp": 162,
+          "tn": 310,
+          "tp": 383
+        },
+        "f1": 0.8029350104821803,
+        "fpr": 0.3432203389830508,
+        "precision": 0.7027522935779816,
+        "recall": 0.9364303178484108,
+        "roc_auc": 0.9108460072106419,
+        "threshold": 0.5
+      },
+      "phiusiil_validation": {
+        "accuracy": 0.9813288621120837,
+        "average_precision": 0.9979257330646047,
+        "confusion_matrix": {
+          "fn": 648,
+          "fp": 9,
+          "tn": 20219,
+          "tp": 14312
+        },
+        "f1": 0.977562241726717,
+        "fpr": 0.00044492782281985367,
+        "precision": 0.9993715522659032,
+        "recall": 0.9566844919786096,
+        "roc_auc": 0.9975462184307453,
+        "threshold": 0.5
+      }
+    },
+    "baseline_plus_hostname": {
+      "external_reused_validation": {
+        "accuracy": 0.7877412031782066,
+        "average_precision": 0.9018658878420092,
+        "confusion_matrix": {
+          "fn": 20,
+          "fp": 167,
+          "tn": 305,
+          "tp": 389
+        },
+        "f1": 0.8062176165803109,
+        "fpr": 0.3538135593220339,
+        "precision": 0.6996402877697842,
+        "recall": 0.9511002444987775,
+        "roc_auc": 0.9189217189507273,
+        "threshold": 0.5
+      },
+      "phiusiil_validation": {
+        "accuracy": 0.9912470160281914,
+        "average_precision": 0.9982311738136929,
+        "confusion_matrix": {
+          "fn": 306,
+          "fp": 2,
+          "tn": 20226,
+          "tp": 14654
+        },
+        "f1": 0.9896002160994057,
+        "fpr": 9.887284951552304e-05,
+        "precision": 0.9998635371179039,
+        "recall": 0.9795454545454545,
+        "roc_auc": 0.9978054771196594,
+        "threshold": 0.5
+      }
+    },
+    "baseline_plus_path_query": {
+      "external_reused_validation": {
+        "accuracy": 0.7775255391600454,
+        "average_precision": 0.9106617065217887,
+        "confusion_matrix": {
+          "fn": 22,
+          "fp": 174,
+          "tn": 298,
+          "tp": 387
+        },
+        "f1": 0.797938144329897,
+        "fpr": 0.3686440677966102,
+        "precision": 0.6898395721925134,
+        "recall": 0.9462102689486552,
+        "roc_auc": 0.9204135758982221,
+        "threshold": 0.5
+      },
+      "phiusiil_validation": {
+        "accuracy": 0.9816414686825053,
+        "average_precision": 0.9978832718079649,
+        "confusion_matrix": {
+          "fn": 636,
+          "fp": 10,
+          "tn": 20218,
+          "tp": 14324
+        },
+        "f1": 0.9779477026012152,
+        "fpr": 0.0004943642475776152,
+        "precision": 0.9993023580298591,
+        "recall": 0.9574866310160428,
+        "roc_auc": 0.9974313117889217,
+        "threshold": 0.5
+      }
+    }
+  },
+  "runtime": {
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "scenarios": [
+    "baseline",
+    "baseline_plus_hostname",
+    "baseline_plus_path_query"
+  ],
+  "score_type": "MODEL_SCORE",
+  "sources": {
+    "external_reused_validation": {
+      "groups": 627,
+      "labels": {
+        "0": 472,
+        "1": 409
+      },
+      "rows": 881
+    },
+    "phiusiil_validation": {
+      "groups": 29652,
+      "labels": {
+        "0": 20228,
+        "1": 14960
+      },
+      "rows": 35188
+    }
+  },
+  "status": "REPRODUCED_VALIDATION_SCORES_ONLY",
+  "test_file_opened": false,
+  "version": "url-validation-score-packet-v1"
+}

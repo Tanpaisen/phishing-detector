@@ -1,0 +1,14 @@
+{
+  "version": "url-threshold-study-protocol-v1",
+  "stage": "G1.9",
+  "scenarios": ["baseline", "baseline_plus_hostname", "baseline_plus_path_query"],
+  "source_names": ["phiusiil_validation", "external_reused_validation"],
+  "empirical_fpr_caps": ["0.001", "0.005", "0.01", "0.02", "0.05"],
+  "fixed_thresholds": [0.5, 0.6, 0.7, 0.8, 0.9, 0.95, 0.99],
+  "prediction_rule": "score >= threshold",
+  "selection_rule": "For each scenario and cap, choose the lowest candidate threshold satisfying floor(cap * negatives) false positives in EACH source separately. Candidates are 0, all distinct observed scores, and nextafter(max score, +infinity). Equal scores cannot be split.",
+  "purpose": "Exploratory operating-point study, not deployment approval or an unbiased performance estimate.",
+  "no_alert_rule": "Explicitly mark zero predicted positives across observed validation; never present this as a successful detector.",
+  "forbidden": ["pooled FPR constraints", "test or holdout access", "model/feature changes", "label correction", "calibration claims", "automatic model activation"],
+  "uncertainty": "Caps constrain observed counts only. No population FPR guarantee, independent confidence interval or minimum-recall acceptance target is asserted."
+}

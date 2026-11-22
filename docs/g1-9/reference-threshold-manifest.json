@@ -1,0 +1,10 @@
+{
+  "code_sha256": "0ece09a798b8a5ca93c3da9fffc57ce544a01fe17c73df33eeb6ba6d09bc1ec1",
+  "files": {
+    "protocol.json": "296fd3a808c94388bb060b95bb8a620bdb1f20dcb58b02622667e5a3a559a346",
+    "report.json": "d36600466becc1dc5a246c838ee558c65a0cabfd5016bbf0e9ef8f2edecf6310"
+  },
+  "protocol_sha256": "050a943404d74e08e3308d749951944881bf9ca905eb569e55ff996e446f3f9f",
+  "score_manifest_sha256": "13dd91467dbc48576abb70dcad82fd29700f62a5103a471bb85fe00805945977",
+  "version": "url-threshold-study-v1"
+}

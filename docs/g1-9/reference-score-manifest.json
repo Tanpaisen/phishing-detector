@@ -1,0 +1,9 @@
+{
+  "code_sha256": "5f1ffef2071164cdf27d4c89ea668b03ff1b9e41f034e9cda1d5632617c9a53a",
+  "files": {
+    "report.json": "17be92e1ed750fe7fe0707eb254ee65931401ebdb6a5201c706861ca6ce53cc5",
+    "validation-scores.jsonl": "833946f53a55a2af64938166026eb3dbf8543591f5f6952e15608f1b91765121"
+  },
+  "g18_manifest_sha256": "607313a9190a1942781f6f3da17817be6209841560eb4c56e50b31f8abdf5206",
+  "version": "url-validation-score-packet-v1"
+}

@@ -1,0 +1,13 @@
+{
+  "stage": "G1.9",
+  "date": "2026-11-21",
+  "python": "3.12.14",
+  "training_tests_passed": 71,
+  "new_tests": 13,
+  "reference_score_collection": "passed; all six G1.8 results reproduced",
+  "reference_threshold_analysis": "passed",
+  "windows_user_run": "pending",
+  "final_test_opened": false,
+  "external_holdout_opened": false,
+  "deployment_threshold": null
+}
