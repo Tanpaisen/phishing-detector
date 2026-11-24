@@ -1,0 +1,118 @@
+{
+  "stage": "G1.10",
+  "version": "url-performance-v1",
+  "status": "PERFORMANCE_MEASUREMENTS_ONLY",
+  "runs": [
+    {
+      "version": "url-performance-v1",
+      "scope": "features",
+      "rows": 10000,
+      "valid": 10000,
+      "invalid": 0,
+      "status": "MEASURED",
+      "source": "synthetic_cycle_8_not_accuracy_data",
+      "train_sha256": null,
+      "first_call_after_import_ms": 41.13057099999651,
+      "warmup_synthetic_calls": 100,
+      "timing": {
+        "wall_seconds": 6.8405871609999735,
+        "process_cpu_seconds": 6.8500000000000005,
+        "rss_initial_bytes": 30957568,
+        "rss_sampled_peak_bytes": 31649792,
+        "rss_increase_bytes": 692224,
+        "rss_sampling_interval_ms": 20,
+        "scope": "current process only; sampled RSS is not guaranteed absolute peak"
+      },
+      "processed_rows_per_second": 1461.8628144982479,
+      "successful_rows_per_second": 1461.8628144982479,
+      "first_1000_successful_call_latency": {
+        "n": 1000,
+        "p50_ms": 0.6515200000194454,
+        "p95_ms": 0.9605639999676896,
+        "p99_ms": 1.2292779999825143,
+        "max_ms": 3.105749000042124,
+        "quantile_method": "nearest_rank"
+      },
+      "machine": {
+        "python": "3.12.14",
+        "os": "Linux",
+        "machine": "x86_64",
+        "logical_cpus": 9,
+        "physical_cpus": 9,
+        "total_ram_bytes": 10451427328,
+        "psutil": "7.2.2"
+      },
+      "code_sha256": "a3c5d6ab5eecaf70cbf3fa7c533b58c246991c68861efacd9b99c400e7f368b7",
+      "inspector_sha256": "ffa07561baa99f468ecf02815d87c0343b1c0b9b4b60b1c1f1f4b44a39c5ecb5",
+      "extensions_sha256": "cb770c39e424261ca8e42584756f3bb670d5c27f86e1959450a2f19348e224b4",
+      "test_or_holdout_opened": false,
+      "model_inference_measured": false,
+      "training_measured": false,
+      "http_measured": false,
+      "database_measured": false,
+      "limitations": [
+        "This streams and discards features; frozen training loaders still accumulate arrays.",
+        "No proof of Big Data readiness or production capacity.",
+        "RSS covers this process only; imports precede measurement; latency is an ordered prefix.",
+        "Synthetic repetition has low diversity; training prefix is not an accuracy evaluation."
+      ]
+    },
+    {
+      "version": "url-performance-v1",
+      "scope": "features",
+      "rows": 100000,
+      "valid": 100000,
+      "invalid": 0,
+      "status": "MEASURED",
+      "source": "synthetic_cycle_8_not_accuracy_data",
+      "train_sha256": null,
+      "first_call_after_import_ms": 31.941454000047997,
+      "warmup_synthetic_calls": 100,
+      "timing": {
+        "wall_seconds": 68.45237612200003,
+        "process_cpu_seconds": 68.65,
+        "rss_initial_bytes": 30961664,
+        "rss_sampled_peak_bytes": 32681984,
+        "rss_increase_bytes": 1720320,
+        "rss_sampling_interval_ms": 20,
+        "scope": "current process only; sampled RSS is not guaranteed absolute peak"
+      },
+      "processed_rows_per_second": 1460.8696683044845,
+      "successful_rows_per_second": 1460.8696683044845,
+      "first_1000_successful_call_latency": {
+        "n": 1000,
+        "p50_ms": 0.5719499999941036,
+        "p95_ms": 0.7706989999860525,
+        "p99_ms": 1.014414999986002,
+        "max_ms": 2.4062680000156433,
+        "quantile_method": "nearest_rank"
+      },
+      "machine": {
+        "python": "3.12.14",
+        "os": "Linux",
+        "machine": "x86_64",
+        "logical_cpus": 9,
+        "physical_cpus": 9,
+        "total_ram_bytes": 10451427328,
+        "psutil": "7.2.2"
+      },
+      "code_sha256": "a3c5d6ab5eecaf70cbf3fa7c533b58c246991c68861efacd9b99c400e7f368b7",
+      "inspector_sha256": "ffa07561baa99f468ecf02815d87c0343b1c0b9b4b60b1c1f1f4b44a39c5ecb5",
+      "extensions_sha256": "cb770c39e424261ca8e42584756f3bb670d5c27f86e1959450a2f19348e224b4",
+      "test_or_holdout_opened": false,
+      "model_inference_measured": false,
+      "training_measured": false,
+      "http_measured": false,
+      "database_measured": false,
+      "limitations": [
+        "This streams and discards features; frozen training loaders still accumulate arrays.",
+        "No proof of Big Data readiness or production capacity.",
+        "RSS covers this process only; imports precede measurement; latency is an ordered prefix.",
+        "Synthetic repetition has low diversity; training prefix is not an accuracy evaluation."
+      ]
+    }
+  ],
+  "production_ready": false,
+  "database_measured": false,
+  "model_inference_measured": false
+}

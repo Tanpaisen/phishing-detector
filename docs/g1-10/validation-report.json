@@ -1,0 +1,18 @@
+{
+  "stage": "G1.10",
+  "date": "2026-11-24",
+  "new_tests_passed": 11,
+  "training_regression_tests_passed": 71,
+  "node_gateway_tests_passed": 1,
+  "synthetic_rows_measured": [
+    10000,
+    100000
+  ],
+  "real_train_prefix_rows_measured": 10000,
+  "million_rows_measured": false,
+  "api_reference": "unchanged inspection router + real FastAPI; no DB; no model",
+  "api_successes": 60,
+  "api_rate_limited": 60,
+  "windows_run": "pending",
+  "production_ready": false
+}

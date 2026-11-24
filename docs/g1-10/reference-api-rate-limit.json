@@ -1,0 +1,104 @@
+{
+  "stage": "G1.10",
+  "version": "url-performance-v1",
+  "scope": "loopback_node_to_ai_url_inspection",
+  "status": "MEASURED_WITH_NON_SUCCESS_OUTCOMES",
+  "config": {
+    "requests": 80,
+    "concurrency": 8,
+    "socket_timeout_seconds": 10,
+    "arrival_model": "closed_loop_no_think_time",
+    "http_connection": "reused per worker when possible",
+    "warmup_requests": 0,
+    "redirects_followed": false
+  },
+  "results": {
+    "completed_attempts": 80,
+    "outcomes": {
+      "success": 20,
+      "rate_limited": 60
+    },
+    "http_statuses": {
+      "200": 20,
+      "429": 60
+    },
+    "successful_inspections": 20,
+    "success_ratio": 0.25,
+    "attempts_per_second": 1261.568046764701,
+    "successful_inspections_per_second": 315.39201169117524,
+    "all_outcomes_latency": {
+      "n": 80,
+      "p50_ms": 2.4805790000073102,
+      "p95_ms": 19.184934999998404,
+      "p99_ms": 21.28038499995455,
+      "max_ms": 21.28038499995455,
+      "quantile_method": "nearest_rank"
+    },
+    "success_only_latency": {
+      "n": 20,
+      "p50_ms": 17.551027999957114,
+      "p95_ms": 21.10909799989713,
+      "p99_ms": 21.28038499995455,
+      "max_ms": 21.28038499995455,
+      "quantile_method": "nearest_rank"
+    },
+    "latency_by_outcome": {
+      "success": {
+        "n": 20,
+        "p50_ms": 17.551027999957114,
+        "p95_ms": 21.10909799989713,
+        "p99_ms": 21.28038499995455,
+        "max_ms": 21.28038499995455,
+        "quantile_method": "nearest_rank"
+      },
+      "rate_limited": {
+        "n": 60,
+        "p50_ms": 2.323452999917208,
+        "p95_ms": 4.323881000004803,
+        "p99_ms": 5.229282999948737,
+        "max_ms": 5.229282999948737,
+        "quantile_method": "nearest_rank"
+      }
+    }
+  },
+  "client_resources": {
+    "wall_seconds": 0.06341314700000567,
+    "process_cpu_seconds": 0.020000000000000018,
+    "rss_initial_bytes": 16498688,
+    "rss_sampled_peak_bytes": 16736256,
+    "rss_increase_bytes": 237568,
+    "rss_sampling_interval_ms": 20,
+    "scope": "current process only; sampled RSS is not guaranteed absolute peak"
+  },
+  "client_machine": {
+    "python": "3.12.14",
+    "os": "Linux",
+    "machine": "x86_64",
+    "logical_cpus": 9,
+    "physical_cpus": 9,
+    "total_ram_bytes": 10451427328,
+    "psutil": "7.2.2"
+  },
+  "code_sha256": "156ea161c8e58e4d06bae80d795865f1f2319dc40117a4f4ff79bfa5f4990801",
+  "production_ready": false,
+  "model_inference_measured": false,
+  "database_measured": false,
+  "server_cpu_ram_measured": false,
+  "limitations": [
+    "Client RSS is not Node/FastAPI memory. Server hardware and startup flags must be recorded separately.",
+    "429, timeouts, bad contracts and failures are excluded from successful throughput.",
+    "Existing 60 requests/minute/IP guard is left enabled; no bypass or retries.",
+    "No fixed arrival rate: this closed-loop probe is not a capacity or SLA guarantee.",
+    "Synthetic short URLs only; no URL fetch, accuracy evaluation, model inference or DB queries.",
+    "Percentiles with few successful samples are unstable. Runs can share the same rate-limit window."
+  ],
+  "reference_server_setup": {
+    "node": "24.22.3",
+    "fastapi_workers": 1,
+    "reload": false,
+    "node_entry": "isolated Express app using unchanged production inspection router",
+    "postgres_connected": false,
+    "run_order": "rate-limit-c8",
+    "same_rate_limit_window": true
+  }
+}

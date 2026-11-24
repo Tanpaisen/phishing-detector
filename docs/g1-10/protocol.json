@@ -1,0 +1,22 @@
+{
+  "stage": "G1.10",
+  "version": "url-performance-v1",
+  "local_default_rows": [10000, 100000],
+  "optional_synthetic_rows": [1000000],
+  "local_modes": ["inspection", "features"],
+  "fresh_process_per_row_count": true,
+  "synthetic_corpus_size": 8,
+  "local_latency_sample": "first 1000 successful calls after 100 synthetic warmups",
+  "local_quantiles": "nearest_rank",
+  "rss_sample_interval_ms": 20,
+  "api_requests_and_concurrency": [[20, 1], [20, 4], [80, 8]],
+  "api_arrivals": "closed loop; no retries; existing rate limit unchanged",
+  "api_latency_success_and_failures_separate": true,
+  "local_train_file_only": true,
+  "final_test_or_holdout_allowed": false,
+  "training_capacity_claim": false,
+  "model_inference_measured": false,
+  "database_measured": false,
+  "elasticsearch_added": false,
+  "production_acceptance_threshold": null
+}
