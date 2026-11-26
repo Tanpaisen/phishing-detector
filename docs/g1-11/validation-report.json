@@ -1,0 +1,16 @@
+{
+  "stage": "G1.11",
+  "date": "2026-11-24",
+  "training_tests_passed": 82,
+  "new_tests": 11,
+  "reference_run": "completed",
+  "rf_reproduced_g18": true,
+  "per_source_cap_checks_passed": 20,
+  "lightgbm_version": "4.6.0",
+  "windows_wheel_download_verified": true,
+  "windows_execution": "pending user run",
+  "primary_minimum_source_recall_delta_at_cap_0_01": -0.016812559653779313,
+  "model_exported": false,
+  "model_activated": false,
+  "final_test_or_holdout_used_for_evaluation": false
+}

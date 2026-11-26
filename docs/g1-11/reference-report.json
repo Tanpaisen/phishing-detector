@@ -1,0 +1,2009 @@
+{
+  "automatic_winner_selected": false,
+  "calibration_version": null,
+  "comparison": {
+    "0.01": {
+      "cap": "0.01",
+      "independent_test_evidence": false,
+      "lightgbm_threshold": 0.9796914286875755,
+      "minimum_source_recall_delta": -0.016812559653779313,
+      "rf_threshold": 0.9482071726830025,
+      "sources": {
+        "external_reused_validation": {
+          "corrected_fn": 30,
+          "corrected_fp": 2,
+          "fpr_delta": 0.0,
+          "introduced_fn": 36,
+          "introduced_fp": 2,
+          "recall_delta": -0.01466992665036676
+        },
+        "phiusiil_validation": {
+          "corrected_fn": 647,
+          "corrected_fp": 0,
+          "fpr_delta": 0.0,
+          "introduced_fn": 1578,
+          "introduced_fp": 0,
+          "recall_delta": -0.062232620320855636
+        }
+      }
+    },
+    "0.05": {
+      "cap": "0.05",
+      "independent_test_evidence": false,
+      "lightgbm_threshold": 0.9069933304202975,
+      "minimum_source_recall_delta": 0.019559902200488977,
+      "rf_threshold": 0.8871798704338011,
+      "sources": {
+        "external_reused_validation": {
+          "corrected_fn": 29,
+          "corrected_fp": 10,
+          "fpr_delta": 0.0,
+          "introduced_fn": 21,
+          "introduced_fp": 10,
+          "recall_delta": 0.019559902200488977
+        },
+        "phiusiil_validation": {
+          "corrected_fn": 924,
+          "corrected_fp": 0,
+          "fpr_delta": 4.943642475776152e-05,
+          "introduced_fn": 587,
+          "introduced_fp": 1,
+          "recall_delta": 0.02252673796791438
+        }
+      }
+    }
+  },
+  "deployment_threshold": null,
+  "external_holdout_file_opened": false,
+  "feature_schema": {
+    "base_version": "url-lexical-v1",
+    "dtype": "float64",
+    "extension_definitions": {
+      "hostname": "ASCII IDNA hostname from frozen inspector; IP hosts get five zeros. Dot-separated nonempty labels. Only a leading www label in the PSL subdomain is removed for depth. Ratios use full ASCII hostname length including dots; ASCII digits only.",
+      "path_query": "Original path/query, no percent decoding or Unicode normalization. Segments: nonempty slash-separated path parts. Fields: nonempty ampersand-separated query parts, including flags and repeated keys. Semicolon is not a separator. Encoded ratio = 3 * count of valid %HH triplets / original component length; empty component gives zero."
+    },
+    "feature_names": [
+      "url_length",
+      "hostname_length",
+      "subdomain_count",
+      "digit_count",
+      "is_ip",
+      "is_https",
+      "path_length",
+      "query_length",
+      "fragment_length",
+      "hyphen_count",
+      "dot_count",
+      "slash_count",
+      "equals_count",
+      "ampersand_count",
+      "percent_escape_count",
+      "has_query",
+      "has_fragment",
+      "has_explicit_port",
+      "path_segment_count",
+      "path_max_segment_length",
+      "query_field_count",
+      "path_percent_encoded_ratio",
+      "query_percent_encoded_ratio"
+    ],
+    "input": "Original input_url, not normalized_url; outer ASCII spaces removed by the inspector.",
+    "length_unit": "Python Unicode code points; encoded percent sequences are not decoded.",
+    "missing_policy": "Reject invalid URL; no imputation.",
+    "preprocessing_version": "url-inspection-v1",
+    "version": "url-structural-extensions-v1:baseline_plus_path_query"
+  },
+  "frozen_labels_changed": false,
+  "lightgbm_params": {
+    "bagging_fraction": 1.0,
+    "bagging_freq": 0,
+    "bagging_seed": 42,
+    "boosting_type": "gbdt",
+    "data_random_seed": 42,
+    "deterministic": true,
+    "device_type": "cpu",
+    "feature_fraction": 1.0,
+    "feature_fraction_seed": 42,
+    "force_col_wise": true,
+    "is_unbalance": false,
+    "lambda_l1": 0.0,
+    "lambda_l2": 1.0,
+    "learning_rate": 0.05,
+    "max_bin": 255,
+    "max_depth": -1,
+    "metric": "None",
+    "min_data_in_leaf": 20,
+    "min_gain_to_split": 0.0,
+    "min_sum_hessian_in_leaf": 0.001,
+    "num_leaves": 31,
+    "num_threads": 2,
+    "objective": "binary",
+    "scale_pos_weight": 1.0,
+    "seed": 42,
+    "verbosity": -1
+  },
+  "limitations": [
+    "Feature choice and hypotheses were informed by previously observed validation.",
+    "Thresholds are selected and measured on the same validation; empirical caps are not population guarantees.",
+    "Historical labels, one seed, no confidence interval or causal algorithm-superiority claim.",
+    "This is one fixed configuration per model, not an exhaustive comparison or deployment acceptance.",
+    "CPU deterministic mode does not guarantee identical scores across OS/compiler versions.",
+    "No external API inference, Big Data training claim or calibrated confidence."
+  ],
+  "model_activated": false,
+  "model_exported": false,
+  "protocol": {
+    "automatic_winner_selection": false,
+    "early_stopping": false,
+    "external_holdout_allowed": false,
+    "feature_choice_basis": "G1.9 observed external validation; exploratory and not independent",
+    "final_test_allowed": false,
+    "hyperparameter_search": false,
+    "lightgbm_version": "4.6.0",
+    "num_boost_round": 300,
+    "params": {
+      "bagging_fraction": 1.0,
+      "bagging_freq": 0,
+      "bagging_seed": 42,
+      "boosting_type": "gbdt",
+      "data_random_seed": 42,
+      "deterministic": true,
+      "device_type": "cpu",
+      "feature_fraction": 1.0,
+      "feature_fraction_seed": 42,
+      "force_col_wise": true,
+      "is_unbalance": false,
+      "lambda_l1": 0.0,
+      "lambda_l2": 1.0,
+      "learning_rate": 0.05,
+      "max_bin": 255,
+      "max_depth": -1,
+      "metric": "None",
+      "min_data_in_leaf": 20,
+      "min_gain_to_split": 0.0,
+      "min_sum_hessian_in_leaf": 0.001,
+      "num_leaves": 31,
+      "objective": "binary",
+      "scale_pos_weight": 1.0,
+      "seed": 42,
+      "verbosity": -1
+    },
+    "primary_empirical_fpr_cap": "0.01",
+    "primary_endpoint": "difference in minimum recall across the two sources at each models own joint-source 1% empirical FPR cap",
+    "production_acceptance_target": null,
+    "resource_limit": "CPU only; workers 1-4; default 2",
+    "scenario": "baseline_plus_path_query",
+    "secondary_empirical_fpr_cap": "0.05",
+    "stage": "G1.11",
+    "validation_roles": "PhiUSIIL validation and previously observed external reused-validation",
+    "version": "url-lightgbm-comparison-v1",
+    "weighting": "same G1.6 four source-class cells, each total N/4; no additional class weighting"
+  },
+  "protocol_sha256": "fa032242a3189e5c483a9ab3d576e9399fc38493c98b2cd97472b301bafe2990",
+  "random_forest_params": {
+    "class_weight": null,
+    "max_depth": 16,
+    "max_features": "sqrt",
+    "min_samples_leaf": 2,
+    "n_estimators": 100,
+    "random_state": 42
+  },
+  "results": {
+    "lightgbm": {
+      "at_0_5": {
+        "external_reused_validation": {
+          "accuracy": 0.8444948921679909,
+          "average_precision": 0.9188050605360281,
+          "confusion_matrix": {
+            "fn": 38,
+            "fp": 99,
+            "tn": 373,
+            "tp": 371
+          },
+          "f1": 0.8441410693970421,
+          "fpr": 0.2097457627118644,
+          "precision": 0.7893617021276595,
+          "recall": 0.9070904645476773,
+          "roc_auc": 0.926709937424889,
+          "threshold": 0.5
+        },
+        "phiusiil_validation": {
+          "accuracy": 0.9756451062862339,
+          "average_precision": 0.9976387466283738,
+          "confusion_matrix": {
+            "fn": 825,
+            "fp": 32,
+            "tn": 20196,
+            "tp": 14135
+          },
+          "f1": 0.970577127750884,
+          "fpr": 0.0015819655922483687,
+          "precision": 0.9977412296181266,
+          "recall": 0.9448529411764706,
+          "roc_auc": 0.9972395952848754,
+          "threshold": 0.5
+        }
+      },
+      "slices_at_0_5": {
+        "external_reused_validation": {
+          "all": {
+            "fn": 38,
+            "fp": 99,
+            "fpr": 0.2097457627118644,
+            "negatives": 472,
+            "positives": 409,
+            "precision": 0.7893617021276595,
+            "recall": 0.9070904645476773,
+            "rows": 881,
+            "tn": 373,
+            "tp": 371
+          },
+          "empty_path": {
+            "fn": 4,
+            "fp": 9,
+            "fpr": 0.391304347826087,
+            "negatives": 23,
+            "positives": 18,
+            "precision": 0.6086956521739131,
+            "recall": 0.7777777777777778,
+            "rows": 41,
+            "tn": 14,
+            "tp": 14
+          },
+          "has_query": {
+            "fn": 2,
+            "fp": 15,
+            "fpr": 0.75,
+            "negatives": 20,
+            "positives": 63,
+            "precision": 0.8026315789473685,
+            "recall": 0.9682539682539683,
+            "rows": 83,
+            "tn": 5,
+            "tp": 61
+          },
+          "has_subdomain": {
+            "fn": 30,
+            "fp": 61,
+            "fpr": 0.15404040404040403,
+            "negatives": 396,
+            "positives": 176,
+            "precision": 0.7053140096618358,
+            "recall": 0.8295454545454546,
+            "rows": 572,
+            "tn": 335,
+            "tp": 146
+          },
+          "hostname_host": {
+            "fn": 38,
+            "fp": 99,
+            "fpr": 0.2097457627118644,
+            "negatives": 472,
+            "positives": 403,
+            "precision": 0.7866379310344828,
+            "recall": 0.9057071960297767,
+            "rows": 875,
+            "tn": 373,
+            "tp": 365
+          },
+          "http": {
+            "fn": 30,
+            "fp": 67,
+            "fpr": 0.21543408360128619,
+            "negatives": 311,
+            "positives": 301,
+            "precision": 0.8017751479289941,
+            "recall": 0.9003322259136213,
+            "rows": 612,
+            "tn": 244,
+            "tp": 271
+          },
+          "https": {
+            "fn": 8,
+            "fp": 32,
+            "fpr": 0.19875776397515527,
+            "negatives": 161,
+            "positives": 108,
+            "precision": 0.7575757575757576,
+            "recall": 0.9259259259259259,
+            "rows": 269,
+            "tn": 129,
+            "tp": 100
+          },
+          "ip_host": {
+            "fn": 0,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 6,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 6,
+            "tn": 0,
+            "tp": 6
+          },
+          "length_ge_34": {
+            "fn": 26,
+            "fp": 72,
+            "fpr": 0.23841059602649006,
+            "negatives": 302,
+            "positives": 339,
+            "precision": 0.812987012987013,
+            "recall": 0.9233038348082596,
+            "rows": 641,
+            "tn": 230,
+            "tp": 313
+          },
+          "length_lt_34": {
+            "fn": 12,
+            "fp": 27,
+            "fpr": 0.1588235294117647,
+            "negatives": 170,
+            "positives": 70,
+            "precision": 0.6823529411764706,
+            "recall": 0.8285714285714286,
+            "rows": 240,
+            "tn": 143,
+            "tp": 58
+          },
+          "no_query": {
+            "fn": 36,
+            "fp": 84,
+            "fpr": 0.18584070796460178,
+            "negatives": 452,
+            "positives": 346,
+            "precision": 0.7868020304568528,
+            "recall": 0.8959537572254336,
+            "rows": 798,
+            "tn": 368,
+            "tp": 310
+          },
+          "no_subdomain": {
+            "fn": 8,
+            "fp": 38,
+            "fpr": 0.5,
+            "negatives": 76,
+            "positives": 233,
+            "precision": 0.8555133079847909,
+            "recall": 0.9656652360515021,
+            "rows": 309,
+            "tn": 38,
+            "tp": 225
+          },
+          "nonempty_path": {
+            "fn": 34,
+            "fp": 90,
+            "fpr": 0.20044543429844097,
+            "negatives": 449,
+            "positives": 391,
+            "precision": 0.7986577181208053,
+            "recall": 0.9130434782608695,
+            "rows": 840,
+            "tn": 359,
+            "tp": 357
+          }
+        },
+        "phiusiil_validation": {
+          "all": {
+            "fn": 825,
+            "fp": 32,
+            "fpr": 0.0015819655922483687,
+            "negatives": 20228,
+            "positives": 14960,
+            "precision": 0.9977412296181266,
+            "recall": 0.9448529411764706,
+            "rows": 35188,
+            "tn": 20196,
+            "tp": 14135
+          },
+          "empty_path": {
+            "fn": 234,
+            "fp": 32,
+            "fpr": 0.0015819655922483687,
+            "negatives": 20228,
+            "positives": 6126,
+            "precision": 0.9945982444294396,
+            "recall": 0.9618021547502449,
+            "rows": 26354,
+            "tn": 20196,
+            "tp": 5892
+          },
+          "has_query": {
+            "fn": 5,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 975,
+            "precision": 1.0,
+            "recall": 0.9948717948717949,
+            "rows": 975,
+            "tn": 0,
+            "tp": 970
+          },
+          "has_subdomain": {
+            "fn": 599,
+            "fp": 31,
+            "fpr": 0.0015328322784810126,
+            "negatives": 20224,
+            "positives": 8891,
+            "precision": 0.9962753814730265,
+            "recall": 0.9326285007310764,
+            "rows": 29115,
+            "tn": 20193,
+            "tp": 8292
+          },
+          "hostname_host": {
+            "fn": 825,
+            "fp": 32,
+            "fpr": 0.0015819655922483687,
+            "negatives": 20228,
+            "positives": 14926,
+            "precision": 0.9977357956555579,
+            "recall": 0.944727321452499,
+            "rows": 35154,
+            "tn": 20196,
+            "tp": 14101
+          },
+          "http": {
+            "fn": 266,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 7352,
+            "precision": 1.0,
+            "recall": 0.9638193688792165,
+            "rows": 7352,
+            "tn": 0,
+            "tp": 7086
+          },
+          "https": {
+            "fn": 559,
+            "fp": 32,
+            "fpr": 0.0015819655922483687,
+            "negatives": 20228,
+            "positives": 7608,
+            "precision": 0.9954808642847055,
+            "recall": 0.9265247108307045,
+            "rows": 27836,
+            "tn": 20196,
+            "tp": 7049
+          },
+          "ip_host": {
+            "fn": 0,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 34,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 34,
+            "tn": 0,
+            "tp": 34
+          },
+          "length_ge_34": {
+            "fn": 363,
+            "fp": 19,
+            "fpr": 0.009152215799614644,
+            "negatives": 2076,
+            "positives": 8055,
+            "precision": 0.9975359875502529,
+            "recall": 0.9549348230912477,
+            "rows": 10131,
+            "tn": 2057,
+            "tp": 7692
+          },
+          "length_lt_34": {
+            "fn": 462,
+            "fp": 13,
+            "fpr": 0.0007161745262230057,
+            "negatives": 18152,
+            "positives": 6905,
+            "precision": 0.9979863692688972,
+            "recall": 0.933091962346126,
+            "rows": 25057,
+            "tn": 18139,
+            "tp": 6443
+          },
+          "no_query": {
+            "fn": 820,
+            "fp": 32,
+            "fpr": 0.0015819655922483687,
+            "negatives": 20228,
+            "positives": 13985,
+            "precision": 0.9975752064863227,
+            "recall": 0.9413657490168037,
+            "rows": 34213,
+            "tn": 20196,
+            "tp": 13165
+          },
+          "no_subdomain": {
+            "fn": 226,
+            "fp": 1,
+            "fpr": 0.25,
+            "negatives": 4,
+            "positives": 6069,
+            "precision": 0.9998288843258042,
+            "recall": 0.9627615752183226,
+            "rows": 6073,
+            "tn": 3,
+            "tp": 5843
+          },
+          "nonempty_path": {
+            "fn": 591,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 8834,
+            "precision": 1.0,
+            "recall": 0.9330993887253792,
+            "rows": 8834,
+            "tn": 0,
+            "tp": 8243
+          }
+        }
+      },
+      "threshold_study": {
+        "candidate_count": 6465,
+        "fixed_threshold_points": [
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8444948921679909,
+                "confusion_matrix": {
+                  "fn": 38,
+                  "fp": 99,
+                  "tn": 373,
+                  "tp": 371
+                },
+                "f1": 0.8441410693970421,
+                "fpr": 0.2097457627118644,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.7893617021276595,
+                "predicted_positives": 470,
+                "recall": 0.9070904645476773,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.9756451062862339,
+                "confusion_matrix": {
+                  "fn": 825,
+                  "fp": 32,
+                  "tn": 20196,
+                  "tp": 14135
+                },
+                "f1": 0.970577127750884,
+                "fpr": 0.0015819655922483687,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 0.9977412296181266,
+                "predicted_positives": 14167,
+                "recall": 0.9448529411764706,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.5
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8501702610669694,
+                "confusion_matrix": {
+                  "fn": 52,
+                  "fp": 80,
+                  "tn": 392,
+                  "tp": 357
+                },
+                "f1": 0.8439716312056738,
+                "fpr": 0.1694915254237288,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.816933638443936,
+                "predicted_positives": 437,
+                "recall": 0.8728606356968215,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.9696203251108333,
+                "confusion_matrix": {
+                  "fn": 1054,
+                  "fp": 15,
+                  "tn": 20213,
+                  "tp": 13906
+                },
+                "f1": 0.9629860461895364,
+                "fpr": 0.0007415463713664228,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 0.9989224912003448,
+                "predicted_positives": 13921,
+                "recall": 0.9295454545454546,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.6
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8637911464245176,
+                "confusion_matrix": {
+                  "fn": 63,
+                  "fp": 57,
+                  "tn": 415,
+                  "tp": 346
+                },
+                "f1": 0.8522167487684729,
+                "fpr": 0.12076271186440678,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.858560794044665,
+                "predicted_positives": 403,
+                "recall": 0.8459657701711492,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.9637376378310788,
+                "confusion_matrix": {
+                  "fn": 1269,
+                  "fp": 7,
+                  "tn": 20221,
+                  "tp": 13691
+                },
+                "f1": 0.9554749110196106,
+                "fpr": 0.0003460549733043306,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 0.9994889764929187,
+                "predicted_positives": 13698,
+                "recall": 0.9151737967914438,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.7
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8501702610669694,
+                "confusion_matrix": {
+                  "fn": 87,
+                  "fp": 45,
+                  "tn": 427,
+                  "tp": 322
+                },
+                "f1": 0.8298969072164949,
+                "fpr": 0.09533898305084745,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.8773841961852861,
+                "predicted_positives": 367,
+                "recall": 0.7872860635696821,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.948334659543026,
+                "confusion_matrix": {
+                  "fn": 1814,
+                  "fp": 4,
+                  "tn": 20224,
+                  "tp": 13146
+                },
+                "f1": 0.9353255069370331,
+                "fpr": 0.00019774569903104609,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 0.9996958174904943,
+                "predicted_positives": 13150,
+                "recall": 0.8787433155080214,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.8
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8183881952326901,
+                "confusion_matrix": {
+                  "fn": 134,
+                  "fp": 26,
+                  "tn": 446,
+                  "tp": 275
+                },
+                "f1": 0.7746478873239436,
+                "fpr": 0.05508474576271186,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9136212624584718,
+                "predicted_positives": 301,
+                "recall": 0.6723716381418093,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.9215073320450153,
+                "confusion_matrix": {
+                  "fn": 2761,
+                  "fp": 1,
+                  "tn": 20227,
+                  "tp": 12199
+                },
+                "f1": 0.8983063328424153,
+                "fpr": 4.943642475776152e-05,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 0.9999180327868853,
+                "predicted_positives": 12200,
+                "recall": 0.8154411764705882,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.9
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.7741203178206584,
+                "confusion_matrix": {
+                  "fn": 186,
+                  "fp": 13,
+                  "tn": 459,
+                  "tp": 223
+                },
+                "f1": 0.6914728682170542,
+                "fpr": 0.02754237288135593,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9449152542372882,
+                "predicted_positives": 236,
+                "recall": 0.5452322738386308,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.8439809025804251,
+                "confusion_matrix": {
+                  "fn": 5489,
+                  "fp": 1,
+                  "tn": 20227,
+                  "tp": 9471
+                },
+                "f1": 0.775294695481336,
+                "fpr": 4.943642475776152e-05,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 0.9998944256756757,
+                "predicted_positives": 9472,
+                "recall": 0.6330882352941176,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.95
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.681044267877412,
+                "confusion_matrix": {
+                  "fn": 279,
+                  "fp": 2,
+                  "tn": 470,
+                  "tp": 130
+                },
+                "f1": 0.4805914972273567,
+                "fpr": 0.00423728813559322,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9848484848484849,
+                "predicted_positives": 132,
+                "recall": 0.31784841075794623,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.6958906445379106,
+                "confusion_matrix": {
+                  "fn": 10701,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 4259
+                },
+                "f1": 0.44320724283261353,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 4259,
+                "recall": 0.28469251336898393,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.99
+          }
+        ],
+        "joint_cap_points": [
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 0,
+              "phiusiil_validation": 20
+            },
+            "candidate_index": 6109,
+            "empirical_fpr_cap": "0.001",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.5709421112372304,
+                "confusion_matrix": {
+                  "fn": 378,
+                  "fp": 0,
+                  "tn": 472,
+                  "tp": 31
+                },
+                "f1": 0.1409090909090909,
+                "fpr": 0.0,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 1.0,
+                "predicted_positives": 31,
+                "recall": 0.07579462102689487,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.5901727861771058,
+                "confusion_matrix": {
+                  "fn": 14421,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 539
+                },
+                "f1": 0.0695528743789922,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 539,
+                "recall": 0.03602941176470588,
+                "rows": 35188
+              }
+            },
+            "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+            "threshold": 0.9998109780886858,
+            "threshold_above_score_range": false
+          },
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 2,
+              "phiusiil_validation": 101
+            },
+            "candidate_index": 3892,
+            "empirical_fpr_cap": "0.005",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.684449489216799,
+                "confusion_matrix": {
+                  "fn": 276,
+                  "fp": 2,
+                  "tn": 470,
+                  "tp": 133
+                },
+                "f1": 0.4889705882352941,
+                "fpr": 0.00423728813559322,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9851851851851852,
+                "predicted_positives": 135,
+                "recall": 0.3251833740831296,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.7066329430487667,
+                "confusion_matrix": {
+                  "fn": 10323,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 4637
+                },
+                "f1": 0.473235699341736,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 4637,
+                "recall": 0.3099598930481283,
+                "rows": 35188
+              }
+            },
+            "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+            "threshold": 0.9889167993019845,
+            "threshold_above_score_range": false
+          },
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 4,
+              "phiusiil_validation": 202
+            },
+            "candidate_index": 3392,
+            "empirical_fpr_cap": "0.01",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.7162315550510783,
+                "confusion_matrix": {
+                  "fn": 246,
+                  "fp": 4,
+                  "tn": 468,
+                  "tp": 163
+                },
+                "f1": 0.5659722222222222,
+                "fpr": 0.00847457627118644,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9760479041916168,
+                "predicted_positives": 167,
+                "recall": 0.39853300733496333,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.743378424462885,
+                "confusion_matrix": {
+                  "fn": 9030,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 5930
+                },
+                "f1": 0.5677357587362374,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 5930,
+                "recall": 0.3963903743315508,
+                "rows": 35188
+              }
+            },
+            "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+            "threshold": 0.9796914286875755,
+            "threshold_above_score_range": false
+          },
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 9,
+              "phiusiil_validation": 404
+            },
+            "candidate_index": 2799,
+            "empirical_fpr_cap": "0.02",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.753688989784336,
+                "confusion_matrix": {
+                  "fn": 208,
+                  "fp": 9,
+                  "tn": 463,
+                  "tp": 201
+                },
+                "f1": 0.6494345718901454,
+                "fpr": 0.019067796610169493,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9571428571428572,
+                "predicted_positives": 210,
+                "recall": 0.49144254278728605,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.7922303057860635,
+                "confusion_matrix": {
+                  "fn": 7311,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 7649
+                },
+                "f1": 0.6766331991684728,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 7649,
+                "recall": 0.5112967914438503,
+                "rows": 35188
+              }
+            },
+            "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+            "threshold": 0.9624659421455826,
+            "threshold_above_score_range": false
+          },
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 23,
+              "phiusiil_validation": 1011
+            },
+            "candidate_index": 2030,
+            "empirical_fpr_cap": "0.05",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8127128263337117,
+                "confusion_matrix": {
+                  "fn": 142,
+                  "fp": 23,
+                  "tn": 449,
+                  "tp": 267
+                },
+                "f1": 0.7639484978540773,
+                "fpr": 0.048728813559322036,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9206896551724137,
+                "predicted_positives": 290,
+                "recall": 0.6528117359413202,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.9129532795271115,
+                "confusion_matrix": {
+                  "fn": 3062,
+                  "fp": 1,
+                  "tn": 20227,
+                  "tp": 11898
+                },
+                "f1": 0.8859600134033285,
+                "fpr": 4.943642475776152e-05,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 0.999915959324313,
+                "predicted_positives": 11899,
+                "recall": 0.7953208556149732,
+                "rows": 35188
+              }
+            },
+            "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+            "threshold": 0.9069933304202975,
+            "threshold_above_score_range": false
+          }
+        ]
+      }
+    },
+    "random_forest": {
+      "at_0_5": {
+        "external_reused_validation": {
+          "accuracy": 0.7775255391600454,
+          "average_precision": 0.9106617065217887,
+          "confusion_matrix": {
+            "fn": 22,
+            "fp": 174,
+            "tn": 298,
+            "tp": 387
+          },
+          "f1": 0.797938144329897,
+          "fpr": 0.3686440677966102,
+          "precision": 0.6898395721925134,
+          "recall": 0.9462102689486552,
+          "roc_auc": 0.9204135758982221,
+          "threshold": 0.5
+        },
+        "phiusiil_validation": {
+          "accuracy": 0.9816414686825053,
+          "average_precision": 0.9978832718079649,
+          "confusion_matrix": {
+            "fn": 636,
+            "fp": 10,
+            "tn": 20218,
+            "tp": 14324
+          },
+          "f1": 0.9779477026012152,
+          "fpr": 0.0004943642475776152,
+          "precision": 0.9993023580298591,
+          "recall": 0.9574866310160428,
+          "roc_auc": 0.9974313117889217,
+          "threshold": 0.5
+        }
+      },
+      "slices_at_0_5": {
+        "external_reused_validation": {
+          "all": {
+            "fn": 22,
+            "fp": 174,
+            "fpr": 0.3686440677966102,
+            "negatives": 472,
+            "positives": 409,
+            "precision": 0.6898395721925134,
+            "recall": 0.9462102689486552,
+            "rows": 881,
+            "tn": 298,
+            "tp": 387
+          },
+          "empty_path": {
+            "fn": 1,
+            "fp": 11,
+            "fpr": 0.4782608695652174,
+            "negatives": 23,
+            "positives": 18,
+            "precision": 0.6071428571428571,
+            "recall": 0.9444444444444444,
+            "rows": 41,
+            "tn": 12,
+            "tp": 17
+          },
+          "has_query": {
+            "fn": 0,
+            "fp": 18,
+            "fpr": 0.9,
+            "negatives": 20,
+            "positives": 63,
+            "precision": 0.7777777777777778,
+            "recall": 1.0,
+            "rows": 83,
+            "tn": 2,
+            "tp": 63
+          },
+          "has_subdomain": {
+            "fn": 19,
+            "fp": 126,
+            "fpr": 0.3181818181818182,
+            "negatives": 396,
+            "positives": 176,
+            "precision": 0.5547703180212014,
+            "recall": 0.8920454545454546,
+            "rows": 572,
+            "tn": 270,
+            "tp": 157
+          },
+          "hostname_host": {
+            "fn": 22,
+            "fp": 174,
+            "fpr": 0.3686440677966102,
+            "negatives": 472,
+            "positives": 403,
+            "precision": 0.6864864864864865,
+            "recall": 0.9454094292803971,
+            "rows": 875,
+            "tn": 298,
+            "tp": 381
+          },
+          "http": {
+            "fn": 18,
+            "fp": 128,
+            "fpr": 0.4115755627009646,
+            "negatives": 311,
+            "positives": 301,
+            "precision": 0.6885644768856448,
+            "recall": 0.9401993355481728,
+            "rows": 612,
+            "tn": 183,
+            "tp": 283
+          },
+          "https": {
+            "fn": 4,
+            "fp": 46,
+            "fpr": 0.2857142857142857,
+            "negatives": 161,
+            "positives": 108,
+            "precision": 0.6933333333333334,
+            "recall": 0.9629629629629629,
+            "rows": 269,
+            "tn": 115,
+            "tp": 104
+          },
+          "ip_host": {
+            "fn": 0,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 6,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 6,
+            "tn": 0,
+            "tp": 6
+          },
+          "length_ge_34": {
+            "fn": 13,
+            "fp": 140,
+            "fpr": 0.46357615894039733,
+            "negatives": 302,
+            "positives": 339,
+            "precision": 0.6995708154506438,
+            "recall": 0.9616519174041298,
+            "rows": 641,
+            "tn": 162,
+            "tp": 326
+          },
+          "length_lt_34": {
+            "fn": 9,
+            "fp": 34,
+            "fpr": 0.2,
+            "negatives": 170,
+            "positives": 70,
+            "precision": 0.6421052631578947,
+            "recall": 0.8714285714285714,
+            "rows": 240,
+            "tn": 136,
+            "tp": 61
+          },
+          "no_query": {
+            "fn": 22,
+            "fp": 156,
+            "fpr": 0.34513274336283184,
+            "negatives": 452,
+            "positives": 346,
+            "precision": 0.675,
+            "recall": 0.9364161849710982,
+            "rows": 798,
+            "tn": 296,
+            "tp": 324
+          },
+          "no_subdomain": {
+            "fn": 3,
+            "fp": 48,
+            "fpr": 0.631578947368421,
+            "negatives": 76,
+            "positives": 233,
+            "precision": 0.8273381294964028,
+            "recall": 0.9871244635193133,
+            "rows": 309,
+            "tn": 28,
+            "tp": 230
+          },
+          "nonempty_path": {
+            "fn": 21,
+            "fp": 163,
+            "fpr": 0.36302895322939865,
+            "negatives": 449,
+            "positives": 391,
+            "precision": 0.6941838649155723,
+            "recall": 0.9462915601023018,
+            "rows": 840,
+            "tn": 286,
+            "tp": 370
+          }
+        },
+        "phiusiil_validation": {
+          "all": {
+            "fn": 636,
+            "fp": 10,
+            "fpr": 0.0004943642475776152,
+            "negatives": 20228,
+            "positives": 14960,
+            "precision": 0.9993023580298591,
+            "recall": 0.9574866310160428,
+            "rows": 35188,
+            "tn": 20218,
+            "tp": 14324
+          },
+          "empty_path": {
+            "fn": 222,
+            "fp": 10,
+            "fpr": 0.0004943642475776152,
+            "negatives": 20228,
+            "positives": 6126,
+            "precision": 0.9983090970578289,
+            "recall": 0.9637610186092067,
+            "rows": 26354,
+            "tn": 20218,
+            "tp": 5904
+          },
+          "has_query": {
+            "fn": 1,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 975,
+            "precision": 1.0,
+            "recall": 0.9989743589743589,
+            "rows": 975,
+            "tn": 0,
+            "tp": 974
+          },
+          "has_subdomain": {
+            "fn": 502,
+            "fp": 9,
+            "fpr": 0.0004450158227848101,
+            "negatives": 20224,
+            "positives": 8891,
+            "precision": 0.9989283162657776,
+            "recall": 0.9435384096277134,
+            "rows": 29115,
+            "tn": 20215,
+            "tp": 8389
+          },
+          "hostname_host": {
+            "fn": 636,
+            "fp": 10,
+            "fpr": 0.0004943642475776152,
+            "negatives": 20228,
+            "positives": 14926,
+            "precision": 0.9993006993006993,
+            "recall": 0.9573897896288356,
+            "rows": 35154,
+            "tn": 20218,
+            "tp": 14290
+          },
+          "http": {
+            "fn": 188,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 7352,
+            "precision": 1.0,
+            "recall": 0.9744287268770403,
+            "rows": 7352,
+            "tn": 0,
+            "tp": 7164
+          },
+          "https": {
+            "fn": 448,
+            "fp": 10,
+            "fpr": 0.0004943642475776152,
+            "negatives": 20228,
+            "positives": 7608,
+            "precision": 0.99860529986053,
+            "recall": 0.9411146161934806,
+            "rows": 27836,
+            "tn": 20218,
+            "tp": 7160
+          },
+          "ip_host": {
+            "fn": 0,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 34,
+            "precision": 1.0,
+            "recall": 1.0,
+            "rows": 34,
+            "tn": 0,
+            "tp": 34
+          },
+          "length_ge_34": {
+            "fn": 263,
+            "fp": 9,
+            "fpr": 0.004335260115606936,
+            "negatives": 2076,
+            "positives": 8055,
+            "precision": 0.998846301756185,
+            "recall": 0.9673494723774053,
+            "rows": 10131,
+            "tn": 2067,
+            "tp": 7792
+          },
+          "length_lt_34": {
+            "fn": 373,
+            "fp": 1,
+            "fpr": 5.509034817100044e-05,
+            "negatives": 18152,
+            "positives": 6905,
+            "precision": 0.9998469309658656,
+            "recall": 0.9459811730629978,
+            "rows": 25057,
+            "tn": 18151,
+            "tp": 6532
+          },
+          "no_query": {
+            "fn": 635,
+            "fp": 10,
+            "fpr": 0.0004943642475776152,
+            "negatives": 20228,
+            "positives": 13985,
+            "precision": 0.999251497005988,
+            "recall": 0.9545942080800858,
+            "rows": 34213,
+            "tn": 20218,
+            "tp": 13350
+          },
+          "no_subdomain": {
+            "fn": 134,
+            "fp": 1,
+            "fpr": 0.25,
+            "negatives": 4,
+            "positives": 6069,
+            "precision": 0.9998315363881402,
+            "recall": 0.9779205799967046,
+            "rows": 6073,
+            "tn": 3,
+            "tp": 5935
+          },
+          "nonempty_path": {
+            "fn": 414,
+            "fp": 0,
+            "fpr": null,
+            "negatives": 0,
+            "positives": 8834,
+            "precision": 1.0,
+            "recall": 0.9531356124066108,
+            "rows": 8834,
+            "tn": 0,
+            "tp": 8420
+          }
+        }
+      },
+      "threshold_study": {
+        "candidate_count": 5235,
+        "fixed_threshold_points": [
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.7775255391600454,
+                "confusion_matrix": {
+                  "fn": 22,
+                  "fp": 174,
+                  "tn": 298,
+                  "tp": 387
+                },
+                "f1": 0.797938144329897,
+                "fpr": 0.3686440677966102,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.6898395721925134,
+                "predicted_positives": 561,
+                "recall": 0.9462102689486552,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.9816414686825053,
+                "confusion_matrix": {
+                  "fn": 636,
+                  "fp": 10,
+                  "tn": 20218,
+                  "tp": 14324
+                },
+                "f1": 0.9779477026012152,
+                "fpr": 0.0004943642475776152,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 0.9993023580298591,
+                "predicted_positives": 14334,
+                "recall": 0.9574866310160428,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.5
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8217934165720772,
+                "confusion_matrix": {
+                  "fn": 32,
+                  "fp": 125,
+                  "tn": 347,
+                  "tp": 377
+                },
+                "f1": 0.827661909989023,
+                "fpr": 0.2648305084745763,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.750996015936255,
+                "predicted_positives": 502,
+                "recall": 0.921760391198044,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.975531431169717,
+                "confusion_matrix": {
+                  "fn": 858,
+                  "fp": 3,
+                  "tn": 20225,
+                  "tp": 14102
+                },
+                "f1": 0.9703767417856528,
+                "fpr": 0.00014830927427328456,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 0.9997873094647288,
+                "predicted_positives": 14105,
+                "recall": 0.9426470588235294,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.6
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8524404086265607,
+                "confusion_matrix": {
+                  "fn": 61,
+                  "fp": 69,
+                  "tn": 403,
+                  "tp": 348
+                },
+                "f1": 0.8426150121065376,
+                "fpr": 0.1461864406779661,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.8345323741007195,
+                "predicted_positives": 417,
+                "recall": 0.8508557457212714,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.9658406274866431,
+                "confusion_matrix": {
+                  "fn": 1202,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 13758
+                },
+                "f1": 0.9581447175987186,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 13758,
+                "recall": 0.9196524064171123,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.7
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8342792281498297,
+                "confusion_matrix": {
+                  "fn": 99,
+                  "fp": 47,
+                  "tn": 425,
+                  "tp": 310
+                },
+                "f1": 0.8093994778067886,
+                "fpr": 0.09957627118644068,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.8683473389355743,
+                "predicted_positives": 357,
+                "recall": 0.7579462102689487,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.9519154257133113,
+                "confusion_matrix": {
+                  "fn": 1692,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 13268
+                },
+                "f1": 0.9400595153748051,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 13268,
+                "recall": 0.8868983957219251,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.8
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8002270147559591,
+                "confusion_matrix": {
+                  "fn": 157,
+                  "fp": 19,
+                  "tn": 453,
+                  "tp": 252
+                },
+                "f1": 0.7411764705882353,
+                "fpr": 0.04025423728813559,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9298892988929889,
+                "predicted_positives": 271,
+                "recall": 0.6161369193154034,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.8905308627941344,
+                "confusion_matrix": {
+                  "fn": 3852,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 11108
+                },
+                "f1": 0.8522326223722572,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 11108,
+                "recall": 0.7425133689839573,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.9
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.7116912599318955,
+                "confusion_matrix": {
+                  "fn": 250,
+                  "fp": 4,
+                  "tn": 468,
+                  "tp": 159
+                },
+                "f1": 0.5559440559440559,
+                "fpr": 0.00847457627118644,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9754601226993865,
+                "predicted_positives": 163,
+                "recall": 0.38875305623471884,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.7587814027509379,
+                "confusion_matrix": {
+                  "fn": 8488,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 6472
+                },
+                "f1": 0.6039567002612916,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 6472,
+                "recall": 0.43262032085561497,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.95
+          },
+          {
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.6106696935300795,
+                "confusion_matrix": {
+                  "fn": 342,
+                  "fp": 1,
+                  "tn": 471,
+                  "tp": 67
+                },
+                "f1": 0.2809224318658281,
+                "fpr": 0.00211864406779661,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9852941176470589,
+                "predicted_positives": 68,
+                "recall": 0.16381418092909536,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.6444242355348414,
+                "confusion_matrix": {
+                  "fn": 12512,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 2448
+                },
+                "f1": 0.28125,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 2448,
+                "recall": 0.16363636363636364,
+                "rows": 35188
+              }
+            },
+            "threshold": 0.99
+          }
+        ],
+        "joint_cap_points": [
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 0,
+              "phiusiil_validation": 20
+            },
+            "candidate_index": 5234,
+            "empirical_fpr_cap": "0.001",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.5357548240635641,
+                "confusion_matrix": {
+                  "fn": 409,
+                  "fp": 0,
+                  "tn": 472,
+                  "tp": 0
+                },
+                "f1": 0.0,
+                "fpr": 0.0,
+                "negatives": 472,
+                "positives": 409,
+                "precision": null,
+                "predicted_positives": 0,
+                "recall": 0.0,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.5748550642264408,
+                "confusion_matrix": {
+                  "fn": 14960,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 0
+                },
+                "f1": 0.0,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": null,
+                "predicted_positives": 0,
+                "recall": 0.0,
+                "rows": 35188
+              }
+            },
+            "status": "NO_POSITIVE_PREDICTIONS_ON_OBSERVED_VALIDATION",
+            "threshold": 1.0000000000000002,
+            "threshold_above_score_range": true
+          },
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 2,
+              "phiusiil_validation": 101
+            },
+            "candidate_index": 3931,
+            "empirical_fpr_cap": "0.005",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.6708286038592508,
+                "confusion_matrix": {
+                  "fn": 288,
+                  "fp": 2,
+                  "tn": 470,
+                  "tp": 121
+                },
+                "f1": 0.4548872180451128,
+                "fpr": 0.00423728813559322,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.983739837398374,
+                "predicted_positives": 123,
+                "recall": 0.29584352078239606,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.7249630555871319,
+                "confusion_matrix": {
+                  "fn": 9678,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 5282
+                },
+                "f1": 0.5218851892105523,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 5282,
+                "recall": 0.35307486631016044,
+                "rows": 35188
+              }
+            },
+            "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+            "threshold": 0.9688674596710619,
+            "threshold_above_score_range": false
+          },
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 4,
+              "phiusiil_validation": 202
+            },
+            "candidate_index": 3288,
+            "empirical_fpr_cap": "0.01",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.7230419977298524,
+                "confusion_matrix": {
+                  "fn": 240,
+                  "fp": 4,
+                  "tn": 468,
+                  "tp": 169
+                },
+                "f1": 0.5807560137457045,
+                "fpr": 0.00847457627118644,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.976878612716763,
+                "predicted_positives": 173,
+                "recall": 0.4132029339853301,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.7698363078322156,
+                "confusion_matrix": {
+                  "fn": 8099,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 6861
+                },
+                "f1": 0.6288437743458136,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 6861,
+                "recall": 0.4586229946524064,
+                "rows": 35188
+              }
+            },
+            "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+            "threshold": 0.9482071726830025,
+            "threshold_above_score_range": false
+          },
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 9,
+              "phiusiil_validation": 404
+            },
+            "candidate_index": 2652,
+            "empirical_fpr_cap": "0.02",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.7763904653802497,
+                "confusion_matrix": {
+                  "fn": 188,
+                  "fp": 9,
+                  "tn": 463,
+                  "tp": 221
+                },
+                "f1": 0.6917057902973396,
+                "fpr": 0.019067796610169493,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9608695652173913,
+                "predicted_positives": 230,
+                "recall": 0.5403422982885085,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.8567977719677162,
+                "confusion_matrix": {
+                  "fn": 5039,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 9921
+                },
+                "f1": 0.7974759856918934,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 9921,
+                "recall": 0.663168449197861,
+                "rows": 35188
+              }
+            },
+            "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+            "threshold": 0.9216937061955651,
+            "threshold_above_score_range": false
+          },
+          {
+            "allowed_false_positives": {
+              "external_reused_validation": 23,
+              "phiusiil_validation": 1011
+            },
+            "candidate_index": 2139,
+            "empirical_fpr_cap": "0.05",
+            "sources": {
+              "external_reused_validation": {
+                "accuracy": 0.8036322360953462,
+                "confusion_matrix": {
+                  "fn": 150,
+                  "fp": 23,
+                  "tn": 449,
+                  "tp": 259
+                },
+                "f1": 0.7496382054992764,
+                "fpr": 0.048728813559322036,
+                "negatives": 472,
+                "positives": 409,
+                "precision": 0.9184397163120568,
+                "predicted_positives": 282,
+                "recall": 0.6332518337408313,
+                "rows": 881
+              },
+              "phiusiil_validation": {
+                "accuracy": 0.903404569739684,
+                "confusion_matrix": {
+                  "fn": 3399,
+                  "fp": 0,
+                  "tn": 20228,
+                  "tp": 11561
+                },
+                "f1": 0.8718374118622978,
+                "fpr": 0.0,
+                "negatives": 20228,
+                "positives": 14960,
+                "precision": 1.0,
+                "predicted_positives": 11561,
+                "recall": 0.7727941176470589,
+                "rows": 35188
+              }
+            },
+            "status": "EMPIRICAL_CONSTRAINT_MET_ONLY",
+            "threshold": 0.8871798704338011,
+            "threshold_above_score_range": false
+          }
+        ]
+      }
+    }
+  },
+  "rf_reproduced_g18": true,
+  "runtime": {
+    "lightgbm_native_library_sha256": "6a12e1a7b13824d14c252d2a4d2e36af467383331a114eb0e7448eecbf02d7b1",
+    "lightgbm_version": "4.6.0",
+    "packages": {
+      "idna": "3.20",
+      "joblib": "1.5.3",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "tldextract": "5.3.0"
+    },
+    "python_version": "3.12.14"
+  },
+  "score_type": "MODEL_SCORE",
+  "splits": {
+    "external_reused_validation": {
+      "groups": 627,
+      "labels": {
+        "0": 472,
+        "1": 409
+      },
+      "rows": 881
+    },
+    "external_train": {
+      "groups": 2620,
+      "labels": {
+        "0": 1781,
+        "1": 1910
+      },
+      "rows": 3691
+    },
+    "phiusiil_train": {
+      "fraction": 0.7000021314235778,
+      "groups": 138380,
+      "labels": {
+        "0": 94395,
+        "1": 69815
+      },
+      "rows": 164210
+    },
+    "phiusiil_validation": {
+      "fraction": 0.1500010657117889,
+      "groups": 29652,
+      "labels": {
+        "0": 20228,
+        "1": 14960
+      },
+      "rows": 35188
+    }
+  },
+  "stage": "G1.11",
+  "status": "EXPLORATORY_MODEL_COMPARISON_ONLY",
+  "test_file_opened": false,
+  "threshold_protocol_sha256": "050a943404d74e08e3308d749951944881bf9ca905eb569e55ff996e446f3f9f",
+  "timing": {
+    "api_latency_measured": false,
+    "lightgbm_details": {
+      "actual_boosting_iterations": 300,
+      "batch_predict_seconds": {
+        "external_reused_validation": 0.009585858999798802,
+        "phiusiil_validation": 0.17437987700031954
+      },
+      "fit_seconds": 1.9317747939999208
+    },
+    "lightgbm_fit_and_batch_predict_seconds": 2.123126064000189,
+    "random_forest_fit_and_batch_predict_seconds": 4.505553850000069
+  },
+  "train_rows": 167901,
+  "train_weight_totals": {
+    "0:0": 41975.249999999985,
+    "0:1": 41975.25,
+    "1:0": 41975.24999999999,
+    "1:1": 41975.249999999985
+  },
+  "version": "url-lightgbm-comparison-v1",
+  "workers": 2
+}

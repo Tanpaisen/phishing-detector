@@ -1,0 +1,2 @@
+# Add only this package to the frozen training environment.
+lightgbm==4.6.0
